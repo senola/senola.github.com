@@ -1,0 +1,97 @@
+MESSAGES = []
+MESSAGES.push delay:500,    text:"Incoming transmission..."
+MESSAGES.push delay:3500, text:"The truth of the matter is,"
+MESSAGES.push delay:7000, text:"some people are always going to stay in our hearts"
+MESSAGES.push delay:10000, text:"even if they aren't in our lives."
+MESSAGES.push delay:14000, text:"~~Reality~~"
+
+$container = $("#container")
+$message = $("#message")
+$animate = $("#animate")
+$paragraph = null
+
+scramble = (element, text, options) ->
+
+  # Default properties.
+  defaults =
+    probability: 0.2
+    glitches: '-|/\\'
+    blank: ''
+    duration: text.length * 40
+    ease: 'easeInOutQuad'
+    delay: 0.0
+
+  # Convert the element to a jQuery object and build the settings object.
+  $element = $(element)
+  settings = $.extend defaults, options
+
+  # Convenience methods.
+  shuffle = () -> if Math.random() < 0.5 then 1 else -1
+  wrap = (text, classes) -> """<span class="#{classes}">#{text}</span>"""
+
+  # Glitch values.
+  glitchText = settings.glitches
+  glitchCharacters = glitchText.split ''
+  glitchLength = glitchCharacters.length
+  glitchProbability = settings.probability
+  glitches = ((wrap letter, 'glitch') for letter in glitchCharacters)
+
+  # Ghost values.
+  ghostText = $element.text()
+  ghostCharacters = ghostText.split ''
+  ghostLength = ghostCharacters.length
+  ghosts = ((wrap letter, 'ghost') for letter in ghostCharacters)
+
+  # Text values.
+  textCharacters = text.split ''
+  textLength = textCharacters.length
+
+  # Order and output arrays.
+  order = [0...textLength].sort @shuffle
+  output = []
+
+  # Build the output array.
+  for i in [0...textLength]
+    glitchIndex = Math.floor Math.random() * (glitchLength - 1)
+    glitchCharacter = glitches[glitchIndex]
+    ghostCharacter = ghosts[i] or settings.blank
+    addGlitch = Math.random() < glitchProbability
+    character = if addGlitch then glitchCharacter else ghostCharacter
+    output.push character
+
+  # Animate the text.
+  object = value:0
+  target = value:1
+  parameters =
+    duration:settings.duration
+    ease:settings.ease
+    step: ->
+      progress = Math.floor object.value * (textLength - 1)
+      for i in [0..progress]
+        index = order[i]
+        output[index] = textCharacters[index]
+      $element.html output.join ''
+    complete: ->
+      $element.html text
+
+  # Animate the text.
+  $(object).delay(settings.delay).animate target, parameters
+
+
+
+animate = () ->
+  for data, index in MESSAGES
+    element = $paragraph.get index
+    element.innerText = ''
+    options = delay: data.delay
+    scramble element, data.text, options
+  return
+
+initialise = () ->
+  $animate.click animate
+  $message.append "<p>" for text, index in MESSAGES
+  $paragraph = $container.find "p"
+  animate()
+  return
+
+initialise()

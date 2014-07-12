@@ -1,0 +1,34 @@
+---
+layout: post
+title: "在github上用Octopress搭建博客的方法"
+date: 2014-02-10 22:00:56
+comments: true
+articleid: 20140210220056
+keywords: oxtopress, 搭建博客
+categories: github Octopress git
+---
+###一、Octopress及Github简介 ###
+[Octopress](http://octopress.org) 是一款优秀的静态化博客系统，也是一个本地化的博客系统，Github为我们提供长期稳定的免费空间服务，但是Github空间不是一般意义上的PHP或者ASP空间。  
+
+[Github](https://github.com/) 是一个代码托管空间，我们常用的一些PHP应用程序都无法在Github空间上运行。Octopress作为一个本地化的博客，官方将它简称为：“A blogging framework for hackers.”，也就是Octopress只适合那些经常玩Linux、写代码的朋友用的博客系统。  <!--more-->
+`Octopress`博客最大的优势就是静态化，不依赖脚本程序，没有MysqL等数据库，因此它可以在一些性能差的服务器或者虚拟空间上运行，在同等条件下打开页面的速度自然也是非常快。  
+`Octopress`支持自定义模板，可以markdown，文本文件写作、保存可以直接用dropbox等网盘来同步。另外它还可以让你有git版本控制功能。`octopress`还有个优点就是它的整个使用发布是个松耦合的结构，相信一些习惯了代码的朋友很喜欢。
+
+###二、安装Octopress运行的必要软件 ###
+> 1. 官方首页：http://octopress.org
+> 1. 这里是[RubyInstaller](http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-1.9.3-p484.exe?direct)下载地址。  
+> 1. 这里是[DevKit](http://cloud.github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe)下载地址。  
+
+安装好ruby后，win键+R，输入cmd进入控制台。可以输入`ruby -version`可查看ruby安装的本版信息。接着用CD的命令进入你存放DevKit的目录中，执行以下命令继续安装
+```
+ruby dk.rb init       
+ruby dk.rb install
+```
+![Landing page](https://raw.github.com/hyfather/reynard/master/screenshots/landingpage.png)
+
+### 三、git 和 github 配置 ###
+1.先注册一个github账号,创建github pages创建一个新的`Repository`。这里须要重视的是，若是想要博客的首页是`http://yourname.github.com`则Repository的`project name`就必须是`yourname.github.com`。
+未完待续...
+
+
+
