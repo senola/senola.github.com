@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[潭风]]></title>
+  <link href="http://senola.uni.me/atom.xml" rel="self"/>
+  <link href="http://senola.uni.me/"/>
+  <updated>2014-07-12T16:28:10+08:00</updated>
+  <id>http://senola.uni.me/</id>
+  <author>
+    <name><![CDATA[senola]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[上传插件之----Web Uploader]]></title>
+    <link href="http://senola.uni.me/blog/2014/04/28/webupload/"/>
+    <updated>2014-04-28T23:22:45+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/04/28/webupload</id>
+    <content type="html"><![CDATA[<p>最近云盘要大改版，前端采用了谷歌的<code>AngularJS</code>框架。大改嘛，之前云盘用插件要换的也都要换。飞哥说插件可以用但是却不能乱用，尤其是将其用于商业领域的，必须慎重加慎重，首先选选择的插件得符合相关的开原协议（如上篇），因滥用别的插件而上法庭的例子举不胜数。作为小菜的我一直都以够用，管用，好用的心态去用这些插件的，什么开原协议啊，什么版权啊之类的，不懂~大神告诉我，这个很重要，因为一旦被查出，后果很严重。。。飞哥推荐使用以<code>MIT</code>开源协议发布的<code>Web Uploader</code>作为上传插件。研究了它几天，苦恼，痛苦，桑心&hellip;</p>
+
+<!-- more -->
+
+
+<p><a href="http://gmuteam.github.io/----------er" target="_blank"><strong>Web Uploader</strong></a> 是由<code>Baidu WebFE(FEX)</code>团队开发的一个简单的以<code>HTML5</code>为主，<code>FLASH</code>为辅的现代文件上传组件。在现代的浏览器里面能充分发挥<code>HTML5</code>的优势，同时又不摒弃主流IE浏览器，沿用原来的<code>FLASH</code>运行时，兼容IE6+。两套运行时，同样的调用方式，可供用户任意选用。采用大文件分片并发上传，极大的提高了文件上传效率。特点如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>分片、并发  
+</span><span class='line'>预览、压缩  
+</span><span class='line'>多途径添加文件   
+</span><span class='line'>HTML5 & FLASH  
+</span><span class='line'>MD5秒传   
+</span><span class='line'>易扩展，可拆分     </span></code></pre></td></tr></table></div></figure>
+
+
+<p>看着介绍貌似很吊，于是demo走起&hellip;. <br/>
+官网的第一个<code>demo</code>就把我给吓尿了，这文档也太简单了吧！！！据飞哥说他们团队游50多人，我只想说你们把文档写这么简单你家人知道吗？？？照着做本地硬是跑不通！无奈只能在它官网<code>F12</code><del>(>_&lt;)</del></p>
+
+<p>一、引入JS、css。<code>webuploader.js</code>可以在官网在下载，<code>cloudupload.js</code>是上传前各参数的初始化及上传结果处理,<code>bootstrap.min.css</code>是<code>bootstrap</code>框架的核心文件，可以在官网下载:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css"/&gt;
+</span><span class='line'>&lt;script type="text/javascript" src="libs/webupload/webuploader.js"&gt;&lt;/script&gt;
+</span><span class='line'>&lt;script type="text/javascript" src="libs/webupload/cloudupload.js"&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>二、html模块，包含存放文件信息的容器、选择按钮和上传按钮三个部分。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;div id="uploader" class="wu-example"&gt;
+</span><span class='line'>    &lt;!--用来存放文件信息--&gt;
+</span><span class='line'>    &lt;div id="thelist" class="uploader-list"&gt;&lt;/div&gt;
+</span><span class='line'>    &lt;div class="btns"&gt;
+</span><span class='line'>        &lt;div id="picker"&gt;选择文件&lt;/div&gt;
+</span><span class='line'>        &lt;button id="ctlBtn" class="btn btn-default"&gt;开始上传&lt;/button&gt;
+</span><span class='line'>    &lt;/div&gt;
+</span><span class='line'>&lt;/div&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>三、初始化上传参数（webuploader.js）</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var $ = jQuery,
+</span><span class='line'>$list = $('#thelist'),
+</span><span class='line'>$btn = $('#ctlBtn'),
+</span><span class='line'>state = 'pending'; //上传状态
+</span><span class='line'>window.fileList = []; //获取要上传的文件列表数组
+</span><span class='line'>var uploader = WebUploader.create({
+</span><span class='line'>    // swf文件路径
+</span><span class='line'>    swf: '/web2/libs/webupload/Uploader.swf',
+</span><span class='line'>    // 文件接收服务端。
+</span><span class='line'>    server: 'http://webuploader.duapp.com/server/fileupload.php',
+</span><span class='line'>    // 选择文件的按钮。可选。
+</span><span class='line'>    // 内部根据当前运行是创建，可能是input元素，也可能是flash.
+</span><span class='line'>    pick: id,
+</span><span class='line'>
+</span><span class='line'>    // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
+</span><span class='line'>    resize: false
+</span><span class='line'>});
+</span><span class='line'>
+</span><span class='line'>//当有文件被添加进队列的时候
+</span><span class='line'>uploader.on( 'fileQueued', function( file ) {
+</span><span class='line'>  //发送ajax请求道后台 返回从后台拼装的SAL上传url
+</span><span class='line'>  $.ajax({
+</span><span class='line'>      type : 'POST',
+</span><span class='line'>      url : '/cloud-web/upload/getUploadUrl.htm',
+</span><span class='line'>      data: {
+</span><span class='line'>          "fileName": file.name,
+</span><span class='line'>          "folderId": window.currentFolderId,
+</span><span class='line'>          "size": file.size
+</span><span class='line'>      },
+</span><span class='line'>      dataType: 'json',
+</span><span class='line'>      success: function(data){
+</span><span class='line'>          file.server = data.uploadUrl;
+</span><span class='line'>          console.log("sal url-------&gt;" + data.uploadUrl);
+</span><span class='line'>      },
+</span><span class='line'>      error : function(data){
+</span><span class='line'>          //错误提示
+</span><span class='line'>          console.log("获取上传地址错误...");
+</span><span class='line'>      }
+</span><span class='line'>    });
+</span><span class='line'>  fileList.push(file); //将要上传的文件加入fileList数组
+</span><span class='line'>  $list.append( '&lt;div id="' + file.id + '" class="item"&gt;' +
+</span><span class='line'>        '&lt;h4 class="info"&gt;' + file.name + '&lt;/h4&gt;' +
+</span><span class='line'>        '&lt;p class="state"&gt;等待上传...&lt;/p&gt;' +
+</span><span class='line'>    '&lt;/div&gt;' );
+</span><span class='line'>});
+</span><span class='line'>
+</span><span class='line'>//文件上传过程中创建进度条实时显示。
+</span><span class='line'>uploader.on( 'uploadProgress', function( file, percentage ) {
+</span><span class='line'>    var $li = $( '#'+file.id ),
+</span><span class='line'>        $percent = $li.find('.progress .progress-bar');
+</span><span class='line'>    // 避免重复创建
+</span><span class='line'>    if ( !$percent.length ) {
+</span><span class='line'>        $percent = $('&lt;div class="progress progress-striped active"&gt;' +
+</span><span class='line'>          '&lt;div class="progress-bar" role="progressbar" style="width: 0%"&gt;' +
+</span><span class='line'>          '&lt;/div&gt;' +
+</span><span class='line'>        '&lt;/div&gt;').appendTo( $li ).find('.progress-bar');
+</span><span class='line'>    }
+</span><span class='line'>    $li.find('p.state').text('上传中');
+</span><span class='line'>    $percent.css( 'width', percentage * 100 + '%' );
+</span><span class='line'>    $percent.attr( 'uploadProgress', percentage);
+</span><span class='line'>});
+</span><span class='line'>
+</span><span class='line'>//文件上传完成
+</span><span class='line'>uploader.on( 'uploadComplete', function( file ) {
+</span><span class='line'>  //上传完成隐藏进度条
+</span><span class='line'>  $( '#'+file.id ).find('.progress').fadeOut();
+</span><span class='line'>});
+</span><span class='line'>//文件上传成功
+</span><span class='line'>uploader.on( 'uploadSuccess', function( file ) {
+</span><span class='line'>  $( '#'+file.id ).find('p.state').text('已上传');
+</span><span class='line'>});
+</span><span class='line'>//文件上传失败
+</span><span class='line'>uploader.on( 'uploadError', function( file ) {
+</span><span class='line'>  $( '#'+file.id ).find('p.state').text('上传出错');
+</span><span class='line'>});
+</span><span class='line'>//文件上传各个部分监听
+</span><span class='line'>uploader.on( 'all', function( type ) {
+</span><span class='line'>    if ( type === 'startUpload' ) {
+</span><span class='line'>        state = 'uploading';
+</span><span class='line'>    } else if ( type === 'stopUpload' ) {
+</span><span class='line'>        state = 'paused';
+</span><span class='line'>    } else if ( type === 'uploadFinished' ) {
+</span><span class='line'>        state = 'done';
+</span><span class='line'>    }
+</span><span class='line'>});
+</span><span class='line'>//按钮添加监听事件
+</span><span class='line'>$btn.on( 'click', function() {
+</span><span class='line'>    if ( state === 'uploading' ) {
+</span><span class='line'>        uploader.stop();
+</span><span class='line'>    } else {
+</span><span class='line'>        uploader.upload();
+</span><span class='line'>    }
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>蛋疼的紧，官网demo代码少的可怜~  效果见官网。</p>
+
+<p>紧接着遇到第二个难题，云盘现在文件上传采用的是<code>SAL</code>（存储访问层）模式，即每一个文件都要从服务端获取一个上传点，然后上传插件在向上传点进行上传操作。这里就存在一个问题，从上面我们发现要进行上传操作我们需要创建<code>Web Uploader</code>实例:WebUploader.create{&hellip;},我们发现在创建实例的时候需要传入一个文件接收服务端<code>server</code>,这就遇到了难题，我们上传模式是一个文件对应一个上传<code>URL</code>，而次插件又没有提供类似的方法可以动态修改每个<code>server</code>对应的值。经过不懈的努力外加看源码再加各种测试，终于搞定了~··</p>
+
+<p>首先，定义一个全局数组<code>window.fileList = [];</code>用于获取要上传的文件列表数组，然后在文件加入队列的时候对数组进行push操作：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//当有文件被添加进队列的时候
+</span><span class='line'>uploader.on( 'fileQueued', function( file ) {
+</span><span class='line'>  //发送ajax请求道后台 返回从后台拼装的SAL上传url
+</span><span class='line'>  $.ajax({
+</span><span class='line'>      type : 'POST',
+</span><span class='line'>      url : '/cloud-web/upload/getUploadUrl.htm',
+</span><span class='line'>      data: {
+</span><span class='line'>          "fileName": file.name,
+</span><span class='line'>          "folderId": window.currentFolderId,
+</span><span class='line'>          "size": file.size
+</span><span class='line'>      },
+</span><span class='line'>      dataType: 'json',
+</span><span class='line'>      success: function(data){
+</span><span class='line'>          file.server = data.uploadUrl;
+</span><span class='line'>          console.log("sal url-------&gt;" + data.uploadUrl);
+</span><span class='line'>      },
+</span><span class='line'>      error : function(data){
+</span><span class='line'>          //错误提示
+</span><span class='line'>          console.log("获取上传地址错误...");
+</span><span class='line'>      }
+</span><span class='line'>    });
+</span><span class='line'>  fileList.push(file); //将要上传的文件加入fileList数组
+</span><span class='line'>  $list.append( '&lt;div id="' + file.id + '" class="item"&gt;' +
+</span><span class='line'>        '&lt;h4 class="info"&gt;' + file.name + '&lt;/h4&gt;' +
+</span><span class='line'>        '&lt;p class="state"&gt;等待上传...&lt;/p&gt;' +
+</span><span class='line'>    '&lt;/div&gt;' );
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<p>file.server = data.uploadUrl;给每一个file对象增加一个该filefile对象对应的上传URL，fileList.push(file);将所有要上传的文件放入数组。接下来就是修改<code>webUpload.js</code>源码。定位<code>webUpload.js</code>第3876行，修改如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>send: function() {
+</span><span class='line'>    var owner = this.owner,
+</span><span class='line'>        opts = this.options,
+</span><span class='line'>        xhr = this._initAjax(),
+</span><span class='line'>        blob = owner._blob,
+</span><span class='line'>        formData, binary;
+</span><span class='line'>    
+</span><span class='line'>    //将上传队列中的第一个文件的数组的上传地址放入server
+</span><span class='line'>    //window.fileList.length 变量在cloudupload中定义
+</span><span class='line'>    var server;
+</span><span class='line'>  for(var i = 0 ;i &lt; window.fileList.length; i++){
+</span><span class='line'>      if(window.fileList[i].id == opts.formData.id){
+</span><span class='line'>          server = window.fileList[i].server;
+</span><span class='line'>      }
+</span><span class='line'>  }
+</span><span class='line'>    ....
+</span><span class='line'>    ....</span></code></pre></td></tr></table></div></figure>
+
+
+<p>此处遍历了<code>window.fileList</code>，根据每一个<code>file</code>对象的<code>id</code>进行匹配对应的上传<code>URL</code>。</p>
+
+<p>到这里就基本OK了，看起来简单，可当初找起来真费事儿，头疼~~~，之后文件上传还遇到跨域问题，因为文件上传的服务器与服务端不是同一域名下，所以会出现跨域问题。经<code>ngnix</code>修改相关配置后将问题解觉&hellip;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[开源协议]]></title>
+    <link href="http://senola.uni.me/blog/2014/04/23/license/"/>
+    <updated>2014-04-23T04:06:43+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/04/23/license</id>
+    <content type="html"><![CDATA[<p>越来越多的开发者与设计者希望将自己的产品开源，以便其他人可以在他们的代码基础上做更多事，开源社区也因此充满生机。在我们所能想到的应用领域，都有开源软件存在（如：<code>WordPress</code>，<code>Drupal</code>这些开源<code>CMS</code>）。不懂，所以学习下常见的几种开原协议~</p>
+
+<h3>一、BSD</h3>
+
+<p>BSD（Berkly Software Distribution）开源协议是一个给于使用者很大自由的协议。基本上使用者可以”为所欲为”,可以自由的使用，修改源代码，也可以将修改后的代码作为开源或者专有软件再发布。 
+但”为所欲为”的前提当你发布使用了BSD协议的代码，或则以BSD协议代码为基础做二次开发自己的产品时，需要满足三个条件： </p>
+
+<!-- more -->
+
+
+<pre><code>1. 如果再发布的产品中包含源代码，则在源代码中必须带有原来代码中的BSD协议。 
+2. 如果再发布的只是二进制类库/软件，则需要在类库/软件的文档和版权声明中包含原来代码中的BSD协议。 
+3. 不可以用开源代码的作者/机构名字和原来产品的名字做市场推广。 
+</code></pre>
+
+<p><code>BSD</code>代码鼓励代码共享，但需要尊重代码作者的著作权。<code>BSD</code>由于允许使用者修改和重新发布代码，也允许使用或在BSD代码上开发商业软件发布和销售，因此是对商业集成很友好的协议。而很多的公司企业在选用开源产品的时候都首选BSD协议，因为可以完全控制这些第三方的代码，在必要的时候可以修改或者二次开发。</p>
+
+<h3>二、AL2.0</h3>
+
+<p><code>Apache Licence</code>是著名的非盈利开源组织<code>Apache</code>采用的协议。该协议和<code>BSD</code>类似，同样鼓励代码共享和尊重原作者的著作权，同样允许代码修改，再发布（作为开源或商业软件）。需要满足的条件也和BSD类似：</p>
+
+<pre><code>1.需要给代码的用户一份Apache Licence
+2.如果你修改了代码，需要在被修改的文件中说明。
+3.在延伸的代码中（修改和有源代码衍生的代码中）需要带有原来代码中的协议，商标，专利声明和其他原来作者规定需要包含的说明。
+4.如果再发布的产品中包含一个Notice文件，则在Notice文件中需要带有Apache Licence。你可以在Notice中增加自己的许可，但不可以表现为对Apache Licence构成更改。  
+</code></pre>
+
+<p>Apache Licence也是对商业应用友好的许可。使用者也可以在需要的时候修改代码来满足需要并作为开源或商业产品发布/销售。</p>
+
+<h3>三、GPL</h3>
+
+<p>我们很熟悉的Linux就是采用了GPL（GNU General Public License），<code>GPL</code>协议和<code>BSD</code>， <code>Apache Licence</code>等鼓励代码重用的许可很不一样。<code>GPL</code>的出发点是代码的开源/免费使用和引用/修改/衍生代码的开源/免费使用，但不允许修改后和衍生的代 码做为闭源的商业软件发布和销售。这也就是为什么我们能用免费的各种linux，包括商业公司的linux和linux上各种各样的由个人，组织，以及商 业软件公司开发的免费软件了。</p>
+
+<p>GPL协议的主要内容是只要在一个软件中使用（”使用”指类库引用，修改后的代码或者衍生代码）GPL 协议的产品，则该软件产品必须也采用GPL协议，既必须也是开源和免费。这就是所谓的”传染性”。GPL协议的产品作为一个单独的产品使用没有任何问题， 还可以享受免费的优势。</p>
+
+<p>由于GPL严格要求使用了GPL类库的软件产品必须使用GPL协议，对于使用GPL协议的开源代码，商业软件或者对代码有保密要求的部门就不适合集成/采用作为类库和二次开发的基础。</p>
+
+<p>其它细节如再发布的时候需要伴随GPL协议等和BSD/Apache等类似。</p>
+
+<h3>四、LGPL（GNU Lesser General Public License）</h3>
+
+<p>LGPL 是GPL的一个为主要为类库使用设计的开源协议。和GPL要求任何使用/修改/衍生之GPL类库的的软件必须采用GPL协议不同。LGPL 允许商业软件通过类库引用（link）方式使用LGPL类库而不需要开源商业软件的代码。这使得采用LGPL协议的开源代码可以被商业软件作为类库引用并 发布和销售。
+但是如果修改LGPL协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须采用LGPL协议。因 此LGPL协议的开源 代码很适合作为第三方类库被商业软件引用，但不适合希望以LGPL协议代码为基础，通过修改和衍生的方式做二次开发的商业软件采用。
+GPL/LGPL都保障原作者的知识产权，避免有人利用开源代码复制并开发类似的产品。</p>
+
+<h3>五、MIT</h3>
+
+<p>MIT是和BSD一样宽范的许可协议，作者只想保留版权，而无任何其它的限制。也就是说，你必须在你的发行版里包含原许可协议的声明，无论你是以二进制发布的还是以源代码发布的。MIT协议又称麻省理工学院许可证，最初由麻省理工学院开发。被授权人权利：1、被授权人有权利使用、复制、修改、合并、出版发行、散布、再授权及贩售软件及软件的副本。2、被授权人可根据程式的需要修改授权条款为适当的内容。被授权人义务：在软件和软件的所有副本中都必须包含版权声明和许可声明。</p>
+
+<p>在使用中具体如何选则呢？嘿，见下图：</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/freeLicenses/free_licenses.png" alt="free licenses" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[AngularJS 学习之旅（一）]]></title>
+    <link href="http://senola.uni.me/blog/2014/04/07/20140406/"/>
+    <updated>2014-04-07T01:41:40+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/04/07/20140406</id>
+    <content type="html"><![CDATA[<p><strong>前言</strong>：出来工作也快一年了，给我的感觉是学到的新东西并不是很多。不过，最近由于云盘前端需要重新改版，部门请来了一位前端大牛压阵。所以有幸认识了<code>AngularJS</code>，跟着大牛的脚步走进<code>AngularJS</code>的世界痛并快乐着&hellip;.</p>
+
+<h2>一、简介</h2>
+
+<p><a href="http://angularjs.org" target="_blank">AngularJS</a>是谷歌是<code>Google</code>推出的开源JavaScript MV*（MVW、MVVM、MVC）结构性的动态WEB程序应用框架。它允许你使用HTML模板语言,允许您扩展HTML语法，清晰、简洁地表达您的应用程序的组件。<code>AngularJS</code>的数据绑定和依赖注入减少了大部分你当前不得不写的代码，而且这一切都运行在浏览器内,使它能成为与任何服务器技术的理想合作伙伴。</p>
+
+<!--more-->
+
+
+<p>并不是所有的WEB APP都适合使用<code>AngularJS</code>,<code>AngularJS</code>最适合<strong><code>CRUD</code></strong>（CREATE READ UPDATE DELETE）类型的WEB APP。像<strong>Games</strong>、<strong>GUI</strong> <strong>editors</strong>这一不同于CRUD类型的app，它们更适合使用一些抽象层级较低的库，如<code>JQuery</code>。<span style="color:green"><strong>好吧，关于AngularJS的历史我觉得只要记住三点就行：谷歌的、开源的、适合CRUD类型的APP。</strong></span></p>
+
+<h2>二、AngularJS 一些概念</h2>
+
+<p>下面列举一些AngularJS的概念</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Template:使用了额外标记的HTML  
+</span><span class='line'>Directives：使用自定义属性和元素扩展的HTML   
+</span><span class='line'>Model:展示给用户和与用户进行交互的数据  
+</span><span class='line'>Scope：model存数的上下文，以便controllers, directives and expressions能够访问       
+</span><span class='line'>Expressions：能从Scope里访问的变量和函数    
+</span><span class='line'>Compiler：解析模板和实例化指令和表达式  
+</span><span class='line'>Filter：格式化表达式
+</span><span class='line'>View:用户能看到的的数据（the DOM）
+</span><span class='line'>Data Binding:model和view之间动态的数据
+</span><span class='line'>Controller:展示视图（view）之前的业务逻辑处理   
+</span><span class='line'>Dependency Injection：创建和连接对象或函数  
+</span><span class='line'>Injector：依赖注入的容器  
+</span><span class='line'>Module： 注入器的配置  
+</span><span class='line'>Service:可重用业务逻辑独立的观点    </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>三、核心内容（core concepts）</h2>
+
+<h3>1 Templates</h3>
+
+<p>在<code>AngularJS</code>的应用程序中,您将用数据填充页面模板的工作从服务器到客户机。结果是一个系统更好的结构化动态页面更新。下面是您将使用的核心特性。</p>
+
+<h4>1.1 Data binding</h4>
+
+<p>在<code>AngularJS</code>中，<code>Data-binding</code>是指在model和view组件间动态同步的数据。这意味着在应用程序里使用<code>AngularJS</code>的<code>Data-binding</code>可以让你像single-source-of-truth一样操作model。当model内容改变时，view也跟着变化，反之亦然。</p>
+
+<p>Data Binding in Angular Templates  <br/>
+<img src="https://raw.githubusercontent.com/senola/pictures/master/angularjs/One_Way_Data_Binding.png" alt="One_Way_Data_Binding" />         <br/>
+大部分的templating系统仅仅是单向绑定数据，它们把template和model组件合并到一起，并在一个view里边展示。在合并发生之后，model或者关联view代码的改变不会自动的反映在view上。更糟糕的是任何用户在view组件上的改变都不会在model组件上反映。这就意味着开发者不得不编写代码来不断同步model及view的数据。</p>
+
+<p>Data Binding in Angular Templates   <br/>
+<img src="https://raw.githubusercontent.com/senola/pictures/master/angularjs/Two_Way_Data_Binding.png" alt="Two_Way_Data_Binding" />    <br/>
+<code>AngularJs</code>的template工作模式不一样，首先template(未解析的、添加了标记（markup）和指令(directives)的HTML文件)在浏览器中解析的，解析的结果产生了视图(view),view中的任何改变都会立刻反射到model上，而model的任何改变也会立刻呈现在view上。这大大简化开发人员的编程model.由于view仅仅是model的数据渲染，所以控制器（controoler）完全从view中分离。所以，这就是的测试Controller变的很简单，因为不需要关联view。</p>
+
+<h4>1.2 Angular 表达式（Expressions）</h4>
+
+<p><code>Angular expressions</code> 是类似Javascript的代码段通常用于绑定，如：。例如：下面是有效的<code>Angular expressions</code></p>
+
+<pre><code> 1+2  
+ a+b   
+ user.name   
+ items.[index]  
+</code></pre>
+
+<p>与<code>Javascript expressions</code>相比，<code>Angular expressions</code>有以下不同点：</p>
+
+<pre><code>1. Conext(上下文)：在JavaScript expressions的值相对于全局的window(窗口)，而在Angular中，expression得值相对了一个scope(作用域)对象。   
+2. forgiving（宽恕）:在JavaScript中求表达式值时若未定义的属性会发生“ReferenceError”或“TypeError”。而在Angular 中，express是被宽容的设置为“undefined”和“null”。
+3. 没有控制流语句：在AngularJS中你不需要使用这些表达式：conditionals,loops或者exceptions。
+4. Filters:你可以在展示expressions之前使用“filters”来格式化数据。
+</code></pre>
+
+<p>如果你想运行更复杂的JavaScript代码，你应该把它作为一个Controller方法在view中调用。如果你自己想eval()一个<code>Angular expression</code>，那么就使用 $eval()方法。</p>
+
+<p>不像Javascript,默认定义的是全局的window属性，Angular expressions必须使用$window明确的指出为全局window对象。例如：假如你想在一个expression中调alert()函数，你必须用$window.alert()。这个限制是有意的,因为它能阻止意外的访问全局状态。</p>
+
+<h4>1.3 Directives（指令）</h4>
+
+<h5>1.3.1 what are Directives</h5>
+
+<p>处于更高水准的，<code>Directives</code>是指那些在DOM元素（例如一个属性，元素名称，css class）上的标记，用来告诉<code>AngularJS</code> 的<strong>HTML compiler</strong>($compile解析器)给DOM元素附加一个特殊的行为或改变DOM元素及子元素。Angular 内置了一系列的<code>diresctives</code>,如：
+<code>ngBind</code>,<code>ngModel</code>,和<code>ngView</code></p>
+
+<pre><code>What does it mean to "compile" an HTML template? For AngularJS, "compilation" 
+means attaching event listeners to the HTML to make it interactive. The reason we   
+use the term "compile" is that the recursive process of attaching directives      
+mirrors the process of compiling source code in compiled programming languages.         
+</code></pre>
+
+<h5>1.3.2 Matching Directives(匹配指令)</h5>
+
+<p>在我们编写一个<code>directive</code>之前，我们需要了解<code>Angular</code>的<code>HTML</code>解析器处理执行指令的过程。在一下的列子中，我们称<code>&lt;input&gt;</code>元素匹配<code>ngModel</code>指令:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;input ng-model="foo"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p> <br/>
+下面也一样能匹配<code>ngModel</code>:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;input data-ng:model="foo"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p> <br/>
+<code>Angular</code>规范的命名了每一个元素的的标签和属性从而使得元素能和<code>directives</code>想匹配。通常要求指令是一些区分大小写、规范化的名字（如：ngModel）。然而,由于HTML是不区分大小写的,我们将指令在DOM中定为小写形式，通常使用<code>dash-delimited</code>的属性写在DOM元素(如ng-model)。标准化的处理如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Strip x- and data- from the front of the element/attributes.    
+</span><span class='line'>Convert the :, -, or _-delimited name to camelCase.    </span></code></pre></td></tr></table></div></figure>
+
+
+<p>  <br/>
+以下绑定效果是一样的（<a href="http://plnkr.co/edit/XWmTVHDmp6U57Nke9fmn?p=preview" target="_blank">Demo演示</a>）：</p>
+
+<pre><code>&lt;div ng-controller="Controller"&gt;
+  Hello &lt;input ng-model='name'&gt; &lt;hr/&gt;
+  &lt;span ng-bind="name"&gt;&lt;/span&gt; &lt;br/&gt;
+  &lt;span ng:bind="name"&gt;&lt;/span&gt; &lt;br/&gt;
+  &lt;span ng_bind="name"&gt;&lt;/span&gt; &lt;br/&gt;
+  &lt;span data-ng-bind="name"&gt;&lt;/span&gt; &lt;br/&gt;
+  &lt;span x-ng-bind="name"&gt;&lt;/span&gt; &lt;br/&gt;
+&lt;/div&gt;    
+</code></pre>
+
+<p>小贴士：</p>
+
+<pre><code>Best Practice: Prefer using the dash-delimited format (e.g. ng-bind for ngBind).   
+If you want to use an HTML validating tool, you can instead use the data-prefixed    
+version (e.g. data-ng-bind for ngBind). The other forms shown above are accepted     
+for legacy reasons but we advise you to avoid them.
+</code></pre>
+
+<p>基于元素的名称、属性名、类名<code>$compile</code>可以匹配directives.所有Angular提供的directives都能匹配属性名、标签名、comments或class名。</p>
+
+<h5>Text and attribute binding(文本及属性绑定)</h5>
+
+<p>编译器在编译过程中匹配文本和属性并使用<code>$interpolate</code>判断是否包含嵌入式表达式。如：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;a ng-href="img/.jpg"&gt;Hello !&lt;/a&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>1.2.4 ngAttr 属性绑定</h5>
+
+<p>Web浏览器对它们认为是正确的属性值有时候是很挑剔的。如：</p>
+
+<pre><code>    &lt;svg&gt;
+      &lt;circle cx=""&gt;&lt;/circle&gt;
+    &lt;/svg&gt;
+</code></pre>
+
+<p>我们希望Angular能够正常绑定，但是当我们检查浏览器控制台时候我们会发现错误<code>Rrrpr:Invalid value for attribute cx=</code>。因为<code>SVG DOM API</code>的严格性，你不能简单的写成 <code>cx=</code>。采用<code>ng-attr-cx</code>你可以解决这个问题。也就是说如果一个属性的绑定前缀是<code>ngAttr</code>,那么在绑定时将被应用到相应的无前缀的属性：</p>
+
+<pre><code> &lt;svg&gt;
+  &lt;circle ng-attr-cx=""&gt;&lt;/circle&gt;
+&lt;/svg&gt; 
+</code></pre>
+
+<h5>1.2.5 create directives</h5>
+
+<p>首先，让我们了解一下<code>API for registering directives</code>,像<code>controller</code>一样,<code>directives</code>也是用modules注册。注册directive详情见<code>module.directive API</code>。<br/>
+关于directive命名：</p>
+
+<pre><code>Best Practice: In order to avoid collisions with some future standard, it's best    
+to prefix your own directive names. For instance, if you created a &lt;carousel&gt;    
+directive, it would be problematic if HTML7 introduced the same element. A two or     
+three letter prefix (e.g. btfCarousel) works well. Similarly, do not prefix your    
+owndirectives with ng or they might conflict with directives included in a future      
+version of Angular.  
+</code></pre>
+
+<p>如下directive:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>angular.module('docsRestrictDirective', [])
+</span><span class='line'>  .controller('Controller', ['$scope', function($scope) {
+</span><span class='line'>    $scope.customer = {
+</span><span class='line'>      name: 'Naomi',
+</span><span class='line'>      address: '1600 Amphitheatre'
+</span><span class='line'>    };
+</span><span class='line'>  }])
+</span><span class='line'>  .directive('myCustomer', function() {
+</span><span class='line'>    return {
+</span><span class='line'>      restrict: 'E',
+</span><span class='line'>      templateUrl: 'my-customer.html'
+</span><span class='line'>    };
+</span><span class='line'>  });</span></code></pre></td></tr></table></div></figure>
+
+
+<p> <br/>
+<code>restrict</code>的可选参数有：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>'A' - only matches attribute name
+</span><span class='line'>'E' - only matches element name
+</span><span class='line'>'C' - only matches class name</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+这些限制条件可以被组合使用：如 ‘AEC-matches either attribute or element or class name’。默认为&#8217;A&#8217;。</p>
+
+<h5>1.2.6 creating a directive that Manipulates the DOM</h5>
+
+<p>下面一个例子是展示当前时间，并且每过一秒钟，DOM时间也跟着更新 <a href="http://plnkr.co/edit/ngdoc:example-example86@snapshot?p=preview" target="_blank"><strong>Demo</strong></a>。 <br/>
+directive若要修改DOM则需要使用<code>link</code>选项。<code>link</code>能接收一个有一下参数的function，<code>function link(scope,element,attrs){...}</code>:</p>
+
+<ul>
+<li><code>scope</code>:一个Angular作用域对象</li>
+<li><code>element</code>:directive 匹配的<code>jqLite-wrapped</code>元素</li>
+<li><code>attrs</code>:是一个散列对象的键值对,有着规范化属性名称及其对应的属性值</li>
+</ul>
+
+
+<h3>1.2.7 Filters</h3>
+
+<p><code>filter</code>是用来格式化一个表达式的值的。他们能在<code>view template</code>、<code>controller</code>和<code>service</code>中使用，你能很方便的定义自己的<code>filter</code>。</p>
+
+<h4>（1） 在view templates中使用filter</h4>
+
+<p>Filters能在<code>view tmeplate</code>中的表达式中使用，语法如下：</p>
+
+<p>比如：标记12 表示使用<code>currency</code>filter 格式化数字12为货币形式。结果为：$12.00。<br/>
+Filters 能使用一系列的filter,这称为“chaining(链)”，语法如下：</p>
+
+<p>Filters也可以携带参数，语法如下：</p>
+
+<p>例如：标记<code>1234</code>表示数字1234使用<code>number</code>过滤器过滤保留2位小数点，结果为：1，234.00。</p>
+
+<h4>（2）在controller,services,和directives中使用filters</h4>
+
+<p>在controller,services,和directives中使用filters你需要给他们注入依赖<code>&lt;filterName&gt;Filter</code>。例如,使用依赖<code>numberFilter</code>会注入<code>number</code>过滤器。见<a href="http://plnkr.co/edit/ngdoc:example-example96@snapshot?p=preview" target="_blank"><strong>demo</strong></a>。</p>
+
+<h4>（3）创建自定义filters</h4>
+
+<p>编写自己的filter很简单，仅仅需要在<code>module</code>中注册一个新的<code>filter factory</code>函数。在内部，使用了<code>filterProvider</code>。<code>factory</code>函数需要一个新的<code>filter</code>函数，该函数的第一个参数为需要过滤的表达式的值。见<a href="http://plnkr.co/edit/ngdoc:example-example97@snapshot?p=preview" target="_blank"><strong>demo</strong></a>。</p>
+
+<h3>表单（Forms）</h3>
+
+<p>通常，<code>input</code>、<code>select</code>、<code>textarea</code>等控件是用来给用户输入数据的。而<code>Forms</code>是对这些控件的一种集合。<code>Angular</code>的<code>Form</code>和<code>controls(控件)</code>提供了数据验证服务，所以用户可以避免无效输入。这些功能能给用户更好的体验。</p>
+
+<h5>（1）simple form(简单的表单)</h5>
+
+<p>理解双向绑定（data-binding）的关键指令（directive）是<code>ngModel</code>。<code>ngModel</code>指令提供的双向绑定功能能使<code>model</code>和<code>view</code>数据自动同步。另外，它提供了一个API给其他的<code>directive</code>来增强它的功能。见<a href="http://plnkr.co/edit/ngdoc:example-example98@snapshot?p=preview" target="_blank"><strong>demo</strong></a>。</p>
+
+<pre><code>    &lt;div ng-controller="Controller"&gt;
+      &lt;form novalidate class="simple-form"&gt;
+        Name: &lt;input type="text" ng-model="user.name" /&gt;&lt;br /&gt;
+        E-mail: &lt;input type="email" ng-model="user.email" /&gt;&lt;br /&gt;
+        Gender: &lt;input type="radio" ng-model="user.gender" value="male" /&gt;male
+        &lt;input type="radio" ng-model="user.gender" value="female" /&gt;female&lt;br /&gt;
+        &lt;button ng-click="reset()"&gt;RESET&lt;/button&gt;
+        &lt;button ng-click="update(user)"&gt;SAVE&lt;/button&gt;
+      &lt;/form&gt;
+      &lt;pre&gt;form = &lt;/pre&gt;
+      &lt;pre&gt;master = &lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+      function Controller($scope) {
+        $scope.master = {};
+
+        $scope.update = function(user) {
+          $scope.master = angular.copy(user);
+        };
+
+        $scope.reset = function() {
+          $scope.user = angular.copy($scope.master);
+        };
+
+        $scope.reset();
+      }
+    &lt;/script&gt;  
+</code></pre>
+
+<p>注意<code>novalidate</code>是用来禁用浏览器的表单验证。</p>
+
+<h5>（2）使用CSS classes</h5>
+
+<p>为了想控件一样定义样式，<code>ngModel</code>增加了一下CSS classes:</p>
+
+<ul>
+<li>ng-valid</li>
+<li>ng-invalid</li>
+<li>ng-pristine</li>
+<li>ng-dirty
+其效果见<a href="http://plnkr.co/edit/ngdoc:example-example99@snapshot?p=preview" target="_blank"><strong>demo</strong></a>。</li>
+</ul>
+
+
+<h4>(3) 绑定表单及控制状态</h4>
+
+<p>一个<code>form</code>是一个<code>FormController</code>的实例，<code>form</code>实例的<code>name</code>属性可以请求到<code>scope</code>中。类似的，一个<code>input</code>含有<code>ngModel</code>的控件会拥有一个<code>NgModelController</code>的实例。这允许我们扩展一些特性如:</p>
+
+<ul>
+<li>RESET button is enabled only if form has some changes</li>
+<li>SAVE button is enabled only if form has some changes and is &ndash; valid</li>
+<li>custom error messages for user.email and user.agree-</li>
+</ul>
+
+
+<h4>(4) custom tirggers</h4>
+
+<p>默认地，任何的内容改变都会触发<code>model</code>的更新和<code>form</code>的验证。您可以使用<code>ngModelOptions</code>指令覆盖此行为将只绑定到指定的事件列表。如：<code>ng-model-option="{updateOn:"blur"}"</code>当控件失去焦点时候会进行更新和验证。你还可以设置几个事件使用空格分隔如：</p>
+
+<pre><code>`ng-model-options="{updateOn:"mousedown blur"}"`。
+</code></pre>
+
+<p>如果你想保留默认的行为和增加新的事件来触发<code>model</code>的更新和验证：</p>
+
+<pre><code>ng-model-options="{ updateOn: 'default blur' }"
+</code></pre>
+
+<h4>(5) 推迟model更新时间</h4>
+
+<p>你可以使用<code>ngModelOption</code>指令的key <code>debounce</code>来延迟<code>model</code>的更新和验证时间。这种延迟也会适用于解析器，<code>validators</code> 和 <code>model</code>的标记为<code>$dirty</code>和<code>$pristine</code>。如<code>ng-model-options="{debounce: 500}"</code>表示当内容发生变化后在经过0.5秒才会触发<code>model</code>的更新和<code>form</code>的验证。在特殊环境这能很有效的阻止立刻更新（如：blur事件）</p>
+
+<pre><code>ng-model-options="{updateOn:'default blur',debounce:{default:500,blur:0}}" 
+</code></pre>
+
+<p>如果是用在一个元素上面，则该原色的全部子元素和控件都会从它那继承，除非子元素是隐藏的。见<a href="http://plnkr.co/edit/ngdoc:example-example102@snapshot?p=preview" target="_blank"><strong>demo</strong></a></p>
+
+<h4>(6) 自定义验证</h4>
+
+<p>Angular 提供了html5常用的输入类型：（<code>text</code>,<code>number</code>,<code>url</code>,<code>email</code>,<code>radio</code>,<code>checkbox</code>）,同时也提供了一些验证指令（<code>required</code>,<code>pattern</code>,<code>minlength</code>,<code>maxlength</code>,<code>min</code>,<code>max</code>）。定义你自己的验证可以给<code>ngModel Controller</code>定义你自己的<code>directive</code>的时候增加一个自定义的<code>validation function</code>.两种情况下可能需要自定义验证：</p>
+
+<ul>
+<li><strong>Model to View update</strong>: 只要绑定的模型发生改变，所有在<code>NgModelController#$formatters</code>的函数数组都是<code>pipe-lined</code>,通过<code>NgModelController#$setValidity</code>这些函数都有机会还改变或者验证控件和表单。</li>
+<li><strong>View to Model update</strong>:同样的方式，当用户和一个控件交互时，它会调用<code>NgModelController#$setViewValue</code>。 <br/>
+英文太烂硬是没看懂，蛋疼! 见<a href="http://plnkr.co/edit/ngdoc:example-example103@snapshot?p=preview" target="_blank"><strong>demo</strong></a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[猿形]]></title>
+    <link href="http://senola.uni.me/blog/2014/03/11/0005/"/>
+    <updated>2014-03-11T06:54:11+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/03/11/0005</id>
+    <content type="html"><![CDATA[<p>码农，就是一群整天敲着代码的农民，人们称之为“程序猿”。</p>
+
+<p>三月份，码农们也开始忙碌了。</p>
+
+<p>或许是猿儿太累太压抑了，他忽然觉得没有了动力，</p>
+
+<p>曾经成为一代猿神的梦想也成为了一段笑话。</p>
+
+<!--more-->
+
+
+<p>时间在匆忙流逝，猿儿却颇感无力。</p>
+
+<p>猿儿也有过雄心，有过奋起，只是总被现实击败。</p>
+
+<p>面对挫折猿儿有些泄气，不知所措。</p>
+
+<p>现在，他正处于迷茫期，</p>
+
+<p><a href="http://senola.uni.me/collections/mywords/20140310.html" target="_blank">何时才能进化，猿儿甚是烦心！</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[git学习]]></title>
+    <link href="http://senola.uni.me/blog/2014/02/28/0004/"/>
+    <updated>2014-02-28T06:43:55+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/02/28/0004</id>
+    <content type="html"><![CDATA[<p>每天学一点，每天成长一天。。。<br/>
+git基础知识，没事看看，多看看！！!<br/>
+<a href="http://senola.uni.me/collections/git/git.html" target="_blank" ><strong>git基础</strong></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[迷路]]></title>
+    <link href="http://senola.uni.me/blog/2014/02/24/0003/"/>
+    <updated>2014-02-24T04:57:44+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/02/24/0003</id>
+    <content type="html"><![CDATA[<p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今天，又迷路了&hellip;</span>  <br/>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为什么说“又”呢，哎!也许是命中注定，打小时候咱的方向感就几乎为零，也就是走着走着就回丢掉的那种。这也是我为什么选择学理科的原因之一，哎~</span>  <br/>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近一段时间挺忙的，忙的有些喘不过气。在电脑前呆久了整个人都变得些许麻木，所以趁着周末背个包独自去紫金山散散心，找找感觉。紫金山位于南京东郊，又称钟山，自古被誉为江南四大名山，有“金陵毓秀”的美誉，是南京名胜古迹荟萃之地，全国生态文化示范地、世界文化遗产所在地、首批国家5A级景区钟山风景名胜区位于钟山南麓。<!--more-->look!当然，这是百度百科的，我看到的没有这么秀美，不过却也别有一番风味。</span>
+<img src="http://raw.github.com/senola/pictures/master/climb_mountain/%E7%B4%AB%E9%87%91%E5%B1%B1.jpg" alt="Landing page" />
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;说起来真坑爹，九点出门。跟着百度地图一路瞎绕。百度是这样说的：从仙鹤门到下马坊下，再从旅游专线2号线到明孝陵，下车后像东北走6640米即可。哥，你这是玩我吧，不带这么坑的。我知道东北方向是什么方向我还在这混？于是，在紫霞湖旁边一直游荡。PS：旁边也有好些人在问紫金山怎么走，但是给出的答案都是听不懂云云。。。N久之后又走到了中山陵，这表示亚历山大。。。</span>
+<img src="http://raw.github.com/senola/pictures/master/climb_mountain/%E4%B8%AD%E5%B1%B1%E9%99%B5.jpg" alt="Landing page" />
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;也许是孙先生的保佑，加上我多年的迷路经验，再加上这张破损孙的地图。我决定去探险：绕过中山陵，直插半山腰。途中经过一段十五分钟的林荫道，那是一段充满着沉重气息的地方。有着茂密的树林、积厚的落叶、虫鸣、鸟叫，这是一种荒凉的感觉。没人人影，有的只是微风和那沙沙作响的树叶，再加上偶尔传来的几声鸟鸣、忽然窜出的野猫和一个孤单的自己，不可否认，我有些害怕了。这样一段路，短暂的十几分钟，我做了多次思想斗争。前面的路是一片未知，而人类天生就对未知充满着好奇与恐惧，这一刻我有些退缩了。</span>
+<img src="http://raw.github.com/senola/pictures/master/climb_mountain/%E6%A0%91%E6%9E%97001.jpg" alt="Landing page" />
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最后我还是走下去了，原因有两点：一、这路是人铺的，那么前方一定有人走过，第一个吃螃蟹的人还轮不到我。二、路边有些显眼、不算太旧的垃圾袋告诉我，这路平常定有人走过，即使不安全也不会太不安全。带着这几个谬论前进十几分钟后，我终于看到了人影&hellip;</span>
+<img src="http://raw.github.com/senola/pictures/master/climb_mountain/%E6%A0%91%E6%9E%97002.jpg" alt="Landing page" />
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这一刻我似乎明白了一个道理：当下，自己所走的路不是在开拓，而是在重蹈。路别人都已走过，只是自己不曾注意而已。</span>
+<img src="http://raw.github.com/senola/pictures/master/climb_mountain/%E6%A0%91%E6%9E%97005.jpg" alt="Landing page" />
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登山，从此刻开始。想想，已经好多年没登山了。我觉得登山时一种体验，一种磨练，更是一种调节自我的运动。</span>
+<img src="http://raw.github.com/senola/pictures/master/climb_mountain/%E7%99%BB%E5%B1%B1.jpg" alt="Landing page" />
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;体验极限，激发能量，抛弃一切烦恼，其实我还年轻。。。</span>
+<img src="http://raw.github.com/senola/pictures/master/climb_mountain/%E8%AF%B4%E9%81%93.jpg" alt="Landing page" />
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登高望远，俯瞰大地，远离喧嚣，阔我胸怀，觅一份宁静。。。</span>
+<img src="http://raw.github.com/senola/pictures/master/climb_mountain/%E4%BF%AF%E7%9E%B0%E5%8D%97%E4%BA%AC.jpg" alt="Landing page" />
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下午三点，踩着顺着一个个阶梯缓缓而下，我只知道到山底的那一刻，我的双腿是软的，即将抽筋的那种。下山后又傻了，神呐，这又是哪！！樱陀村，一个没地铁的地方。于是，买了个饼边啃边问人。。。</span>  <br/>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;路，从脚下连接着远方，远方的路是什么？我不怕迷路，只怕迷失自己。我可以找到回家的路，却怕找不回迷失的自己。。。</span></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[在github上用Octopress搭建博客的方法]]></title>
+    <link href="http://senola.uni.me/blog/2014/02/11/0002/"/>
+    <updated>2014-02-11T06:00:56+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/02/11/0002</id>
+    <content type="html"><![CDATA[<h3>一、Octopress及Github简介</h3>
+
+<p><a href="http://octopress.org">Octopress</a> 是一款优秀的静态化博客系统，也是一个本地化的博客系统，Github为我们提供长期稳定的免费空间服务，但是Github空间不是一般意义上的PHP或者ASP空间。</p>
+
+<p><a href="https://github.com/">Github</a> 是一个代码托管空间，我们常用的一些PHP应用程序都无法在Github空间上运行。Octopress作为一个本地化的博客，官方将它简称为：“A blogging framework for hackers.”，也就是Octopress只适合那些经常玩Linux、写代码的朋友用的博客系统。  <!--more-->
+<code>Octopress</code>博客最大的优势就是静态化，不依赖脚本程序，没有MysqL等数据库，因此它可以在一些性能差的服务器或者虚拟空间上运行，在同等条件下打开页面的速度自然也是非常快。<br/>
+<code>Octopress</code>支持自定义模板，可以markdown，文本文件写作、保存可以直接用dropbox等网盘来同步。另外它还可以让你有git版本控制功能。<code>octopress</code>还有个优点就是它的整个使用发布是个松耦合的结构，相信一些习惯了代码的朋友很喜欢。</p>
+
+<h3>二、安装Octopress运行的必要软件</h3>
+
+<blockquote><ol>
+<li>官方首页：<a href="http://octopress.org">http://octopress.org</a></li>
+<li>这里是<a href="http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-1.9.3-p484.exe?direct">RubyInstaller</a>下载地址。</li>
+<li>这里是<a href="http://cloud.github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe">DevKit</a>下载地址。</li>
+</ol>
+</blockquote>
+
+<p>安装好ruby后，win键+R，输入cmd进入控制台。可以输入<code>ruby -version</code>可查看ruby安装的本版信息。接着用CD的命令进入你存放DevKit的目录中，执行以下命令继续安装</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ruby dk.rb init       
+</span><span class='line'>ruby dk.rb install</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="https://raw.github.com/hyfather/reynard/master/screenshots/landingpage.png" alt="Landing page" /></p>
+
+<h3>三、git 和 github 配置</h3>
+
+<p>1.先注册一个github账号,创建github pages创建一个新的<code>Repository</code>。这里须要重视的是，若是想要博客的首页是<code>http://yourname.github.com</code>则Repository的<code>project name</code>就必须是<code>yourname.github.com</code>。
+未完待续&hellip;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[这一天]]></title>
+    <link href="http://senola.uni.me/blog/2014/02/10/0001/"/>
+    <updated>2014-02-10T01:50:34+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/02/10/0001</id>
+    <content type="html"><![CDATA[<p>很无奈的说，整了一天<code>github pages</code>和<code>Octopress</code>也才整成这样，十分感叹自己的能力。不过却也有一些收获：比如我终于搭建了一个博客，了解了如何搭建个人博客的过程。总的说今天收获蛮大啊！给自个一个赞O(∩_∩)O~</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1. 人有两条路要走，一条是必须走的，一条是想走的，你必须把必须走的路走漂亮，才可以走想走的路。  
+</span><span class='line'>2. 修行之道：关注大师的言行，跟随大师的举动，和大师一并修行，领会大师的意境，成为真正的大师。</span></code></pre></td></tr></table></div></figure>
+
+
+<!--more-->
+
+]]></content>
+  </entry>
+  
+</feed>
