@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 娱乐 | 潭风]]></title>
+  <link href="http://senola.uni.me/blog/categories/yu-le/atom.xml" rel="self"/>
+  <link href="http://senola.uni.me/"/>
+  <updated>2014-07-12T18:47:14+08:00</updated>
+  <id>http://senola.uni.me/</id>
+  <author>
+    <name><![CDATA[senola]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[这一天]]></title>
+    <link href="http://senola.uni.me/blog/2014/02/10/0001/"/>
+    <updated>2014-02-10T01:50:34+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/02/10/0001</id>
+    <content type="html"><![CDATA[<p>很无奈的说，整了一天<code>github pages</code>和<code>Octopress</code>也才整成这样，十分感叹自己的能力。不过却也有一些收获：比如我终于搭建了一个博客，了解了如何搭建个人博客的过程。总的说今天收获蛮大啊！给自个一个赞O(∩_∩)O~<br/>
+<code>
+1. 人有两条路要走，一条是必须走的，一条是想走的，你必须把必须走的路走漂亮，才可以走想走的路。  
+2. 修行之道：关注大师的言行，跟随大师的举动，和大师一并修行，领会大师的意境，成为真正的大师。
+</code></p>
+
+<!--more-->
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | 潭风]]></title>
+  <link href="http://senola.uni.me/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://senola.uni.me/"/>
+  <updated>2014-07-12T18:47:14+08:00</updated>
+  <id>http://senola.uni.me/</id>
+  <author>
+    <name><![CDATA[senola]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[在github上用Octopress搭建博客的方法]]></title>
+    <link href="http://senola.uni.me/blog/2014/02/11/0002/"/>
+    <updated>2014-02-11T06:00:56+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/02/11/0002</id>
+    <content type="html"><![CDATA[<h3>一、Octopress及Github简介</h3>
+
+<p><a href="http://octopress.org">Octopress</a> 是一款优秀的静态化博客系统，也是一个本地化的博客系统，Github为我们提供长期稳定的免费空间服务，但是Github空间不是一般意义上的PHP或者ASP空间。</p>
+
+<p><a href="https://github.com/">Github</a> 是一个代码托管空间，我们常用的一些PHP应用程序都无法在Github空间上运行。Octopress作为一个本地化的博客，官方将它简称为：“A blogging framework for hackers.”，也就是Octopress只适合那些经常玩Linux、写代码的朋友用的博客系统。  <!--more-->
+<code>Octopress</code>博客最大的优势就是静态化，不依赖脚本程序，没有MysqL等数据库，因此它可以在一些性能差的服务器或者虚拟空间上运行，在同等条件下打开页面的速度自然也是非常快。<br/>
+<code>Octopress</code>支持自定义模板，可以markdown，文本文件写作、保存可以直接用dropbox等网盘来同步。另外它还可以让你有git版本控制功能。<code>octopress</code>还有个优点就是它的整个使用发布是个松耦合的结构，相信一些习惯了代码的朋友很喜欢。</p>
+
+<h3>二、安装Octopress运行的必要软件</h3>
+
+<blockquote><ol>
+<li>官方首页：<a href="http://octopress.org">http://octopress.org</a></li>
+<li>这里是<a href="http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-1.9.3-p484.exe?direct">RubyInstaller</a>下载地址。</li>
+<li>这里是<a href="http://cloud.github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe">DevKit</a>下载地址。</li>
+</ol>
+</blockquote>
+
+<p>安装好ruby后，win键+R，输入cmd进入控制台。可以输入<code>ruby -version</code>可查看ruby安装的本版信息。接着用CD的命令进入你存放DevKit的目录中，执行以下命令继续安装
+<code>
+ruby dk.rb init       
+ruby dk.rb install
+</code>
+<img src="https://raw.github.com/hyfather/reynard/master/screenshots/landingpage.png" alt="Landing page" /></p>
+
+<h3>三、git 和 github 配置</h3>
+
+<p>1.先注册一个github账号,创建github pages创建一个新的<code>Repository</code>。这里须要重视的是，若是想要博客的首页是<code>http://yourname.github.com</code>则Repository的<code>project name</code>就必须是<code>yourname.github.com</code>。
+未完待续&hellip;</p>
+]]></content>
+  </entry>
+  
+</feed>
