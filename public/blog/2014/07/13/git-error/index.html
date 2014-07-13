@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>猿形 - 潭风</title>
+  <title>解决 Permission denied(publicKey) 问题 - 潭风</title>
   <meta name="author" content="senola">
 
   
-  <meta name="description" content="猿形 Mar 11th, 2014 |&nbsp; 码农，就是一群整天敲着代码的农民，人们称之为“程序猿”。 三月份，码农们也开始忙碌了。 或许是猿儿太累太压抑了，他忽然觉得没有了动力， 曾经成为一代猿神的梦想也成为了一段笑话。 时间在匆忙流逝，猿儿却颇感无力。 猿儿也有过雄心，有过奋起， &hellip;">
-  <meta name="keywords" content="心情 感悟">
+  <meta name="description" content="解决 Permission denied(publicKey) 问题 Jul 13th, 2014 |&nbsp; 好几个月没碰过github Pages了，一整就来事儿，花了一下午才搞定。现把问题和解决方法记录下来，以做参考。在用git向github服务器push代码的时候，出现了一下情况： &hellip;">
+  <meta name="keywords" content="git，github,Permission denied(publicKey)">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://senola.uni.me/blog/2014/03/11/0005/">
+  <link rel="canonical" href="http://senola.uni.me/blog/2014/07/13/git-error/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/senola.css" rel="stylesheet" type="text/css">
@@ -62,7 +62,7 @@
   
   <header>
     
-      <h1 class="entry-title" style="font-size: 30px;">猿形</h1>
+      <h1 class="entry-title" style="font-size: 30px;">解决 Permission denied(publicKey) 问题</h1>
     
     
       <p class="meta" style="width:250px">
@@ -78,38 +78,66 @@
   
 
 
-<time datetime="2014-03-11T06:54:11+08:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
+<time datetime="2014-07-13T09:03:47+08:00" pubdate data-updated="true">Jul 13<span>th</span>, 2014</time>
         
         
 
         
-          |&nbsp;<a href="#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20140310225411" style="font-size: 14px;color: darkgray;"></span></a>
+          |&nbsp;<a href="#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20140713090347" style="font-size: 14px;color: darkgray;"></span></a>
          
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>码农，就是一群整天敲着代码的农民，人们称之为“程序猿”。</p>
+<div class="entry-content"><p>好几个月没碰过<code>github Pages</code>了，一整就来事儿，花了一下午才搞定。现把问题和解决方法记录下来，以做参考。在用<code>git</code>向<code>github</code>服务器<code>push</code>代码的时候，出现了一下情况：</p>
 
-<p>三月份，码农们也开始忙碌了。</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> Pushing generated _deploy website Permission denied (publickey). fatal: Could not read from remote...</span></code></pre></td></tr></table></div></figure>
 
-<p>或许是猿儿太累太压抑了，他忽然觉得没有了动力，</p>
 
-<p>曾经成为一代猿神的梦想也成为了一段笑话。</p>
+<p></p>
+
+<p>折腾了一下，终于定位到问题所在了，原因是之前在本地生成<code>github</code>的<code>ssh key</code>失效了，导致<code>github</code>服务器验证提交请求失败，进而拒绝提交代码操作。好了，定位到问题所在就好办了，接下来就是初始化<code>SSH key</code>就行了。</p>
+
+<p>右键&mdash;&ndash;>git bath，在控制台中输入：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  ssh-keygen</span></code></pre></td></tr></table></div></figure>
+
+
+
 
 <!--more-->
 
 
-<p>时间在匆忙流逝，猿儿却颇感无力。</p>
+<p>一路Enter,如果已存在<code>id_rsa</code>文件的话，会提示你是否将其覆盖，键入<code>y</code>即可，如图:</p>
 
-<p>猿儿也有过雄心，有过奋起，只是总被现实击败。</p>
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/git/git_bath01.jpg" alt="show info" /></p>
 
-<p>面对挫折猿儿有些泄气，不知所措。</p>
+<p>找到<code>id_rsa</code>文件，这个文件目录随个人系统而定，我的是在<code>/c/Users/fosenola/.ssh/</code>下.找到一个叫<code>id_rsa.pub</code>的文件（特别注意，是<code>id_rsa.pub</code>),而后用文本编辑器（因为待会复制的时候不能复制到空格，否则会出现各种你不想见到的问题），如<code>notepad++、UltraEdit</code>等。接下来登入<a href="https://github.com/" target="_blank">github</a>网站，点击右上角<code>Acount Settings</code>&mdash;>SSH Keys &mdash;> Add SSH Key,如图：</p>
 
-<p>现在，他正处于迷茫期，</p>
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/git/github_sshkey_set.jpg" alt="show info" /></p>
 
-<p><a href="/collections/mywords/20140310.html" target="_blank">何时才能进化，猿儿甚是烦心！</a></p>
+<p><span style="color:red;font-weight: bold;">注意,上图中钥匙图标旁边的绿色小点表示该<code>SSH Key</code>状态为正在使用，灰色表示为使用或者已失效。可以用一下命令测试刚才加入的<code>SSH Key</code>是否成功：<span></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh -T git@github.com</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果提示仍为“github,Permission denied(publicKey)”则表示<code>ssh key</code>设置失败，如果是“hello &hellip;，you&rsquo;ve successfully&hellip;”那么，恭喜，成功了！并且可以再刚才设置的<code>SSH Key</code>界面上看到灰色小点便成了绿色。</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/git/git_bath02.jpg" alt="show info" /></p>
+
+<p>至此，就可以再试试<code>git push</code>命令了。当然以上只是自己在网上瞎找的方法，后来才知道自己太二了，这种东西官网才是王道。官网上不仅有<code>windows</code>，更有<code>MAC</code>、<code>Linux</code>下的解决方法。<a href="https://help.github.com/articles/generating-ssh-keys#platform-windows" target="_blank" style="color:green;font-weight:bold">猛戳这里</a></p>
+
+<p>思考了一番，总结了几点：</p>
+
+<pre><code>1. 遇到问题后不慌，先定位问题再找解决之法。   
+2. 不轻易谷歌或者百度。   
+3. 官方文档才是第一手资料。  
+4. 所谓的大神就是啃多了第一手资料。  
+</code></pre>
 </div>
 
 <script type="text/javascript">
@@ -144,12 +172,12 @@
   
 
 
-<time datetime="2014-03-11T06:54:11+08:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
+<time datetime="2014-07-13T09:03:47+08:00" pubdate data-updated="true">Jul 13<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/xin-qing/'>心情</a>, <a class='category' href='/blog/categories/gan-wu/'>感悟</a>
+    <a class='category' href='/blog/categories/wen-ti-,fang-fa/'>问题，方法</a>
   
 </span>
 
@@ -174,10 +202,8 @@ $(document).ready(function(){
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/02/28/0004/" title="Previous Post: git学习">&laquo; git学习</a>
+        <a class="basic-alignment left" href="/blog/2014/04/28/webupload/" title="Previous Post: 上传插件之----Web Uploader">&laquo; 上传插件之----Web Uploader</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/04/07/20140406/" title="Next Post: AngularJS 学习之旅（一）">AngularJS 学习之旅（一） &raquo;</a>
       
     </p>
   </footer>
@@ -188,7 +214,7 @@ $(document).ready(function(){
   <section>
     <h1>文章评论</h1>
     <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread" data-thread-key="20140310225411" data-title="猿形" data-count-type="comments"></div>
+<div class="ds-thread" data-thread-key="20140713090347" data-title="解决 Permission denied(publicKey) 问题" data-count-type="comments"></div>
 <script type="text/javascript">
   var duoshuoQuery = {short_name:"senola"};
   (function() {

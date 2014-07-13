@@ -1,0 +1,52 @@
+---
+layout: post
+title: "解决 Permission denied(publicKey) 问题"
+date: 2014-07-13 09:03:47 +0800
+comments: true
+articleid: 20140713090347
+tags: [git,github，problem]
+keywords: git，github,Permission denied(publicKey)
+categories: 问题，方法
+---
+
+好几个月没碰过`github Pages`了，一整就来事儿，花了一下午才搞定。现把问题和解决方法记录下来，以做参考。在用`git`向`github`服务器`push`代码的时候，出现了一下情况：
+
+```
+ Pushing generated _deploy website Permission denied (publickey). fatal: Could not read from remote...
+```   
+
+折腾了一下，终于定位到问题所在了，原因是之前在本地生成`github`的`ssh key`失效了，导致`github`服务器验证提交请求失败，进而拒绝提交代码操作。好了，定位到问题所在就好办了，接下来就是初始化`SSH key`就行了。  
+
+右键--->git bath，在控制台中输入：
+
+```
+  ssh-keygen
+```
+
+<!--more-->
+一路Enter,如果已存在`id_rsa`文件的话，会提示你是否将其覆盖，键入`y`即可，如图: 
+
+![show info](https://raw.githubusercontent.com/senola/pictures/master/git/git_bath01.jpg)
+
+找到`id_rsa`文件，这个文件目录随个人系统而定，我的是在`/c/Users/fosenola/.ssh/`下.找到一个叫`id_rsa.pub`的文件（特别注意，是`id_rsa.pub`),而后用文本编辑器（因为待会复制的时候不能复制到空格，否则会出现各种你不想见到的问题），如`notepad++、UltraEdit`等。接下来登入<a href="https://github.com/" target="_blank">github</a>网站，点击右上角`Acount Settings`-->SSH Keys --> Add SSH Key,如图：   
+
+![show info](https://raw.githubusercontent.com/senola/pictures/master/git/github_sshkey_set.jpg)
+
+<span style="color:red;font-weight: bold;">注意,上图中钥匙图标旁边的绿色小点表示该`SSH Key`状态为正在使用，灰色表示为使用或者已失效。可以用一下命令测试刚才加入的`SSH Key`是否成功：<span>
+
+```
+ssh -T git@github.com
+```
+
+如果提示仍为“github,Permission denied(publicKey)”则表示`ssh key`设置失败，如果是“hello ...，you've successfully...”那么，恭喜，成功了！并且可以再刚才设置的`SSH Key`界面上看到灰色小点便成了绿色。
+
+![show info](https://raw.githubusercontent.com/senola/pictures/master/git/git_bath02.jpg)
+
+至此，就可以再试试`git push `命令了。当然以上只是自己在网上瞎找的方法，后来才知道自己太二了，这种东西官网才是王道。官网上不仅有`windows`，更有`MAC`、`Linux`下的解决方法。<a href="https://help.github.com/articles/generating-ssh-keys#platform-windows" target="_blank" style="color:green;font-weight:bold">猛戳这里</a>    
+
+思考了一番，总结了几点：  
+
+	1. 遇到问题后不慌，先定位问题再找解决之法。   
+	2. 不轻易谷歌或者百度。   
+	3. 官方文档才是第一手资料。  
+	4. 所谓的大神就是啃多了第一手资料。  
