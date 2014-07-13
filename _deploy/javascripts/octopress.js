@@ -135,6 +135,10 @@ $.domReady(function() {
   addCodeLineNumbers();
   getNav();
   addSidebarToggler();
+  // 给img标签居中
+  $("img").parents("p").css({
+		'text-align': 'center'
+  });
 });
 
 // iOS scaling bug fix
