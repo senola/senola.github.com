@@ -9,7 +9,7 @@
   <meta name="author" content="senola">
 
   
-  <meta name="description" content="上传插件之&#8212;-Web Uploader Apr 28th, 2014 |&nbsp; 最近云盘要大改版，前端采用了谷歌的AngularJS框架。大改嘛，之前云盘用插件要换的也都要换。飞哥说插件可以用但是却不能乱用，尤其是将其用于商业领域的，必须慎重加慎重， &hellip;">
+  <meta name="description" content="解决 Permission denied(publicKey) 问题 Jul 13th, 2014 |&nbsp; 好几个月没碰过github Pages了，一整就来事儿，花了一下午才搞定。现把问题和解决方法记录下来，以做参考。在用git向github服务器push代码的时候，出现了一下情况： &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,17 +21,12 @@
   <link rel="canonical" href="http://senola.uni.me/blog/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/senola.css" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/jquery-1.11.0.min.js" type="text/javascript"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="潭风" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
 </head>
 
 <body   >
@@ -64,6 +59,80 @@
     <div id="content" style="margin-top:5px;">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/07/13/git-error/">解决 Permission denied(publicKey) 问题</a></h1>
+    
+    
+      <p class="meta" style="width:250px">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-13T09:03:47+08:00" pubdate data-updated="true">Jul 13<span>th</span>, 2014</time>
+        
+        
+
+        
+          |&nbsp;<a href="/blog/2014/07/13/git-error/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20140713090347" style="font-size: 14px;color: darkgray;"></span></a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>好几个月没碰过<code>github Pages</code>了，一整就来事儿，花了一下午才搞定。现把问题和解决方法记录下来，以做参考。在用<code>git</code>向<code>github</code>服务器<code>push</code>代码的时候，出现了一下情况：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> Pushing generated _deploy website Permission denied (publickey). fatal: Could not read from remote...</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>折腾了一下，终于定位到问题所在了，原因是之前在本地生成<code>github</code>的<code>ssh key</code>失效了，导致<code>github</code>服务器验证提交请求失败，进而拒绝提交代码操作。好了，定位到问题所在就好办了，接下来就是初始化<code>SSH key</code>就行了。</p>
+
+<p>右键&mdash;&ndash;>git bath，在控制台中输入：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  ssh-keygen</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer class="excerpt_link_senola">
+      <a rel="full-article" href="/blog/2014/07/13/git-error/">阅读全文 >></a>
+    </footer>
+  
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"senola"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+
+</script>
+
+    </article>
   
   
     <article>
@@ -367,64 +436,6 @@ git基础知识，没事看看，多看看！！!<br/>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/02/24/0003/">迷路</a></h1>
-    
-    
-      <p class="meta" style="width:250px">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-24T04:57:44+08:00" pubdate data-updated="true">Feb 24<span>th</span>, 2014</time>
-        
-        
-
-        
-          |&nbsp;<a href="/blog/2014/02/24/0003/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20140223205744" style="font-size: 14px;color: darkgray;"></span></a>
-         
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;今天，又迷路了&hellip;</span>  <br/>
-<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为什么说“又”呢，哎!也许是命中注定，打小时候咱的方向感就几乎为零，也就是走着走着就回丢掉的那种。这也是我为什么选择学理科的原因之一，哎~</span>  <br/>
-<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最近一段时间挺忙的，忙的有些喘不过气。在电脑前呆久了整个人都变得些许麻木，所以趁着周末背个包独自去紫金山散散心，找找感觉。紫金山位于南京东郊，又称钟山，自古被誉为江南四大名山，有“金陵毓秀”的美誉，是南京名胜古迹荟萃之地，全国生态文化示范地、世界文化遗产所在地、首批国家5A级景区钟山风景名胜区位于钟山南麓。</div>
-  
-  
-    <footer class="excerpt_link_senola">
-      <a rel="full-article" href="/blog/2014/02/24/0003/">阅读全文 >></a>
-    </footer>
-  
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">下一页&gt;&gt;</a>
@@ -440,6 +451,10 @@ git基础知识，没事看看，多看看！！!<br/>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/07/13/git-error/">解决 Permission denied(publicKey) 问题</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/04/28/webupload/">上传插件之&#8212;-Web Uploader</a>
       </li>
     
@@ -453,10 +468,6 @@ git基础知识，没事看看，多看看！！!<br/>
     
       <li class="post">
         <a href="/blog/2014/03/11/0005/">猿形</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/28/0004/">git学习</a>
       </li>
     
   </ul>
