@@ -33,14 +33,14 @@ categories: javascript
 	    }
 	}
 
-看到上边代码就能发现为什么多了一个`"ActiveXObject" in window`判断？没错那个还是因为`IE11`。查了点资料貌似是因为`IE11`中`window.ActiveObject`属性在`DOM`中是隐藏的，也就是说你不能在`IE11`中用`window.ActiveObject`来判断。有兴趣可以去参考下 <a href="http://msdn.microsoft.com/en-us/library/ie/dn423948%28v=vs.85%29.aspx" target="_blank">Cross-browser plugin detection</a>,反正我没啥兴趣，吼吼~
-
-地球是一个很神奇的世界，你知道这个世界上有多少种浏览器吗？除了我们熟知的IE, Firefox, Opera, Safari四大浏览器之外，世界上还有近百种浏览器~ 当然我们还是只关心这些主流的浏览器，其他的也没精力，没时间去折腾！
+看到上边代码就能发现为什么多了一个`"ActiveXObject" in window`判断？没错那个还是因为`IE11`。查了点资料貌似是因为`IE11`中`window.ActiveObject`属性在`DOM`中是隐藏的，也就是说你不能在`IE11`中用`window.ActiveObject`来判断。有兴趣可以去参考下 <a href="http://msdn.microsoft.com/en-us/library/ie/dn423948%28v=vs.85%29.aspx" target="_blank">Cross-browser plugin detection</a>,反正我没啥兴趣，吼吼~   
 
 
-浏览器的世界太奇妙，我们不懂！
+地球是一个很神奇的世界，你知道这个世界上有多少种浏览器吗？除了我们熟知的IE, Firefox, Opera, Safari四大浏览器之外，世界上还有近百种浏览器~ 当然我们还是只关心这些主流的浏览器，其他的也没精力，没时间去折腾！     
 
-额，既然`IE`都说了，其他的也学习下吧~~IE就不提了。
+浏览器的世界太奇妙，我们不懂！    
+
+额，既然`IE`都说了，其他的也学习下吧~~IE就不提了。     
 
 
 ###  Firefox 
@@ -51,7 +51,7 @@ categories: javascript
      Mozilla/5.0 (Windows; U; Windows NT 5.1) Gecko/20070309 Firefox/2.0.0.3
      Mozilla/5.0 (Windows; U; Windows NT 5.1) Gecko/20070803 Firefox/1.5.0.12
 
-可根据`Firefox`后面的数字来获取版本号。
+可根据`Firefox`后面的数字来获取版本号。    
 
 
 ### Opera ###
@@ -62,7 +62,7 @@ categories: javascript
     Opera/8.0 (Macintosh; PPC Mac OS X; U; en)
     Mozilla/5.0 (Macintosh; PPC Mac OS X; U; en) Opera 8.0 
 
-获取靠近`Opera`的数字即为浏览器版本号。
+获取靠近`Opera`的数字即为浏览器版本号。    
 
 
 ### Safari ###
@@ -72,7 +72,7 @@ categories: javascript
     Mozilla/5.0 (Windows; U; Windows NT 5.2) AppleWebKit/525.13 (KHTML, like Gecko) Version/3.1 Safari/525.13
     Mozilla/5.0 (iPhone; U; CPU like Mac OS X) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3 
 
-获取`version`之后的数字，即是获取浏览器版本号。
+获取`version`之后的数字，即是获取浏览器版本号。   
 
 
 ### Chrome ###
@@ -81,7 +81,8 @@ categories: javascript
 
     Mozilla/5.0 (Windows; U; Windows NT 5.2) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.2.149.27 Safari/525.13
 
-可以看到，`chrome`的`userAgent`中还包含了`safar`的特征，这或许就是为什么`Chrome`可以运行所有`Apple`浏览器应用的基础吧。
+可以看到，`chrome`的`userAgent`中还包含了`safar`的特征，这或许就是为什么`Chrome`可以运行所有`Apple`浏览器应用的基础吧。    
+
 
 so,根据以上特性可以经浏览器的版本判断整合在一起，如下：
 
@@ -105,10 +106,10 @@ so,根据以上特性可以经浏览器的版本判断整合在一起，如下�
 	    };
     </script>
 
-往这儿瞧瞧-->: <a href="/collections/javascript/getBrowserType/getBrowserType.html" target="_blank" style="color:green;font-weight:bold;">测试地址</a>
+往这儿瞧瞧-->: <a href="/collections/javascript/getBrowserType/getBrowserType.html" target="_blank" style="color:green;font-weight:bold;">测试地址</a>      
 
 
-### 总结：
+### 总结：  
    
     1. 浏览器种类繁多，各浏览器有很多不同之处，有必要熟悉。
     2. IE浏览器使用人居多，有必要知晓其相关特别之处。
