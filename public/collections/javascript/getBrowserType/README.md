@@ -1,3 +1,5 @@
-A Pen created at CodePen.io. You can find this one at http://codepen.io/jmfisherr/pen/AfcKg.
+作者：senola   
+blog: senola.uni.me   
+目的：用于javascript判断各浏览器类型及版本测试
 
  
