@@ -4,7 +4,7 @@
   <title><![CDATA[Category: javascript | 潭风]]></title>
   <link href="http://senola.uni.me/blog/categories/javascript/atom.xml" rel="self"/>
   <link href="http://senola.uni.me/"/>
-  <updated>2014-07-13T11:35:15+08:00</updated>
+  <updated>2014-07-17T13:57:02+08:00</updated>
   <id>http://senola.uni.me/</id>
   <author>
     <name><![CDATA[senola]]></name>
@@ -12,6 +12,121 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[用javascript判断各浏览器类型及版本]]></title>
+    <link href="http://senola.uni.me/blog/2014/07/17/get-browser-type/"/>
+    <updated>2014-07-17T12:40:16+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/07/17/get-browser-type</id>
+    <content type="html"><![CDATA[<p>今天要在<code>IE</code>下测试大文件上传插件，发现项目组"前辈"们写的判断<code>IE</code>浏览器的的代码不管用了。</p>
+
+<pre><code>navigator.userAgent.toLowerCase().indexOf("msie") != -1；
+</code></pre>
+
+<p>调试代码才发现原来<code>IE11</code>下<code>userAgent</code>值的格式与<code>IE10</code>不一样。打印出ie9,ie10,ie11三个版本的浏览器userAgent值，如下所示：</p>
+
+<pre><code>IE9：userAgent:Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)    
+IE10:userAgent:Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)  
+IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; rv:11.0) like Gecko;
+</code></pre>
+
+<!--more-->
+
+
+<p>可以看出，前两者（IE9,IE10）都含有<code>MIIE</code>这样一个值而后面紧接着的是<code>IE</code>浏览器的版本号。而奇葩的<code>IE11</code>的<code>userAgent</code>又重新做了调整，不再用<code>MIIE</code>来标识浏览器版本号，而是用的 <code>rv</code>。神奇吧，让我们再一次向这个让无数码农挥洒汗水的浏览器致敬！！╮(╯▽╰)╭</p>
+
+<p>所以单纯的判断浏览器类型是否是<code>IE</code>的话，就要多增加一个<code>IE11</code>的判断了。（<code>IE12</code>貌似出来了，没测试过。。）但是如果<code>IE13</code>问世了，那么这个<code>userAgent</code>的值是不是又会改变呢？到时候是不是又得回来多添加一行专门为<code>IE13</code>而处理的语句？？如果是单纯的判断是否是<code>IE</code>浏览器的话，可以考虑不用<code>userAgent</code>,我们知道只有<code>IE</code>浏览器支持创建<code>ActiveX</code>控件，因此她有一个其他浏览器没有的东西&mdash;ActiveXObject函数，所以只需要判断<code>window</code>对象中是否存在<code>ActiveObject</code>函数就可以很明确的判断出当前的浏览器是否是神器<code>IE</code>：</p>
+
+<pre><code>function isIE () { //判断是否是IE（ie11下也适合）  
+    if( window.ActiveXObject || "ActiveXObject" in window) {
+        console.log("I am IE");
+    } else {
+        console.log("I not IE");
+    }
+}
+</code></pre>
+
+<p>看到上边代码就能发现为什么多了一个<code>"ActiveXObject" in window</code>判断？没错那个还是因为<code>IE11</code>。查了点资料貌似是因为<code>IE11</code>中<code>window.ActiveObject</code>属性在<code>DOM</code>中是隐藏的，也就是说你不能在<code>IE11</code>中用<code>window.ActiveObject</code>来判断。有兴趣可以去参考下 <a href="http://msdn.microsoft.com/en-us/library/ie/dn423948%28v=vs.85%29.aspx" target="_blank">Cross-browser plugin detection</a>,反正我没啥兴趣，吼吼~</p>
+
+<p>地球是一个很神奇的世界，你知道这个世界上有多少种浏览器吗？除了我们熟知的IE, Firefox, Opera, Safari四大浏览器之外，世界上还有近百种浏览器~ 当然我们还是只关心这些主流的浏览器，其他的也没精力，没时间去折腾！</p>
+
+<p>浏览器的世界太奇妙，我们不懂！</p>
+
+<p>额，既然<code>IE</code>都说了，其他的也学习下吧~~IE就不提了。</p>
+
+<h3>Firefox</h3>
+
+<p><code>firefox</code>中的<code>DOM</code>元素都有一个<code>getBoxObjectFor</code>函数，用来获取该<code>DOM</code>元素的位置和大小（IE对应的是getBoundingClientRect）。这是<code>firefox</code>独有。<code>firefox</code>下的<code>userAgent</code>大致如下：</p>
+
+<pre><code> Mozilla/5.0 (Windows; U; Windows NT 5.2) Gecko/2008070208 Firefox/3.0.1
+ Mozilla/5.0 (Windows; U; Windows NT 5.1) Gecko/20070309 Firefox/2.0.0.3
+ Mozilla/5.0 (Windows; U; Windows NT 5.1) Gecko/20070803 Firefox/1.5.0.12
+</code></pre>
+
+<p>可根据<code>Firefox</code>后面的数字来获取版本号。</p>
+
+<h3>Opera</h3>
+
+<p> <code>Opera</code>提供了专门的浏览器标志是<code>window.opera</code>属性。Opera浏览器的userAgent如下：</p>
+
+<pre><code>Opera/9.27 (Windows NT 5.2; U; zh-cn)
+Opera/8.0 (Macintosh; PPC Mac OS X; U; en)
+Mozilla/5.0 (Macintosh; PPC Mac OS X; U; en) Opera 8.0 
+</code></pre>
+
+<p>获取靠近<code>Opera</code>的数字即为浏览器版本号。</p>
+
+<h3>Safari</h3>
+
+<p><code>Safari</code>浏览器中有一个其他浏览器没有的<code>openDatabase</code>函数，可做为判断Safari的标志。Safari典型的userAgent如下：</p>
+
+<pre><code>Mozilla/5.0 (Windows; U; Windows NT 5.2) AppleWebKit/525.13 (KHTML, like Gecko) Version/3.1 Safari/525.13
+Mozilla/5.0 (iPhone; U; CPU like Mac OS X) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3 
+</code></pre>
+
+<p>获取<code>version</code>之后的数字，即是获取浏览器版本号。</p>
+
+<h3>Chrome</h3>
+
+<p>本人最热衷的浏览器！！ <code>Chrome</code>有一个<code>MessageEvent</code>函数，但Firefox也有。不过，好在<code>Chrome</code>并没有<code>Firefox</code>的<code>getBoxObjectFor</code>函数，根据这个条件还是可以准确判断出<code>Chrome</code>浏览器的。目前，<code>Chrome</code>的<code>userAgent</code>是：</p>
+
+<pre><code>Mozilla/5.0 (Windows; U; Windows NT 5.2) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.2.149.27 Safari/525.13
+</code></pre>
+
+<p>可以看到，<code>chrome</code>的<code>userAgent</code>中还包含了<code>safar</code>的特征，这或许就是为什么<code>Chrome</code>可以运行所有<code>Apple</code>浏览器应用的基础吧。</p>
+
+<p>so,根据以上特性可以经浏览器的版本判断整合在一起，如下：</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+    function  browserCheck () { // 各个浏览器判断
+        var Sys = {};
+        var ua = navigator.userAgent.toLowerCase(); //获取 userAgent 值
+        var s;
+        (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1] : //IE 11
+        (s = ua.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :
+        (s = ua.match(/firefox\/([\d.]+)/)) ? Sys.firefox = s[1] :
+        (s = ua.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :
+        (s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
+        (s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
+
+        if (Sys.ie) console.log('IE: ' + Sys.ie);
+        if (Sys.firefox) console.log('Firefox: ' + Sys.firefox);
+        if (Sys.chrome) console.log('Chrome: ' + Sys.chrome);
+        if (Sys.opera) console.log('Opera: ' + Sys.opera);
+        if (Sys.safari) console.log('Safari: ' + Sys.safari);
+    };
+&lt;/script&gt;
+</code></pre>
+
+<p>往这儿瞧瞧&mdash;>: <a href="http://senola.uni.me/collections/javascript/getBrowserType/getBrowserType.html" target="_blank" style="color:green;font-weight:bold;">测试地址</a></p>
+
+<h3>总结：</h3>
+
+<pre><code>1. 浏览器种类繁多，各浏览器有很多不同之处，有必要熟悉。
+2. IE浏览器使用人居多，有必要知晓其相关特别之处。
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[AngularJS 学习之旅（一）]]></title>

@@ -1,0 +1,124 @@
+body {
+  background-color: #8F6983;
+  font: 36px "Pacifico", cursive;
+  color: white;
+  text-align: center;
+  padding-top: 80px;
+  text-shadow: 1px 1px #D15162;
+}
+
+.cake {
+  position: relative;
+  margin: 0 auto;
+  width: 35px;
+  height: 18px;
+  background-color: #f2d4cc;
+  border-radius: 0px 0px 3px 3px;
+}
+
+.icing {
+  position: absolute;
+  top: -10px;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 10px solid #eaa19d;
+}
+
+.squiggle {
+  position: absolute;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #eaa19d;
+}
+.squiggle:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: -5px;
+  width: 5px;
+  height: 5px;
+  background-color: #eaa19d;
+  border-radius: 50%;
+}
+.squiggle:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  width: 5px;
+  height: 5px;
+  background-color: #eaa19d;
+  border-radius: 50%;
+}
+
+.squiggle2 {
+  position: absolute;
+  top: 8px;
+  left: -15px;
+  width: 5px;
+  height: 5px;
+  background-color: #eaa19d;
+  border-radius: 50%;
+}
+.squiggle2:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: -5px;
+  width: 5px;
+  height: 5px;
+  background-color: #eaa19d;
+  border-radius: 50%;
+}
+.squiggle2:after {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  width: 5px;
+  height: 5px;
+  background-color: #eaa19d;
+  border-radius: 50%;
+}
+
+.squiggle3 {
+  position: absolute;
+  top: 10px;
+  left: -30px;
+  width: 5px;
+  height: 2.5px;
+  background-color: #eaa19d;
+  border-radius: 0px 0px 2.5px 2.5px;
+}
+
+.line {
+  position: absolute;
+  top: 20px;
+  left: -30px;
+  width: 35px;
+  height: 2px;
+  background-color: #eaa19d;
+}
+
+.candle {
+  position: absolute;
+  top: -12px;
+  left: 18px;
+  width: 3px;
+  height: 10px;
+  background-color: white;
+}
+
+.flame {
+  position: absolute;
+  border-radius: 50%;
+  top: -15px;
+  left: 18px;
+  width: 3px;
+  height: 3px;
+  background-color: #FFBE22;
+}
