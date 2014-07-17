@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>javascript 检测浏览器版本</title>
+		<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+	</head>
+	<body>
+		<div class='cake'>
+			<div class='icing'>
+				<div class='line'></div>
+				<div class='squiggle'></div>
+				<div class='squiggle2'></div>
+				<div class='squiggle3'></div>
+			</div>
+			<div class='candle'></div>
+			<div class='flame'></div>
+		</div>
+		<div class='happybday' style=" margin-top: 25px; ">
+			浏览器版本为：<span id="browserType" style=" color: rgb(8, 249, 42); "></span>
+		</div> 
+	</body>
+</html>
+<script type="text/javascript">
+  (function  browserCheck () { // 各个浏览器判断
+  	    var obj = document.getElementById("browserType");
+  	    var browserTyple = "";
+        var Sys = {};
+        var ua = navigator.userAgent.toLowerCase(); //获取 userAgent 值
+        var s;
+        (s = ua.match(/rv:([\d.]+)\) like gecko/)) ? Sys.ie = s[1] : //IE 11
+        (s = ua.match(/msie ([\d.]+)/)) ? Sys.ie = s[1] :
+        (s = ua.match(/firefox\/([\d.]+)/)) ? Sys.firefox = s[1] :
+        (s = ua.match(/chrome\/([\d.]+)/)) ? Sys.chrome = s[1] :
+        (s = ua.match(/opera.([\d.]+)/)) ? Sys.opera = s[1] :
+        (s = ua.match(/version\/([\d.]+).*safari/)) ? Sys.safari = s[1] : 0;
+         
+        if (Sys.ie) browserTyple = 'IE: ' + Sys.ie;
+        if (Sys.firefox) browserTyple = 'Firefox: ' + Sys.firefox;
+        if (Sys.chrome) browserTyple = 'Chrome: ' + Sys.chrome;
+        if (Sys.opera) browserTyple = 'Opera: ' + Sys.opera;
+        if (Sys.safari) browserTyple = 'Safari: ' + Sys.safari;
+        
+        obj.innerHTML = browserTyple; //注意用等号。操蛋的玩意儿，我用（）一直报错，废了我好长时间
+   })();
+    
+</script>
