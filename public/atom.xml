@@ -4,7 +4,7 @@
   <title><![CDATA[潭风]]></title>
   <link href="http://senola.uni.me/atom.xml" rel="self"/>
   <link href="http://senola.uni.me/"/>
-  <updated>2014-07-18T09:38:39+08:00</updated>
+  <updated>2014-07-18T09:46:59+08:00</updated>
   <id>http://senola.uni.me/</id>
   <author>
     <name><![CDATA[senola]]></name>
@@ -33,7 +33,7 @@ IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 
 <!--more-->
 
 
-<p>可以看出，前两者（IE9,IE10）都含有<code>MIIE</code>这样一个值而后面紧接着的是<code>IE</code>浏览器的版本号。而奇葩的<code>IE11</code>的<code>userAgent</code>又重新做了调整，不再用<code>MIIE</code>来标识浏览器版本号，而是用的 <code>rv</code>。神奇吧，让我们再一次向这个让无数码农挥洒汗水的浏览器致敬！！╮(╯▽╰)╭</p>
+<p>可以看出，前两者（IE9,IE10）都含有<code>MSIE</code>这样一个值而后面紧接着的是<code>IE</code>浏览器的版本号。而奇葩的<code>IE11</code>的<code>userAgent</code>又重新做了调整，不再用<code>MSIE</code>来标识浏览器版本号，而是用的 <code>rv</code>。神奇吧，让我们再一次向这个让无数码农挥洒汗水的浏览器致敬！！╮(╯▽╰)╭</p>
 
 <p>所以单纯的判断浏览器类型是否是<code>IE</code>的话，就要多增加一个<code>IE11</code>的判断了。（<code>IE12</code>貌似出来了，没测试过。。）但是如果<code>IE13</code>问世了，那么这个<code>userAgent</code>的值是不是又会改变呢？到时候是不是又得回来多添加一行专门为<code>IE13</code>而处理的语句？？如果是单纯的判断是否是<code>IE</code>浏览器的话，可以考虑不用<code>userAgent</code>,我们知道只有<code>IE</code>浏览器支持创建<code>ActiveX</code>控件，因此她有一个其他浏览器没有的东西&mdash;ActiveXObject函数，所以只需要判断<code>window</code>对象中是否存在<code>ActiveObject</code>函数就可以很明确的判断出当前的浏览器是否是神器<code>IE</code>：</p>
 
