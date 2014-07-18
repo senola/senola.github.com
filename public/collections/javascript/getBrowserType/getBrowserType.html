@@ -5,6 +5,7 @@
 		<title>javascript 检测浏览器版本</title>
 		<link href="/favicon.png" rel="icon">
 		<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+	    <script type="text/javascript" src="http://counter.sina.com.cn/ip/" charset="gb2312"></script>
 	</head>
 	<body>
 		<div class='cake'>
@@ -20,11 +21,15 @@
 		<div class='happybday' style=" margin-top: 25px; ">
 			浏览器版本为：<span id="browserType" style=" color: rgb(8, 249, 42); "></span>
 		</div> 
+		<div class='happybday' style=" margin-top: 25px; ">
+			你的IP是：<span id="clientIp" style=" color: red; "></span>
+		</div> 
 	</body>
 </html>
 <script type="text/javascript">
   (function  browserCheck () { // 各个浏览器判断
   	    var obj = document.getElementById("browserType");
+  	    var ip = document.getElementById("clientIp");
   	    var browserTyple = "";
         var Sys = {};
         var ua = navigator.userAgent.toLowerCase(); //获取 userAgent 值
@@ -43,6 +48,7 @@
         if (Sys.safari) browserTyple = 'Safari: ' + Sys.safari;
         
         obj.innerHTML = browserTyple; //注意用等号。操蛋的玩意儿，我用（）一直报错，废了我好长时间
+        ip.innerText = ILData[0];
    })();
     
 </script>
