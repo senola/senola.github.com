@@ -4,7 +4,7 @@
   <title><![CDATA[潭风]]></title>
   <link href="http://senola.uni.me/atom.xml" rel="self"/>
   <link href="http://senola.uni.me/"/>
-  <updated>2014-07-18T09:46:59+08:00</updated>
+  <updated>2014-07-19T11:58:35+08:00</updated>
   <id>http://senola.uni.me/</id>
   <author>
     <name><![CDATA[senola]]></name>
@@ -12,6 +12,124 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[javascript获取随机数方法]]></title>
+    <link href="http://senola.uni.me/blog/2014/07/19/javascript-getrandnum/"/>
+    <updated>2014-07-19T10:47:19+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/07/19/javascript-getrandnum</id>
+    <content type="html"><![CDATA[<p>研究了一下<code>javascript</code>关于随机数的生成，整理如下。</p>
+
+<p>要输出随机数则须用到<code>javascript</code>的一个方法&mdash;<code>random()</code>，<code>random()</code>方法属于<code>Math</code>对象。在<code>javascript</code>中，<code>Math</code>对象用于执行数学任务，如：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  var pi_value = Math.PI; //圆周率     
+</span><span class='line'>  var sqrt_value = Math.sqrt(5);// 返回5的平方根</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可以看出<code>Math</code>对象在数学计算上是不可缺少的工具。与<code>Date</code>，<code>String</code>不同，她不是对象的类，因此没有构造函数<code>Math()</code>。像<code>Math.sin()</code>这样的函数只是函数，并不是某个对象的方法。你不需要创建它，通过把<code>Math</code>作为对象使用即可以条用她的所有属性及方法。</p>
+
+<h4>Math 的属性</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>E: 返回算术常量 e，即自然对数的底数（约等于2.718）
+</span><span class='line'>LN2: 返回 2 的自然对数（约等于0.693）
+</span><span class='line'>LN10: 返回 10 的自然对数（约等于2.302）
+</span><span class='line'>LOG2E: 返回以 2 为底的 e 的对数（约等于 1.414）
+</span><span class='line'>LOG10E:   返回以 10 为底的 e 的对数（约等于0.434）
+</span><span class='line'>PI: 返回圆周率（约等于3.14159）
+</span><span class='line'>SQRT1_2: 返回返回 2 的平方根的倒数（约等于 0.707）
+</span><span class='line'>SQRT2: 返回 2 的平方根（约等于 1.414）</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Math 的方法</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>abs(x):  返回数的绝对值。
+</span><span class='line'>acos(x): 返回数的反余弦值。
+</span><span class='line'>asin(x): 返回数的反正弦值。
+</span><span class='line'>atan(x):以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值。
+</span><span class='line'>atan2(y,x):返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）。
+</span><span class='line'>ceil(x): 对数进行上舍入。
+</span><span class='line'>cos(x): 返回数的余弦。
+</span><span class='line'>exp(x):   返回 e 的指数。
+</span><span class='line'>floor(x): 对数进行下舍入。
+</span><span class='line'>log(x):   返回数的自然对数（底为e）。
+</span><span class='line'>max(x,y): 返回 x 和 y 中的最高值。
+</span><span class='line'>min(x,y): 返回 x 和 y 中的最低值。
+</span><span class='line'>pow(x,y): 返回 x 的 y 次幂。
+</span><span class='line'>random(): 返回 0 ~ 1 之间的随机数。
+</span><span class='line'>round(x): 把数四舍五入为最接近的整数。
+</span><span class='line'>sin(x):   返回数的正弦。
+</span><span class='line'>sqrt(x): 返回数的平方根。
+</span><span class='line'>tan(x):   返回角的正切。
+</span><span class='line'>toSource():   返回该对象的源代码。
+</span><span class='line'>valueOf():    返回 Math 对象的原始值。</span></code></pre></td></tr></table></div></figure>
+
+
+<p>了解<code>Math</code>对象的相关属性及方法会有意想不到的好处。今天主要研究一下<code>random()</code>方法，在<code>chrome</code>控制台输入：</p>
+
+<pre><code>Math.random(); //回车
+---&gt; 0.7504939001519233
+Math.random(); //回车
+---&gt; 0.7824516440741718
+typeof(Math.random()); //回车
+---&gt; "number" 
+</code></pre>
+
+<p>可以看出<code>random()</code>方法返回的是0 ~ 1之间的伪随机数。注意，可能为0，但总是小于1即生成数的范围是[0,1)。利用<code>javascript</code>取整方法<code>parseInt（）</code>即可获取[0,1)之间的整数，如：</p>
+
+<pre><code>parseInt(Math.random() * 10); // 回车
+---&gt; 3
+parseInt(Math.random() * 10); // 回车
+---&gt; 4
+parseInt(Math.random() * 10); // 回车
+---&gt; 6
+Math.floor(Math.random()*10 + 1); //获取[1,10] 之间的随机数
+---&gt; 10
+</code></pre>
+
+<p>由此，并可以获得了[0,1)之间的随机整数值，那么如果想要获取多位随机数（如4444,321,4443）又该如何操作呢？这里可以先随机出n位数，在将这n位数用连接符<code>+</code>连接起来即可，如下：</p>
+
+<pre><code>function RndNum(n) {
+    var rnd = "";
+    for(var i = 0; i &lt; n; i++) {
+       rnd += Math.floor(Math.random() * 10);
+    }
+    return rnd;
+}
+console.log(RndNum(4));　　//输出4位数的随机数的随机整数
+console.log(RndNum(8));　　//输出8位数的随机数的随机整数
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[用javascript判断各浏览器类型及版本]]></title>
