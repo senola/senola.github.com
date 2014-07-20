@@ -9,7 +9,7 @@
   <meta name="author" content="senola">
 
   
-  <meta name="description" content="用javascript判断各浏览器类型及版本 Jul 17th, 2014 |&nbsp; 今天要在IE下测试大文件上传插件，发现项目组&#8221;前辈&#8221;们写的判断IE浏览器的的代码不管用了。 navigator.userAgent.toLowerCase().indexOf(" &hellip;">
+  <meta name="description" content="主流浏览器简介 Jul 19th, 2014 |&nbsp; 对一个web开发者来说，浏览器信息和统计数据是非常重要的。熟知他们才能更好的运用他们。 浏览器是指可以显示网页服务器或者文件系统的HTML内容，并让用户与这些文件交互的一种人间。网页浏览器主要通过HTTP协议也网页服务器交互并湖区网页 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,6 +25,7 @@
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/jquery-1.11.0.min.js" type="text/javascript"></script>
   <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/senolablog.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="潭风" type="application/atom+xml">
 </head>
@@ -59,6 +60,134 @@
     <div id="content" style="margin-top:5px;">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/07/19/browser-info/">主流浏览器简介</a></h1>
+    
+    
+      <p class="meta" style="width:250px">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-19T13:45:23+08:00" pubdate data-updated="true">Jul 19<span>th</span>, 2014</time>
+        
+        
+
+        
+          |&nbsp;<a href="/blog/2014/07/19/browser-info/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20140719134523" style="font-size: 14px;color: darkgray;"></span></a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>对一个web开发者来说，浏览器信息和统计数据是非常重要的。熟知他们才能更好的运用他们。</p>
+
+<p>浏览器是指可以显示网页服务器或者文件系统的<code>HTML</code>内容，并让用户与这些文件交互的一种人间。网页浏览器主要通过<code>HTTP</code>协议也网页服务器交互并湖区网页，这些网页由<code>URL</code>制定，文件格式通常为<code>HTML</code>，并由<code>MIME</code>在<code>HTTP</code>协议中指明。常见的网页浏览器有：微软的<code>Internet Explorer</code>、Mozilla的<code>FireFox</code>、<code>Apple</code>的<code>Safari</code>,<code>Opera</code>、<code>Google Chrome</code>等。</p>
+
+</div>
+  
+  
+    <footer class="excerpt_link_senola">
+      <a rel="full-article" href="/blog/2014/07/19/browser-info/">阅读全文 >></a>
+    </footer>
+  
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"senola"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+
+</script>
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/07/19/javascript-getrandnum/">Javascript获取随机数方法</a></h1>
+    
+    
+      <p class="meta" style="width:250px">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-19T10:47:19+08:00" pubdate data-updated="true">Jul 19<span>th</span>, 2014</time>
+        
+        
+
+        
+          |&nbsp;<a href="/blog/2014/07/19/javascript-getrandnum/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20140719104719" style="font-size: 14px;color: darkgray;"></span></a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>研究了一下<code>javascript</code>关于随机数的生成，整理如下。</p>
+
+<p>要输出随机数则须用到<code>javascript</code>的一个方法&mdash;<code>random()</code>，<code>random()</code>方法属于<code>Math</code>对象。在<code>javascript</code>中，<code>Math</code>对象用于执行数学任务，如：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  var pi_value = Math.PI; //圆周率     
+</span><span class='line'>  var sqrt_value = Math.sqrt(5);// 返回5的平方根</span></code></pre></td></tr></table></div></figure>
+
+
+<p>可以看出<code>Math</code>对象在数学计算上是不可缺少的工具。与<code>Date</code>，<code>String</code>不同，她不是对象的类，因此没有构造函数<code>Math()</code>。像<code>Math.sin()</code>这样的函数只是函数，并不是某个对象的方法。你不需要创建它，通过把<code>Math</code>作为对象使用即可以条用她的所有属性及方法。</p>
+
+</div>
+  
+  
+    <footer class="excerpt_link_senola">
+      <a rel="full-article" href="/blog/2014/07/19/javascript-getrandnum/">阅读全文 >></a>
+    </footer>
+  
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"senola"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+
+</script>
+
+    </article>
   
   
     <article>
@@ -323,132 +452,6 @@ IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/04/07/20140406/">AngularJS 学习之旅（一）</a></h1>
-    
-    
-      <p class="meta" style="width:250px">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-07T01:41:40+08:00" pubdate data-updated="true">Apr 7<span>th</span>, 2014</time>
-        
-        
-
-        
-          |&nbsp;<a href="/blog/2014/04/07/20140406/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="201446092111" style="font-size: 14px;color: darkgray;"></span></a>
-         
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong>前言</strong>：出来工作也快一年了，给我的感觉是学到的新东西并不是很多。不过，最近由于云盘前端需要重新改版，部门请来了一位前端大牛压阵。所以有幸认识了<code>AngularJS</code>，跟着大牛的脚步走进<code>AngularJS</code>的世界痛并快乐着&hellip;.</p>
-
-<h2>一、简介</h2>
-
-<p><a href="http://angularjs.org" target="_blank">AngularJS</a>是谷歌是<code>Google</code>推出的开源JavaScript MV*（MVW、MVVM、MVC）结构性的动态WEB程序应用框架。它允许你使用HTML模板语言,允许您扩展HTML语法，清晰、简洁地表达您的应用程序的组件。<code>AngularJS</code>的数据绑定和依赖注入减少了大部分你当前不得不写的代码，而且这一切都运行在浏览器内,使它能成为与任何服务器技术的理想合作伙伴。</p>
-
-</div>
-  
-  
-    <footer class="excerpt_link_senola">
-      <a rel="full-article" href="/blog/2014/04/07/20140406/">阅读全文 >></a>
-    </footer>
-  
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/03/11/0005/">猿形</a></h1>
-    
-    
-      <p class="meta" style="width:250px">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-11T06:54:11+08:00" pubdate data-updated="true">Mar 11<span>th</span>, 2014</time>
-        
-        
-
-        
-          |&nbsp;<a href="/blog/2014/03/11/0005/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20140310225411" style="font-size: 14px;color: darkgray;"></span></a>
-         
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>码农，就是一群整天敲着代码的农民，人们称之为“程序猿”。</p>
-
-<p>三月份，码农们也开始忙碌了。</p>
-
-<p>或许是猿儿太累太压抑了，他忽然觉得没有了动力，</p>
-
-<p>曾经成为一代猿神的梦想也成为了一段笑话。</p>
-
-</div>
-  
-  
-    <footer class="excerpt_link_senola">
-      <a rel="full-article" href="/blog/2014/03/11/0005/">阅读全文 >></a>
-    </footer>
-  
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">下一页&gt;&gt;</a>
@@ -464,6 +467,14 @@ IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/07/19/browser-info/">主流浏览器简介</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/19/javascript-getrandnum/">javascript获取随机数方法</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/07/17/get-browser-type/">用javascript判断各浏览器类型及版本</a>
       </li>
     
@@ -473,14 +484,6 @@ IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 
     
       <li class="post">
         <a href="/blog/2014/04/28/webupload/">上传插件之&#8212;-Web Uploader</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/23/license/">开源协议</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/07/20140406/">AngularJS 学习之旅（一）</a>
       </li>
     
   </ul>

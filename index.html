@@ -7,7 +7,7 @@
 
   <title>潭风的主页</title>
 
-    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+    <link rel="stylesheet" href="stylesheets/index.css" media="screen" type="text/css" />
 
 </head>
 
@@ -27,10 +27,34 @@
   </div>
 </div>
 </body>
-
-  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
-
-  <script src="js/index.js"></script>
+  <script src='javascripts/jquery-1.11.0.min.js'></script>
+  <script type="text/javascript">
+  	setTimeout(function() {
+		$('li').each(function(e) {
+		    $(this).delay(500*e).fadeIn(500);
+		});
+	}, 1000);
+	
+	// 随机数
+	function getRandomNum(under, over){
+		switch ( arguments.length ){
+			case 1: 
+			    return parseInt(Math.random()*under+1);
+			case 2: 
+			    return parseInt(Math.random()*(over-under+1) + under);
+			default: return 1;
+		}
+	}
+	var num = getRandomNum(1,30);
+    var bg_url = 'https://raw.githubusercontent.com/senola/pictures/master/background/background' + num + '.jpg'
+    $("body").css({
+   	  'background': 'url(' + bg_url + ')',
+   	  '-webkit-background-size': 'cover',
+	  '-moz-background-size': 'cover',
+	  '-o-background-size': 'cover',
+	  'background-size': 'cover' //若图片偏小 则让图片自动铺满整个屏幕
+    });
+  </script>
 
 </body>
 
