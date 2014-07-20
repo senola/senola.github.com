@@ -48,13 +48,12 @@
 	var num = getRandomNum(1,30);
     var bg_url = 'https://raw.githubusercontent.com/senola/pictures/master/background/background' + num + '.jpg'
     $("body").css({
-   	  'background': 'url(' + bg_url + ')'
+   	  'background': 'url(' + bg_url + ')',
+   	  '-webkit-background-size': 'cover',
+	  '-moz-background-size': 'cover',
+	  '-o-background-size': 'cover',
+	  'background-size': 'cover' //若图片偏小 则让图片自动铺满整个屏幕
     });
-   console.log("rankNum:" + num);
-   console.log("getRandomNum(1,30)-------->" + getRandomNum(1,30));
-   console.log("getRandomNum(1,30)-------->" + getRandomNum(1,30));
-   console.log("getRandomNum(1,30)-------->" + getRandomNum(1,30));
-   console.log("getRandomNum(1,30)-------->" + getRandomNum(1,30));
   </script>
 
 </body>

@@ -4,7 +4,7 @@
   <title><![CDATA[潭风]]></title>
   <link href="http://senola.uni.me/atom.xml" rel="self"/>
   <link href="http://senola.uni.me/"/>
-  <updated>2014-07-19T11:58:35+08:00</updated>
+  <updated>2014-07-20T17:10:40+08:00</updated>
   <id>http://senola.uni.me/</id>
   <author>
     <name><![CDATA[senola]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[主流浏览器简介]]></title>
+    <link href="http://senola.uni.me/blog/2014/07/19/browser-info/"/>
+    <updated>2014-07-19T13:45:23+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/07/19/browser-info</id>
+    <content type="html"><![CDATA[<p>对一个web开发者来说，浏览器信息和统计数据是非常重要的。熟知他们才能更好的运用他们。</p>
+
+<p>浏览器是指可以显示网页服务器或者文件系统的<code>HTML</code>内容，并让用户与这些文件交互的一种人间。网页浏览器主要通过<code>HTTP</code>协议也网页服务器交互并湖区网页，这些网页由<code>URL</code>制定，文件格式通常为<code>HTML</code>，并由<code>MIME</code>在<code>HTTP</code>协议中指明。常见的网页浏览器有：微软的<code>Internet Explorer</code>、Mozilla的<code>FireFox</code>、<code>Apple</code>的<code>Safari</code>,<code>Opera</code>、<code>Google Chrome</code>等。</p>
+
+<!--more-->
+
+
+<h4>浏览器的发展</h4>
+
+<p>蒂姆.伯纳斯-李（Tim Berners-Lee）是第一个使用超文本来分享资讯的人，他于1990年发明了收割网页浏览器&mdash;<code>WorldWideWeb</code>，话说这么年我出生了！没想到浏览器竟然跟俺一样大，吼吼，小小激动了下 (^o^)/~。在1991年3月，他把这发明介绍了给他在CERN工作的朋友，从那时起浏览器的发展就和网络的发展联系在了一起。</p>
+
+<p>下面来了解一下各主流浏览器。</p>
+
+<h4>Internet Explorer</h4>
+
+<p>首先，<code>Internet Explorer</code>是目前使用最为广泛的网页浏览器，为什么呢？因为它是捆绑在window系统上的，有着得天独厚的优势。但随着时代的发展，<code>IE</code>浏览器严重落后于新技术以及不遵循<code>W3C</code>规范，其在浏览器是市场所占的份额逐渐下降。深得开发人员鄙视~</p>
+
+<p>2009年3月19日，微软发布了<code>Windows Internet Explorer 8</code>简体中文正式版。从以后的<code>IE9</code>、<code>IE10</code>、<code>IE11</code>的用户数来看，<code>IE8</code>的使用群体稳居榜首。这或许当下<code>WindowXP</code>用户数居多的原因吧！有一点不能理解就是，<code>IE</code>各版本没有给更新的提示。访问网页速度慢，兼容性差是<code>IE</code>浏览器的硬伤，幸运的是，微软于2014年4月8日起彻底取消对WindowsXP的所有技术支持。这或许意味着<code>windowXP</code>用户数会有一定程度的降低，而用户选择<code>win7</code>或<code>win8</code>的话也就间接地抛弃了低版本<code>IE</code>浏览器。可是，不可否认这是一个漫长的过程。。。</p>
+
+<h4>Firefox</h4>
+
+<p>Mozilla Firefox是一个开源的浏览器,它体积小速度快，主要特性有:标签式浏览;屏蔽弹出式窗口;自定制工具栏;扩展管理;更好的搜索特性;便捷的侧栏.此版本做了很大的更新,代码更优秀,功能更强大,包括安装程序,界面和下载管理器都作了很大的改进.力求功能上的更大完美。</p>
+
+<h4>Opera</h4>
+
+<p>Opera 是作为挪威电信公司Telenor的一个研究项目于1994年启动的，并于1995 发展为一个独立的开发公司，Opera Software ASA。它一款极为出色的浏览器，具有速度快、节省系统资源、订制能力强、安全性高以及体积小等特点。多文件接口(MDI)、方便的缩放功能、整合搜索引擎、键盘截径与鼠标浏览功能、对HTML标准的支持、整合电子邮件与新闻群组以及让使用者自订接口按钮、skin、工具列等的排列方式，都是Opera多年来备受喜爱的特殊功能。Opera除了在Windows外，也支持Linux、Mac等操作系统，同时内建的Opera在Symbian操作系统的浏览器.成为功能强大的手机浏览器之一,也是最受欢迎的浏览器之一.</p>
+
+<h4>Chrome</h4>
+
+<p>Google Chrome是由Google开发的一款设计简单、高效的Web浏览工具。Google凭借自己在搜索引擎领越的独特优势打造而成，其特点是支持多标签浏览，在提高安全性的同时，一个标签页面的崩溃也不会导致其他标签页面被关闭。此外，Google Chrome基于更强大的JavaScript V8引擎，这是当前Web浏览器所翘首期盼的。Google官方声称将开放Chrome的全部源代码。这将是许多开源软件爱好者的福音。个人最喜欢的一款浏览器，高端大气有档次。</p>
+
+<h4>Safari</h4>
+
+<p>Safari浏览器基于苹果Mac OS X平台的，多标签的网络浏览器。苹果发布的Windows版本的Safari，它支持Windows XP和Windows Vista操作系统，目前Safari 3.1正式版已经发布。支持多国语言版，适应简体中文界面，能够浏览绝大部分中文网页。Safari的特性包括：SnapBack、内嵌搜索功能、书签重命名、简化的下载流程等，这款浏览器是苹果针对公司战略的一个调整，目的是推出自主核心的浏览器慢慢吸取属于微软的市场份额。</p>
+
+<h4>浏览器双核及CPU双核</h4>
+
+<p>浏览器的双核就好比走路时脚上穿一只鞋，肩膀上还背着一双。见到制定的路（网页）就自动换鞋。所谓的双核是一般网页用chrome内核打开，网银等制定的网页用IE内核打开。由于哪些网页必须用IE内核，哪些用chrome打开很难全部预判出来，所以经常发生不能正常显示网页的问题，而且由于要运行两个内核，导致内存及CPU占用率都翻了一番。</p>
+
+<h4>基于引擎区分</h4>
+
+<h6>1.基于Gecko排版引擎</h6>
+
+<p>Mozilla Firefox 、HotBrowser等</p>
+
+<h6>2.基于WebKit排版引擎</h6>
+
+<p>Google Chrome、Safari、Opera</p>
+
+<h6>3.基于Trident排版引擎</h6>
+
+<p>Internet Explorer</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[javascript获取随机数方法]]></title>
@@ -30,6 +90,9 @@
 
 <p>可以看出<code>Math</code>对象在数学计算上是不可缺少的工具。与<code>Date</code>，<code>String</code>不同，她不是对象的类，因此没有构造函数<code>Math()</code>。像<code>Math.sin()</code>这样的函数只是函数，并不是某个对象的方法。你不需要创建它，通过把<code>Math</code>作为对象使用即可以条用她的所有属性及方法。</p>
 
+<!--more-->
+
+
 <h4>Math 的属性</h4>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -40,17 +103,17 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>E: 返回算术常量 e，即自然对数的底数（约等于2.718）
-</span><span class='line'>LN2: 返回 2 的自然对数（约等于0.693）
-</span><span class='line'>LN10: 返回 10 的自然对数（约等于2.302）
-</span><span class='line'>LOG2E: 返回以 2 为底的 e 的对数（约等于 1.414）
-</span><span class='line'>LOG10E:   返回以 10 为底的 e 的对数（约等于0.434）
-</span><span class='line'>PI: 返回圆周率（约等于3.14159）
-</span><span class='line'>SQRT1_2: 返回返回 2 的平方根的倒数（约等于 0.707）
-</span><span class='line'>SQRT2: 返回 2 的平方根（约等于 1.414）</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>E:返回算术常量 e，即自然对数的底数（约等于2.718）
+</span><span class='line'>LN2:返回 2 的自然对数（约等于0.693）
+</span><span class='line'>LN10:返回 10 的自然对数（约等于2.302）
+</span><span class='line'>LOG2E:返回以 2 为底的 e 的对数（约等于 1.414）
+</span><span class='line'>LOG10E:返回以 10 为底的 e 的对数（约等于0.434）
+</span><span class='line'>PI:返回圆周率（约等于3.14159）
+</span><span class='line'>SQRT1_2:返回返回 2 的平方根的倒数（约等于 0.707）
+</span><span class='line'>SQRT2:返回 2 的平方根（约等于 1.414）</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Math 的方法</h3>
+<h4>Math 的方法</h4>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -72,26 +135,26 @@
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>abs(x):  返回数的绝对值。
-</span><span class='line'>acos(x): 返回数的反余弦值。
-</span><span class='line'>asin(x): 返回数的反正弦值。
-</span><span class='line'>atan(x):以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值。
-</span><span class='line'>atan2(y,x):返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）。
-</span><span class='line'>ceil(x): 对数进行上舍入。
-</span><span class='line'>cos(x): 返回数的余弦。
-</span><span class='line'>exp(x):   返回 e 的指数。
-</span><span class='line'>floor(x): 对数进行下舍入。
-</span><span class='line'>log(x):   返回数的自然对数（底为e）。
-</span><span class='line'>max(x,y): 返回 x 和 y 中的最高值。
-</span><span class='line'>min(x,y): 返回 x 和 y 中的最低值。
-</span><span class='line'>pow(x,y): 返回 x 的 y 次幂。
-</span><span class='line'>random(): 返回 0 ~ 1 之间的随机数。
-</span><span class='line'>round(x): 把数四舍五入为最接近的整数。
-</span><span class='line'>sin(x):   返回数的正弦。
-</span><span class='line'>sqrt(x): 返回数的平方根。
-</span><span class='line'>tan(x):   返回角的正切。
-</span><span class='line'>toSource():   返回该对象的源代码。
-</span><span class='line'>valueOf():    返回 Math 对象的原始值。</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>abs(x):返回数的绝对值
+</span><span class='line'>acos(x):返回数的反余弦值
+</span><span class='line'>asin(x):返回数的反正弦值
+</span><span class='line'>atan(x):以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值
+</span><span class='line'>atan2(y,x):返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）
+</span><span class='line'>ceil(x):对数进行上舍入
+</span><span class='line'>cos(x):返回数的余弦
+</span><span class='line'>exp(x):返回 e 的指数
+</span><span class='line'>floor(x):对数进行下舍入
+</span><span class='line'>log(x):返回数的自然对数（底为e）
+</span><span class='line'>max(x,y):返回 x 和 y 中的最高值
+</span><span class='line'>min(x,y):返回 x 和 y 中的最低值
+</span><span class='line'>pow(x,y):返回 x 的 y 次幂
+</span><span class='line'>random():返回 0 ~ 1 之间的随机数
+</span><span class='line'>round(x):把数四舍五入为最接近的整数
+</span><span class='line'>sin(x):返回数的正弦
+</span><span class='line'>sqrt(x):返回数的平方根
+</span><span class='line'>tan(x):返回角的正切
+</span><span class='line'>toSource():返回该对象的源代码
+</span><span class='line'>valueOf():返回 Math 对象的原始值</span></code></pre></td></tr></table></div></figure>
 
 
 <p>了解<code>Math</code>对象的相关属性及方法会有意想不到的好处。今天主要研究一下<code>random()</code>方法，在<code>chrome</code>控制台输入：</p>
@@ -125,9 +188,41 @@ Math.floor(Math.random()*10 + 1); //获取[1,10] 之间的随机数
     }
     return rnd;
 }
-console.log(RndNum(4));　　//输出4位数的随机数的随机整数
-console.log(RndNum(8));　　//输出8位数的随机数的随机整数
+console.log("四位随机数： " + RndNum(4));　　//输出4位数的随机数的随机整数
+console.log("八位随机数： " + RndNum(8));　　//输出8位数的随机数的随机整数
 </code></pre>
+
+<p>根据以上信息，我们要指定某个范围（如（2,3）内）的随机数就可以利用公式：<code>(Math.random()*(n-m)+m)</code>既可以返回m-n之间的随机数了，通用代码如下：</p>
+
+<pre><code>&lt;!-- 获取随机正整数，对应的复数只需要加"-"号即可。0, 1 暂未判断 --&gt;
+function getRandomNum( down, up) {
+   switch (arguments.length) { //传入的参数个数
+      case 1: 
+          return parseInt(Math.random() * down + 1); // 获取[0,down)间的随机数
+      case 2:
+          return parseInt(Math.random() * (up - down + 1) + down); //获取[down,up] 之间的随机数
+      default: 
+          return 0; 
+   }
+}
+// 测试代码
+console.log("[0,1]间的随机整数：" + getRandomNum(100));
+console.log("[2,5]间的随机整数：" + getRandomNum(2,5));
+console.log("[1,10]间的随机整数：" + getRandomNum(1,10));
+</code></pre>
+
+<p>以上便是使用<code>random()</code>方法创建正整数随机数的方法。当然我们还可以基于时间来创建， 如：</p>
+
+<pre><code>var now_time = new Date();
+var second_num = now_time.getSeconds(); //产生一个基于目前时间的0到59的整数
+var timestamp_num = now_time.getTime(); //产生一个基于目前时间等我时间戳
+console.log("秒随机数：" + num);
+console.log("时间戳随机数：" + timestamp_num);
+</code></pre>
+
+<h4>总结</h4>
+
+<p>随机数的使用场景随处可见，如可以利用她创建随机的文本、表单、标题广告、背景图片。背景音乐及背景颜色等等。。。掌握了原理，如何运用也就是一码事儿！</p>
 ]]></content>
   </entry>
   
