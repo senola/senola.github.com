@@ -16,6 +16,7 @@ categories: javascript Angularjs
   
 ## 二、AngularJS 一些概念  
 下面列举一些AngularJS的概念 
+
 ```
 Template:使用了额外标记的HTML  
 Directives：使用自定义属性和元素扩展的HTML   
@@ -33,37 +34,51 @@ Module： 注入器的配置
 Service:可重用业务逻辑独立的观点    
 ```
 ## 三、核心内容（core concepts）  
+
 ### 1 Templates  
 在`AngularJS`的应用程序中,您将用数据填充页面模板的工作从服务器到客户机。结果是一个系统更好的结构化动态页面更新。下面是您将使用的核心特性。
+
 #### 1.1 Data binding  
+
 在`AngularJS`中，`Data-binding`是指在model和view组件间动态同步的数据。这意味着在应用程序里使用`AngularJS`的`Data-binding`可以让你像single-source-of-truth一样操作model。当model内容改变时，view也跟着变化，反之亦然。  
 
-Data Binding in Angular Templates    
-![One_Way_Data_Binding](https://raw.githubusercontent.com/senola/pictures/master/angularjs/One_Way_Data_Binding.png)           
+Data Binding in Angular Templates 
+   
+![One_Way_Data_Binding](https://raw.githubusercontent.com/senola/pictures/master/angularjs/One_Way_Data_Binding.png)   
+        
 大部分的templating系统仅仅是单向绑定数据，它们把template和model组件合并到一起，并在一个view里边展示。在合并发生之后，model或者关联view代码的改变不会自动的反映在view上。更糟糕的是任何用户在view组件上的改变都不会在model组件上反映。这就意味着开发者不得不编写代码来不断同步model及view的数据。  
 
-Data Binding in Angular Templates     
-![Two_Way_Data_Binding](https://raw.githubusercontent.com/senola/pictures/master/angularjs/Two_Way_Data_Binding.png)      
+Data Binding in Angular Templates    
+ 
+![Two_Way_Data_Binding](https://raw.githubusercontent.com/senola/pictures/master/angularjs/Two_Way_Data_Binding.png)  
+    
 `AngularJs`的template工作模式不一样，首先template(未解析的、添加了标记（markup）和指令(directives)的HTML文件)在浏览器中解析的，解析的结果产生了视图(view),view中的任何改变都会立刻反射到model上，而model的任何改变也会立刻呈现在view上。这大大简化开发人员的编程model.由于view仅仅是model的数据渲染，所以控制器（controoler）完全从view中分离。所以，这就是的测试Controller变的很简单，因为不需要关联view。
 
-#### 1.2 Angular 表达式（Expressions）  
-`Angular expressions` 是类似Javascript的代码段通常用于绑定，如：{{ expression }}。例如：下面是有效的`Angular expressions`      
+#### 1.2 Angular 表达式（Expressions） 
+ 
+`Angular expressions` 是类似Javascript的代码段通常用于绑定，如：\{\{ expression \}\}。例如：下面是有效的`Angular expressions` 
+     
 	 1+2  
 	 a+b   
 	 user.name   
 	 items.[index]  
+
 与`Javascript expressions`相比，`Angular expressions`有以下不同点：
     1. Conext(上下文)：在JavaScript expressions的值相对于全局的window(窗口)，而在Angular中，expression得值相对了一个scope(作用域)对象。   
     2. forgiving（宽恕）:在JavaScript中求表达式值时若未定义的属性会发生“ReferenceError”或“TypeError”。而在Angular 中，express是被宽容的设置为“undefined”和“null”。
     3. 没有控制流语句：在AngularJS中你不需要使用这些表达式：conditionals,loops或者exceptions。
     4. Filters:你可以在展示expressions之前使用“filters”来格式化数据。
+    
 如果你想运行更复杂的JavaScript代码，你应该把它作为一个Controller方法在view中调用。如果你自己想eval()一个`Angular expression`，那么就使用 $eval()方法。
 
 不像Javascript,默认定义的是全局的window属性，Angular expressions必须使用$window明确的指出为全局window对象。例如：假如你想在一个expression中调alert()函数，你必须用$window.alert()。这个限制是有意的,因为它能阻止意外的访问全局状态。
 
 #### 1.3 Directives（指令）  
-##### 1.3.1 what are Directives   
+
+##### 1.3.1 what are Directives  
+ 
 处于更高水准的，`Directives`是指那些在DOM元素（例如一个属性，元素名称，css class）上的标记，用来告诉`AngularJS` 的**HTML compiler**($compile解析器)给DOM元素附加一个特殊的行为或改变DOM元素及子元素。Angular 内置了一系列的`diresctives`,如：
+
 `ngBind`,`ngModel`,和`ngView`
 	What does it mean to "compile" an HTML template? For AngularJS, "compilation" 
     means attaching event listeners to the HTML to make it interactive. The reason we   
@@ -71,19 +86,26 @@ Data Binding in Angular Templates
     mirrors the process of compiling source code in compiled programming languages.         
 
 ##### 1.3.2 Matching Directives(匹配指令)
+
 在我们编写一个`directive`之前，我们需要了解`Angular`的`HTML`解析器处理执行指令的过程。在一下的列子中，我们称`<input>`元素匹配`ngModel`指令:  
+
 ```
 <input ng-model="foo">
 ```   
+
 下面也一样能匹配`ngModel`:  
+
 ```
 <input data-ng:model="foo">
 ```   
-`Angular`规范的命名了每一个元素的的标签和属性从而使得元素能和`directives`想匹配。通常要求指令是一些区分大小写、规范化的名字（如：ngModel）。然而,由于HTML是不区分大小写的,我们将指令在DOM中定为小写形式，通常使用`dash-delimited`的属性写在DOM元素(如ng-model)。标准化的处理如下：   
+
+`Angular`规范的命名了每一个元素的的标签和属性从而使得元素能和`directives`想匹配。通常要求指令是一些区分大小写、规范化的名字（如：ngModel）。然而,由于HTML是不区分大小写的,我们将指令在DOM中定为小写形式，通常使用`dash-delimited`的属性写在DOM元素(如ng-model)。标准化的处理如下：  
+ 
 ```
 Strip x- and data- from the front of the element/attributes.    
 Convert the :, -, or _-delimited name to camelCase.    
 ```    
+
 以下绑定效果是一样的（<a href="http://plnkr.co/edit/XWmTVHDmp6U57Nke9fmn?p=preview" target="_blank">Demo演示</a>）：     
 
     <div ng-controller="Controller">
@@ -94,31 +116,40 @@ Convert the :, -, or _-delimited name to camelCase.
 	  <span data-ng-bind="name"></span> <br/>
 	  <span x-ng-bind="name"></span> <br/>
 	</div>    
+
 小贴士： 
   
     Best Practice: Prefer using the dash-delimited format (e.g. ng-bind for ngBind).   
     If you want to use an HTML validating tool, you can instead use the data-prefixed    
     version (e.g. data-ng-bind for ngBind). The other forms shown above are accepted     
     for legacy reasons but we advise you to avoid them.
+
 基于元素的名称、属性名、类名`$compile`可以匹配directives.所有Angular提供的directives都能匹配属性名、标签名、comments或class名。  
 
 ##### Text and attribute binding(文本及属性绑定)
+
 编译器在编译过程中匹配文本和属性并使用`$interpolate`判断是否包含嵌入式表达式。如：   
+
 ```
 <a ng-href="img/{{username}}.jpg">Hello {{username}}!</a>
 ```
+
 ##### 1.2.4 ngAttr 属性绑定  
+
 Web浏览器对它们认为是正确的属性值有时候是很挑剔的。如：   
 
 		<svg>
 		  <circle cx="{{cx}}"></circle>
 		</svg>
+
 我们希望Angular能够正常绑定，但是当我们检查浏览器控制台时候我们会发现错误`Rrrpr:Invalid value for attribute cx={{cx}}`。因为`SVG DOM API`的严格性，你不能简单的写成 `cx={{cx}}`。采用`ng-attr-cx`你可以解决这个问题。也就是说如果一个属性的绑定前缀是`ngAttr`,那么在绑定时将被应用到相应的无前缀的属性：   
+
      <svg>
 	  <circle ng-attr-cx="{{cx}}"></circle>
 	</svg> 
  
 ##### 1.2.5 create directives  
+
 首先，让我们了解一下`API for registering directives`,像`controller`一样,`directives`也是用modules注册。注册directive详情见`module.directive API`。  
 关于directive命名： 
  
@@ -127,7 +158,8 @@ Web浏览器对它们认为是正确的属性值有时候是很挑剔的。如�
 	directive, it would be problematic if HTML7 introduced the same element. A two or     
     three letter prefix (e.g. btfCarousel) works well. Similarly, do not prefix your    
     owndirectives with ng or they might conflict with directives included in a future      
-	version of Angular.  
+	version of Angular. 
+ 
 如下directive:   
 
 ```
@@ -145,7 +177,9 @@ angular.module('docsRestrictDirective', [])
     };
   });
 ```   
+
 `restrict`的可选参数有：   
+
 ```
 'A' - only matches attribute name
 'E' - only matches element name
@@ -154,6 +188,7 @@ angular.module('docsRestrictDirective', [])
 这些限制条件可以被组合使用：如 ‘AEC-matches either attribute or element or class name’。默认为'A'。
 
 ##### 1.2.6 creating a directive that Manipulates the DOM  
+
 下面一个例子是展示当前时间，并且每过一秒钟，DOM时间也跟着更新 <a href="http://plnkr.co/edit/ngdoc:example-example86@snapshot?p=preview" target="_blank">**Demo**</a>。   
 directive若要修改DOM则需要使用`link`选项。`link`能接收一个有一下参数的function，`function link(scope,element,attrs){...}`:  
 
@@ -162,8 +197,11 @@ directive若要修改DOM则需要使用`link`选项。`link`能接收一个有�
 -  `attrs`:是一个散列对象的键值对,有着规范化属性名称及其对应的属性值  
 
 ### 1.2.7 Filters
+
 `filter`是用来格式化一个表达式的值的。他们能在`view template`、`controller`和`service`中使用，你能很方便的定义自己的`filter`。  
+
 #### （1） 在view templates中使用filter 
+
 Filters能在`view tmeplate`中的表达式中使用，语法如下：  
  
      {{ expression | filter}}
@@ -172,21 +210,27 @@ Filters能在`view tmeplate`中的表达式中使用，语法如下：
 Filters 能使用一系列的filter,这称为“chaining(链)”，语法如下：  
 
 	{{expression | filter1 | filter2}} 
+
 Filters也可以携带参数，语法如下：   
 
 	{{ expression | filter:argument1:argument2:...}}
+
 例如：标记`{{ 1234 | number:2 }}`表示数字1234使用`number`过滤器过滤保留2位小数点，结果为：1，234.00。  
  
 #### （2）在controller,services,和directives中使用filters 
+
 在controller,services,和directives中使用filters你需要给他们注入依赖`<filterName>Filter`。例如,使用依赖`numberFilter`会注入`number`过滤器。见<a href="http://plnkr.co/edit/ngdoc:example-example96@snapshot?p=preview" target="_blank">**demo**</a>。  
 
 #### （3）创建自定义filters 
+
 编写自己的filter很简单，仅仅需要在`module`中注册一个新的`filter factory`函数。在内部，使用了`filterProvider`。`factory`函数需要一个新的`filter`函数，该函数的第一个参数为需要过滤的表达式的值。见<a href="http://plnkr.co/edit/ngdoc:example-example97@snapshot?p=preview" target="_blank">**demo**</a>。  
 
 ### 表单（Forms）
+
 通常，`input`、`select`、`textarea`等控件是用来给用户输入数据的。而`Forms`是对这些控件的一种集合。`Angular`的`Form`和`controls(控件)`提供了数据验证服务，所以用户可以避免无效输入。这些功能能给用户更好的体验。  
 
 ##### （1）simple form(简单的表单) 
+
 理解双向绑定（data-binding）的关键指令（directive）是`ngModel`。`ngModel`指令提供的双向绑定功能能使`model`和`view`数据自动同步。另外，它提供了一个API给其他的`directive`来增强它的功能。见<a href="http://plnkr.co/edit/ngdoc:example-example98@snapshot?p=preview" target="_blank">**demo**</a>。  
  
 		<div ng-controller="Controller">
@@ -220,15 +264,18 @@ Filters也可以携带参数，语法如下：
 注意`novalidate`是用来禁用浏览器的表单验证。
 
 ##### （2）使用CSS classes
+
 为了想控件一样定义样式，`ngModel`增加了一下CSS classes:
 
 - ng-valid
 - ng-invalid
 - ng-pristine
 - ng-dirty
+
 其效果见<a href="http://plnkr.co/edit/ngdoc:example-example99@snapshot?p=preview" target="_blank">**demo**</a>。
 
 ####(3) 绑定表单及控制状态 
+
 一个`form`是一个`FormController`的实例，`form`实例的`name`属性可以请求到`scope`中。类似的，一个`input`含有`ngModel`的控件会拥有一个`NgModelController`的实例。这允许我们扩展一些特性如:    
 
 - RESET button is enabled only if form has some changes
@@ -236,20 +283,25 @@ Filters也可以携带参数，语法如下：
 - custom error messages for user.email and user.agree- 
 
 #### (4) custom tirggers
+
 默认地，任何的内容改变都会触发`model`的更新和`form`的验证。您可以使用`ngModelOptions`指令覆盖此行为将只绑定到指定的事件列表。如：`ng-model-option="{updateOn:"blur"}"`当控件失去焦点时候会进行更新和验证。你还可以设置几个事件使用空格分隔如：   
 
     `ng-model-options="{updateOn:"mousedown blur"}"`。
+
 如果你想保留默认的行为和增加新的事件来触发`model`的更新和验证：   
 
     ng-model-options="{ updateOn: 'default blur' }"
 
 #### (5) 推迟model更新时间 
+
 你可以使用`ngModelOption`指令的key `debounce`来延迟`model`的更新和验证时间。这种延迟也会适用于解析器，`validators` 和 `model`的标记为`$dirty`和`$pristine`。如`ng-model-options="{debounce: 500}"`表示当内容发生变化后在经过0.5秒才会触发`model`的更新和`form`的验证。在特殊环境这能很有效的阻止立刻更新（如：blur事件）  
     
     ng-model-options="{updateOn:'default blur',debounce:{default:500,blur:0}}" 
+
 如果是用在一个元素上面，则该原色的全部子元素和控件都会从它那继承，除非子元素是隐藏的。见<a href="http://plnkr.co/edit/ngdoc:example-example102@snapshot?p=preview" target="_blank">**demo**</a>  
 
 #### (6) 自定义验证  
+
 Angular 提供了html5常用的输入类型：（`text`,`number`,`url`,`email`,`radio`,`checkbox`）,同时也提供了一些验证指令（`required`,`pattern`,`minlength`,`maxlength`,`min`,`max`）。定义你自己的验证可以给`ngModel Controller`定义你自己的`directive`的时候增加一个自定义的`validation function`.两种情况下可能需要自定义验证：   
 
 - **Model to View update**: 只要绑定的模型发生改变，所有在`NgModelController#$formatters `的函数数组都是`pipe-lined`,通过`NgModelController#$setValidity`这些函数都有机会还改变或者验证控件和表单。  
