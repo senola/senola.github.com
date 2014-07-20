@@ -146,17 +146,21 @@
 
 <p>在<code>AngularJS</code>中，<code>Data-binding</code>是指在model和view组件间动态同步的数据。这意味着在应用程序里使用<code>AngularJS</code>的<code>Data-binding</code>可以让你像single-source-of-truth一样操作model。当model内容改变时，view也跟着变化，反之亦然。</p>
 
-<p>Data Binding in Angular Templates  <br/>
-<img src="https://raw.githubusercontent.com/senola/pictures/master/angularjs/One_Way_Data_Binding.png" alt="One_Way_Data_Binding" />         <br/>
-大部分的templating系统仅仅是单向绑定数据，它们把template和model组件合并到一起，并在一个view里边展示。在合并发生之后，model或者关联view代码的改变不会自动的反映在view上。更糟糕的是任何用户在view组件上的改变都不会在model组件上反映。这就意味着开发者不得不编写代码来不断同步model及view的数据。</p>
+<p>Data Binding in Angular Templates</p>
 
-<p>Data Binding in Angular Templates   <br/>
-<img src="https://raw.githubusercontent.com/senola/pictures/master/angularjs/Two_Way_Data_Binding.png" alt="Two_Way_Data_Binding" />    <br/>
-<code>AngularJs</code>的template工作模式不一样，首先template(未解析的、添加了标记（markup）和指令(directives)的HTML文件)在浏览器中解析的，解析的结果产生了视图(view),view中的任何改变都会立刻反射到model上，而model的任何改变也会立刻呈现在view上。这大大简化开发人员的编程model.由于view仅仅是model的数据渲染，所以控制器（controoler）完全从view中分离。所以，这就是的测试Controller变的很简单，因为不需要关联view。</p>
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/angularjs/One_Way_Data_Binding.png" alt="One_Way_Data_Binding" /></p>
+
+<p>大部分的templating系统仅仅是单向绑定数据，它们把template和model组件合并到一起，并在一个view里边展示。在合并发生之后，model或者关联view代码的改变不会自动的反映在view上。更糟糕的是任何用户在view组件上的改变都不会在model组件上反映。这就意味着开发者不得不编写代码来不断同步model及view的数据。</p>
+
+<p>Data Binding in Angular Templates</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/angularjs/Two_Way_Data_Binding.png" alt="Two_Way_Data_Binding" /></p>
+
+<p><code>AngularJs</code>的template工作模式不一样，首先template(未解析的、添加了标记（markup）和指令(directives)的HTML文件)在浏览器中解析的，解析的结果产生了视图(view),view中的任何改变都会立刻反射到model上，而model的任何改变也会立刻呈现在view上。这大大简化开发人员的编程model.由于view仅仅是model的数据渲染，所以控制器（controoler）完全从view中分离。所以，这就是的测试Controller变的很简单，因为不需要关联view。</p>
 
 <h4>1.2 Angular 表达式（Expressions）</h4>
 
-<p><code>Angular expressions</code> 是类似Javascript的代码段通常用于绑定，如：。例如：下面是有效的<code>Angular expressions</code></p>
+<p><code>Angular expressions</code> 是类似Javascript的代码段通常用于绑定，如：{{ expression }}。例如：下面是有效的<code>Angular expressions</code></p>
 
 <pre><code> 1+2  
  a+b   
@@ -180,8 +184,9 @@
 
 <h5>1.3.1 what are Directives</h5>
 
-<p>处于更高水准的，<code>Directives</code>是指那些在DOM元素（例如一个属性，元素名称，css class）上的标记，用来告诉<code>AngularJS</code> 的<strong>HTML compiler</strong>($compile解析器)给DOM元素附加一个特殊的行为或改变DOM元素及子元素。Angular 内置了一系列的<code>diresctives</code>,如：
-<code>ngBind</code>,<code>ngModel</code>,和<code>ngView</code></p>
+<p>处于更高水准的，<code>Directives</code>是指那些在DOM元素（例如一个属性，元素名称，css class）上的标记，用来告诉<code>AngularJS</code> 的<strong>HTML compiler</strong>($compile解析器)给DOM元素附加一个特殊的行为或改变DOM元素及子元素。Angular 内置了一系列的<code>diresctives</code>,如：</p>
+
+<p><code>ngBind</code>,<code>ngModel</code>,和<code>ngView</code></p>
 
 <pre><code>What does it mean to "compile" an HTML template? For AngularJS, "compilation" 
 means attaching event listeners to the HTML to make it interactive. The reason we   
@@ -197,15 +202,17 @@ mirrors the process of compiling source code in compiled programming languages.
 </pre></td><td class='code'><pre><code class=''><span class='line'>&lt;input ng-model="foo"&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<p> <br/>
-下面也一样能匹配<code>ngModel</code>:</p>
+<p></p>
+
+<p>下面也一样能匹配<code>ngModel</code>:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>&lt;input data-ng:model="foo"&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<p> <br/>
-<code>Angular</code>规范的命名了每一个元素的的标签和属性从而使得元素能和<code>directives</code>想匹配。通常要求指令是一些区分大小写、规范化的名字（如：ngModel）。然而,由于HTML是不区分大小写的,我们将指令在DOM中定为小写形式，通常使用<code>dash-delimited</code>的属性写在DOM元素(如ng-model)。标准化的处理如下：</p>
+<p></p>
+
+<p><code>Angular</code>规范的命名了每一个元素的的标签和属性从而使得元素能和<code>directives</code>想匹配。通常要求指令是一些区分大小写、规范化的名字（如：ngModel）。然而,由于HTML是不区分大小写的,我们将指令在DOM中定为小写形式，通常使用<code>dash-delimited</code>的属性写在DOM元素(如ng-model)。标准化的处理如下：</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -213,8 +220,9 @@ mirrors the process of compiling source code in compiled programming languages.
 </span><span class='line'>Convert the :, -, or _-delimited name to camelCase.    </span></code></pre></td></tr></table></div></figure>
 
 
-<p>  <br/>
-以下绑定效果是一样的（<a href="http://plnkr.co/edit/XWmTVHDmp6U57Nke9fmn?p=preview" target="_blank">Demo演示</a>）：</p>
+<p></p>
+
+<p>以下绑定效果是一样的（<a href="http://plnkr.co/edit/XWmTVHDmp6U57Nke9fmn?p=preview" target="_blank">Demo演示</a>）：</p>
 
 <pre><code>&lt;div ng-controller="Controller"&gt;
   Hello &lt;input ng-model='name'&gt; &lt;hr/&gt;
@@ -270,7 +278,7 @@ to prefix your own directive names. For instance, if you created a &lt;carousel&
 directive, it would be problematic if HTML7 introduced the same element. A two or     
 three letter prefix (e.g. btfCarousel) works well. Similarly, do not prefix your    
 owndirectives with ng or they might conflict with directives included in a future      
-version of Angular.  
+version of Angular. 
 </code></pre>
 
 <p>如下directive:</p>
@@ -303,8 +311,9 @@ version of Angular.
 </span><span class='line'>  });</span></code></pre></td></tr></table></div></figure>
 
 
-<p> <br/>
-<code>restrict</code>的可选参数有：</p>
+<p></p>
+
+<p><code>restrict</code>的可选参数有：</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -400,10 +409,11 @@ Filters 能使用一系列的filter,这称为“chaining(链)”，语法如下�
 <li>ng-valid</li>
 <li>ng-invalid</li>
 <li>ng-pristine</li>
-<li>ng-dirty
-其效果见<a href="http://plnkr.co/edit/ngdoc:example-example99@snapshot?p=preview" target="_blank"><strong>demo</strong></a>。</li>
+<li>ng-dirty</li>
 </ul>
 
+
+<p>其效果见<a href="http://plnkr.co/edit/ngdoc:example-example99@snapshot?p=preview" target="_blank"><strong>demo</strong></a>。</p>
 
 <h4>(3) 绑定表单及控制状态</h4>
 
