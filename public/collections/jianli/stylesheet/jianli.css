@@ -181,7 +181,7 @@ border: 1px solid #ccc; background: #eee; font-size: 12px; font-family: 'Microso
 .resume-card-photo { float: left; width: 100px; height: 100px; }
 .resume-card-photo img { width: 100px; height: 100px; border: 1px solid #e7eaee;}
 .resume-card-photo p { width: 150px; height: 30px; line-height: 30px; text-align: center; color: #999; }
-.resume-card-words { float: right; width: 555px; padding-left: 15px; color: #666; }
+.resume-card-words { float: right; width: 555px; padding-left: 15px; color: #666;padding-top: 5px }
 .resume-card-words li { width: 275px; padding-bottom: 15px; }
 .resume-card-words i { vertical-align: middle; padding-bottom: 3px; margin-left: 5px; }
 .resume-card-info { float: left; width: 290px; }
