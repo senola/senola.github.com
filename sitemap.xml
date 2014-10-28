@@ -2,70 +2,74 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://senola.uni.me/blog/2014/02/10/0001/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/02/11/0002/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/02/24/0003/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/02/28/0004/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/03/11/0005/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/04/07/20140406/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/04/23/license/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/04/28/webupload/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/07/13/git-error/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/07/17/get-browser-type/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/07/19/javascript-getrandnum/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/07/19/browser-info/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/2014/09/13/javascript-study-140912/</loc>
-        <lastmod>2014-09-12T18:40:28+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://senola.uni.me/blog/2014/10/27/how-browsers-work/</loc>
+        <lastmod>2014-10-28T23:41:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/about/</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/archives/</loc>
-        <lastmod>2014-09-12T18:40:28+08:00</lastmod>
+        <lastmod>2014-10-28T23:41:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/blog/</loc>
-        <lastmod>2014-09-12T18:40:28+08:00</lastmod>
+        <lastmod>2014-10-28T23:41:11+08:00</lastmod>
     </url>
     <url>
         <loc>http://senola.uni.me/index2.html</loc>
-        <lastmod>2014-09-12T18:33:49+08:00</lastmod>
+        <lastmod>2014-10-27T15:15:59+08:00</lastmod>
     </url>
 </urlset>

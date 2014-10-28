@@ -9,7 +9,7 @@
   <meta name="author" content="senola">
 
   
-  <meta name="description" content="浅谈javascript 中undefined、null 和 NaN，call()和apply()的区别 Sep 13th, 2014 |&nbsp; 一、undefined、null 和 NaN 1.类型区别 javascript中有5中简单的数据类型（也称为基本数据类型），分别是： &hellip;">
+  <meta name="description" content="浏览器到底是咋工作的？ Oct 27th, 2014 |&nbsp; 一、前言 最近工作找的很是捉急，各种碰壁Zz~(～ o ～)~zZ。哎，说到头还是自己知识储备少，不深入。去一家公司面试前端，被问得是哑口无言，“说说浏览器是怎么渲染的？”、“如果要你用原生JS去解析JSON你会怎么做？”、“ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,6 +60,64 @@
     <div id="content" style="margin-top:5px;">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/10/27/how-browsers-work/">浏览器到底是咋工作的？</a></h1>
+    
+    
+      <p class="meta" style="width:250px">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-27T23:17:27+08:00" pubdate data-updated="true">Oct 27<span>th</span>, 2014</time>
+        
+        
+
+        
+          |&nbsp;<a href="/blog/2014/10/27/how-browsers-work/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20141027151727" style="font-size: 14px;color: darkgray;"></span></a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>一、前言</h3>
+
+<p>最近工作找的很是捉急，各种碰壁<code>Zz~(～ o ～)~zZ</code>。哎，说到头还是自己知识储备少，不深入。去一家公司面试前端，被问得是哑口无言，“说说浏览器是怎么渲染的？”、“如果要你用原生JS去解析JSON你会怎么做？”、“有自己的JS库吗？”。。。我<code>TM</code>怎么知道浏览器是如何渲染的，TM这是多高端的东西。劳资也只是刚出道一年，也就会写写页面、改改样式。<code>TM</code>我怎么知道如何去写原生的<code>JSON</code>解析，<code>javascript</code>不是有封装好的<code>JSON</code>解析<code>API</code>,鬼才会去想怎么实现啊，就面试那几分钟你能给个方案？。</div>
+  
+  
+    <footer class="excerpt_link_senola">
+      <a rel="full-article" href="/blog/2014/10/27/how-browsers-work/">阅读全文 >></a>
+    </footer>
+  
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"senola"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+
+</script>
+
+    </article>
   
   
     <article>
@@ -401,64 +459,6 @@ IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/04/28/webupload/">上传插件之&#8212;-Web Uploader</a></h1>
-    
-    
-      <p class="meta" style="width:250px">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-28T23:22:45+08:00" pubdate data-updated="true">Apr 28<span>th</span>, 2014</time>
-        
-        
-
-        
-          |&nbsp;<a href="/blog/2014/04/28/webupload/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20140428232245" style="font-size: 14px;color: darkgray;"></span></a>
-         
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最近云盘要大改版，前端采用了谷歌的<code>AngularJS</code>框架。大改嘛，之前云盘用插件要换的也都要换。飞哥说插件可以用但是却不能乱用，尤其是将其用于商业领域的，必须慎重加慎重，首先选选择的插件得符合相关的开原协议（如上篇），因滥用别的插件而上法庭的例子举不胜数。作为小菜的我一直都以够用，管用，好用的心态去用这些插件的，什么开原协议啊，什么版权啊之类的，不懂~大神告诉我，这个很重要，因为一旦被查出，后果很严重。。。飞哥推荐使用以<code>MIT</code>开源协议发布的<code>Web Uploader</code>作为上传插件。研究了它几天，苦恼，痛苦，桑心&hellip;</p>
-
-</div>
-  
-  
-    <footer class="excerpt_link_senola">
-      <a rel="full-article" href="/blog/2014/04/28/webupload/">阅读全文 >></a>
-    </footer>
-  
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">下一页&gt;&gt;</a>
@@ -474,6 +474,10 @@ IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/10/27/how-browsers-work/">浏览器到底是咋工作的？</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/09/13/javascript-study-140912/">浅谈javascript 中undefined、null 和 NaN，call()和apply()的区别</a>
       </li>
     
@@ -487,10 +491,6 @@ IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 
     
       <li class="post">
         <a href="/blog/2014/07/17/get-browser-type/">用javascript判断各浏览器类型及版本</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/13/git-error/">解决 Permission denied(publicKey) 问题</a>
       </li>
     
   </ul>
