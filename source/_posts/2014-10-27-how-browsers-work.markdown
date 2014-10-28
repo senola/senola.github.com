@@ -139,7 +139,7 @@ note： 与其他浏览器不同，`chrome`使用多个渲染引擎实例，每�
 ![how_browsers_work_html_parsing_flow](https://raw.githubusercontent.com/senola/pictures/master/how_browsers_work/how_browsers_work_html_parsing_flow.png)    
 图9： HTML解析流程 (源自HTML5规范)
 
-暂时只了解这么多了，有空再学习学习~
+暂时只了解这么多了，有空再学习学习~ 这里还有两篇 <a href="http://coolshell.cn/articles/9666.html" style="color:green;font-weight:bold;font-style:italic;font-size:16px" target="_blank">&lt;&lt;浏览器的渲染原理简介&gt;&gt;</a>、<a href="http://www.nowamagic.net/academy/detail/48110160" style="color:green;font-weight:bold;font-style:italic;font-size:16px" target="_blank">&lt;&lt;浏览器加载和渲染HTML的顺序以及Gzip的问题&gt;&gt;</a> 文章，得抽空观摩观摩！！！
 
 **参考资料**：
     

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: brower | 潭风]]></title>
   <link href="http://senola.uni.me/blog/categories/brower/atom.xml" rel="self"/>
   <link href="http://senola.uni.me/"/>
-  <updated>2014-10-28T23:41:11+08:00</updated>
+  <updated>2014-10-29T00:29:15+08:00</updated>
   <id>http://senola.uni.me/</id>
   <author>
     <name><![CDATA[senola]]></name>
@@ -152,7 +152,7 @@
 <p><img src="https://raw.githubusercontent.com/senola/pictures/master/how_browsers_work/how_browsers_work_html_parsing_flow.png" alt="how_browsers_work_html_parsing_flow" />  <br/>
 图9： HTML解析流程 (源自HTML5规范)</p>
 
-<p>暂时只了解这么多了，有空再学习学习~</p>
+<p>暂时只了解这么多了，有空再学习学习~ 这里还有两篇 <a href="http://coolshell.cn/articles/9666.html" style="color:green;font-weight:bold;font-style:italic;font-size:16px" target="_blank">&lt;&lt;浏览器的渲染原理简介&gt;&gt;</a>、<a href="http://www.nowamagic.net/academy/detail/48110160" style="color:green;font-weight:bold;font-style:italic;font-size:16px" target="_blank">&lt;&lt;浏览器加载和渲染HTML的顺序以及Gzip的问题&gt;&gt;</a> 文章，得抽空观摩观摩！！！</p>
 
 <p><strong>参考资料</strong>：</p>
 
