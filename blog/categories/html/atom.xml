@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: html | 潭风]]></title>
+  <link href="http://senola.uni.me/blog/categories/html/atom.xml" rel="self"/>
+  <link href="http://senola.uni.me/"/>
+  <updated>2014-11-12T20:52:46+08:00</updated>
+  <id>http://senola.uni.me/</id>
+  <author>
+    <name><![CDATA[senola]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[HTML head 头标签]]></title>
+    <link href="http://senola.uni.me/blog/2014/11/13/head-tag/"/>
+    <updated>2014-11-13T04:41:47+08:00</updated>
+    <id>http://senola.uni.me/blog/2014/11/13/head-tag</id>
+    <content type="html"><![CDATA[<p>HTML(TyperText Markup language)的<code>head</code>标签、元素有很多，涉及到浏览器对网页的渲染，SEO等。移动互联网时代，<code>head</code>头部结构、移动端的<code>meta</code>元素显得更为重要。</p>
+
+<h3>1. DOCTYPE</h3>
+
+<p>DOCTYPE(Document Type),该声明位于文档中最前面位置，处于<code>html</code>标签之前。告知浏览器文档使用哪种<code>Html</code>或者<code>XHTML</code>规范。</p>
+
+<p>DTD (Document Type Definition)声明以<code>&lt;!--DOCTYPE--&gt;</code>开始，不区分大小写，前面没有任何内容。如果有其他内容（除空格外）会使浏览器在<code>IE</code>下开启<code>quirks mode</code>模式来渲染完网页。公共<code>DTD</code>，名称格式为注册//组织//类型 标签//语言,注册指组织是否由国际标准化组织(ISO)注册，+表示是，-表示不是。组织即组织名称，如：W3C。类型一般是 DTD。标签是指定公开文本描述，即对所引用的公开文本的唯一描述性名称，后面可附带版本号。最后语言是 DTD 语言的 ISO 639 语言标识符，如：EN 表示英文，ZH 表示中文。XHTML 1.0 可声明三种 DTD 类型。分别表示严格版本，过渡版本，以及基于框架的 HTML 文档。</p>
+
+<!--more-->
+
+
+<ul>
+<li><p>HTML 4.01 strict(严格版本)</p>
+
+<pre><code> &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
+</code></pre></li>
+<li><p>HTML 4.01 Transition(过度版本)</p>
+
+<pre><code> &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;    
+</code></pre></li>
+<li><p>HTML4.01 frameset(框架)</p>
+
+<pre><code> &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"&gt; 
+</code></pre></li>
+<li><p>最新<code>HTML5</code>退出更加简洁的书写，它向前先后兼容，推荐使用。</p>
+
+<pre><code> &lt;!doctype html&gt;  
+</code></pre></li>
+</ul>
+
+
+<p>在<code>HTML</code>中，<code>doctype</code>有两个主要的目的：</p>
+
+<ul>
+<li> 对文档进行有效性验证</li>
+<li> 决定浏览器的呈现模式</li>
+</ul>
+
+
+<p>对于实际操作，通知浏览器读取文档时用哪种解析算法。如果没有写，则浏览器根据自身的规则对代码进行解析。可能会严重影响<code>HTML</code>排版布局。浏览器有三种花方式解析<code>HTML</code>文档。</p>
+
+<ul>
+<li>标准模式（费怪异模式）</li>
+<li>怪异模式</li>
+<li>部分怪异（近乎标准）模式</li>
+</ul>
+
+
+<h3>2. charset</h3>
+
+<p>声明文档的字符编码：</p>
+
+<pre><code> &lt;meta charset="utf-8"&gt;
+</code></pre>
+
+<p>html5 之前网页中会这样写：</p>
+
+<pre><code> &lt;meta http-equiv="Content-Type" content="text/html;charset=utf-8"&gt;
+</code></pre>
+
+<p>这两种写法是等效的，具体可点击<a href="http://stackoverflow.com/questions/4696499/meta-charset-utf-8-vs-meta-http-equiv-content-type" target="_blank" style="font-size:15px;color:green;font-weight:bold;"> Click Me !!</a></p>
+
+<h3>3. lang属性</h3>
+
+<p>简体中文</p>
+
+<pre><code>&lt;html lang="zh-cmn-Hans"&gt;
+</code></pre>
+
+<p>繁体中文</p>
+
+<pre><code>&lt;html lang="zh-cmn-Hant"&gt; 
+</code></pre>
+
+<p>更多请猛戳 <a href="http://www.zhihu.com/question/20797118?utm_source=weibo&utm_medium=weibo_share&utm_content=share_question&utm_campaign=share_sidebar" target="_blank" style="font-size:15px;color:green;font-weight:bold;"> Click Me !!</a></p>
+
+<h3>4. 优先使用IE最新版本和Chrome</h3>
+
+<pre><code>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /&gt;
+</code></pre>
+
+<h3>5. 360浏览器使用 Google Chrome Frame</h3>
+
+<pre><code>&lt;meta name="renderer" content="webkit"&gt; 
+</code></pre>
+
+<p>360 浏览器就会在读到这个标签后，立即切换对应的急速核。另外，为了保险起见再加入：</p>
+
+<pre><code>&lt;meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"&gt;
+</code></pre>
+
+<p>这样写可以达到的效果是如果安装了 <code>Google Chrome Frame</code>,则使用<code>GCF</code>来渲染页面，如果没有，则使用最高版本的<code>IE</code>内核进行渲染。具体可阅读360文档<a href="http://se.360.cn/v6/help/meta.html" target="_blank" style="font-size:15px;color:green;font-weight:bold;"> Click Me !!</a></p>
+
+<h3>6. 百度禁止转码</h3>
+
+<p>通过百度手机打开网页时，百度可能会对你的网页进行转码。扒下你的衣服，往你身上贴广告，为此可以在<code>head</code>内添加：</p>
+
+<pre><code>&lt;meta http-equiv="Cache-Control" content="no-siteapp" /&gt;
+</code></pre>
+
+<h3>7. SEO优化部分</h3>
+
+<ul>
+<li><p>页面标题<code>&lt;title&gt;</code>标签</p>
+
+<pre><code>  &lt;title&gt; my title&lt;/title&gt; 
+</code></pre></li>
+<li><p>页面关键词 <code>keywords</code></p>
+
+<pre><code>  &lt;meta name="keywords" content="your keywords"&gt; 
+</code></pre></li>
+<li><p>页面描述内容<code>description</code></p>
+
+<pre><code> &lt;meta name="description" content="your description"&gt;
+</code></pre></li>
+<li><p>定义网页作者<code>author</code></p>
+
+<pre><code> &lt;meta name="author" content="author,email,address"&gt;
+</code></pre></li>
+<li><p>定义网页搜索引擎索引方式。<code>robotterms</code>是一组使用英文逗号[,]分割的值，通常有如下几种取值：<code>none</code>、<code>noindex</code>、<code>nofollow</code>、<code>all</code>、<code>index</code>和<code>follow</code>。</p>
+
+<pre><code> &lt;meta name="robots" content="index.follow"&gt;
+</code></pre></li>
+</ul>
+
+
+<h3>8. viewport</h3>
+
+<p>viewport 可以让布局在移动浏览器上显示的更好，通常会写：</p>
+
+<pre><code> &lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;
+</code></pre>
+
+<p><code>width=device-width</code>会导致<code>iphone 5</code>添加到主屏幕后以<code>webApp</code>全屏幕模式打开页面时出现黑边。</p>
+
+<p>conten参数：</p>
+
+<ul>
+<li>width: viewport 宽度（数值/device-width）</li>
+<li>height: viewport 高度（数值/device-height）</li>
+<li>initial-scale： 初始缩放比例</li>
+<li>minimum-scale: 最大缩放比例</li>
+<li>minimum-scale: 最小缩放比例</li>
+<li>user-scalable: 是否允许用户缩放（yes/no）</li>
+<li><p>minimal-ui iOS 7.1 beta2 中新增属性，可以再页面加载时最小化上下状态栏。这是一个布尔值，可以直接这样写：</p>
+
+<pre><code>  &lt;meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui"&gt;
+</code></pre></li>
+</ul>
+
+
+<p>而如果你的网站不是响应式的请不要使用<code>initial-scale</code>或者禁用缩放。</p>
+
+<pre><code>  &lt;meta name="viewport" content="width=device-width,user-scalable=yes"&gt;
+</code></pre>
+
+<p>适配<code>iphone 6</code>和 <code>iphone 6plus</code>则需要写：</p>
+
+<pre><code> &lt;meta name="viewport" content="width=375"&gt;    
+ &lt;meta name="viewport" content="width=414"&gt;
+</code></pre>
+
+<p>大部分 4.7~5 寸的安卓设备的 viewport 宽设为 360px，iPhone 6 上却是 375px，大部分 5.5 寸安卓机器（比如说三星 Note）的 viewport 宽为 400，iPhone 6 plus 上是 414px。</p>
+
+<h3>9. ios 设备</h3>
+
+<p>添加到主屏后的标题（iOS6 新增）</p>
+
+<pre><code>&lt;meta name="apple-mobile-web-app-title" content="标题"&gt; &lt;!-- 添加到主屏后的标题（iOS 6 新增） --&gt;
+</code></pre>
+
+<p>是否启用<code>webApp</code>全屏模式</p>
+
+<pre><code>&lt;meta name="apple-mobile-web-app-capable" content="yes" /&gt; &lt;!-- 是否启用 WebApp 全屏模式 --&gt;
+</code></pre>
+
+<p>设置状态栏的背景色</p>
+
+<pre><code>&lt;meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /&gt; &lt;!-- 设置状态栏的背景颜色，只有在 `"apple-mobile-web-app-capable" content="yes"` 时生效 --&gt;
+</code></pre>
+
+<p>只有在 &ldquo;apple-mobile-web-app-capable&rdquo; content=&ldquo;yes&rdquo; 时生效</p>
+
+<p>content 参数：</p>
+
+<ul>
+<li>default 默认值。</li>
+<li>black 状态栏背景是黑色。</li>
+<li>black-translucent 状态栏背景是黑色半透明。 如果设置为 default 或 black ,网页内容从状态栏底部开始。 如果设置为 black-translucent ,网页内容充满整个屏幕，顶部会被状态栏遮挡。</li>
+</ul>
+
+
+<p>禁止数字自动识别为电话号码：</p>
+
+<pre><code> &lt;meta name="format-detection" content="telephone=no" /&gt; &lt;!-- 禁止数字自动识别为电话号码 --&gt;
+</code></pre>
+
+<h3>10. ios图标</h3>
+
+<p>rel 参数： apple-touch-icon 图片自动处理成圆角和高光等效果。 apple-touch-icon-precomposed 禁止系统自动添加效果，直接显示设计原图。 iPhone 和 iTouch，默认 57x57 像素，必须有：</p>
+
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" href="http://senola.uni.me/apple-touch-icon-57x57-precomposed.png" /&gt; &lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&gt;
+</code></pre>
+
+<p>iPad，72x72 像素，可以没有，但推荐有：</p>
+
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://senola.uni.me/apple-touch-icon-72x72-precomposed.png" /&gt; &lt;!-- iPad，72x72 像素，可以没有，但推荐有 --&gt;
+</code></pre>
+
+<p>Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有：</p>
+
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://senola.uni.me/apple-touch-icon-114x114-precomposed.png" /&gt; &lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&gt;
+</code></pre>
+
+<p>Retina iPad，144x144 像素，可以没有，但推荐有：</p>
+
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://senola.uni.me/apple-touch-icon-144x144-precomposed.png" /&gt; &lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&gt;
+</code></pre>
+
+<p>IOS 图标大小在iPhone 6 plus上是180×180，iPhone 6 是120x120。 适配iPhone 6 plus，则需要在中加上这段：</p>
+
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="180x180" href="retinahd_icon.png"&gt;
+</code></pre>
+
+<h3>11.ios启动画面</h3>
+
+<p>官方文档：<a href="https://developer.apple.com/library/ios/qa/qa1686/_index.html" target="_blank" style="font-size:15px;color:green;font-weight:bold;"> <a href="https://developer.apple.com/library/ios/qa/qa1686/_index.html">https://developer.apple.com/library/ios/qa/qa1686/_index.html</a></a>
+ 参考文章：<a href="http://wxd.ctrip.com/blog/2013/09/ios7-hig-24/" target="_blank" style="font-size:15px;color:green;font-weight:bold;"> <a href="http://wxd.ctrip.com/blog/2013/09/ios7-hig-24/">http://wxd.ctrip.com/blog/2013/09/ios7-hig-24/</a></a></p>
+
+<p>iPad 的启动画面是不包括状态栏区域的。
+iPad 竖屏 768 x 1004（标准分辨率）:</p>
+
+<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="768x1004" href="http://senola.uni.me/splash-screen-768x1004.png" /&gt; &lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&gt;
+</code></pre>
+
+<p>iPad 竖屏 1536x2008（Retina）:</p>
+
+<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="1536x2008" href="http://senola.uni.me/splash-screen-1536x2008.png" /&gt; &lt;!-- iPad 竖屏 1536x2008（Retina） --&gt;
+</code></pre>
+
+<p>iPad 横屏 1024x748（标准分辨率）:</p>
+
+<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="1024x748" href="http://senola.uni.me/Default-Portrait-1024x748.png" /&gt; &lt;!-- iPad 横屏 1024x748（标准分辨率） --&gt;
+</code></pre>
+
+<p>iPad 横屏 2048x1496（Retina）:</p>
+
+<pre><code> &lt;link rel="apple-touch-startup-image" sizes="2048x1496" href="http://senola.uni.me/splash-screen-2048x1496.png" /&gt; &lt;!-- iPad 横屏 2048x1496（Retina） --&gt;
+</code></pre>
+
+<p>iPhone 和 iPod touch 的启动画面是包含状态栏区域的。</p>
+
+<p>iPhone/iPod Touch 竖屏 320x480 (标准分辨率):</p>
+
+<pre><code> &lt;link rel="apple-touch-startup-image" href="http://senola.uni.me/splash-screen-320x480.png" /&gt; &lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&gt;
+</code></pre>
+
+<p>iPhone/iPod Touch 竖屏 640x960 (Retina):</p>
+
+<pre><code>&lt;link rel="apple-touch-startup-image" sizes="640x960" href="http://senola.uni.me/splash-screen-640x960.png" /&gt; &lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&gt;
+</code></pre>
+
+<p>iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina):</p>
+
+<pre><code>&lt;link rel="apple-touch-startup-image" sizes="640x1136" href="http://senola.uni.me/splash-screen-640x1136.png" /&gt; &lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&gt;
+</code></pre>
+
+<p>添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）:</p>
+
+<pre><code>&lt;meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL"&gt; &lt;!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） --&gt;
+</code></pre>
+
+<p>iPhone 6对应的图片大小是750×1294，iPhone 6 Plus 对应的是1242×2148 :</p>
+
+<pre><code> &lt;link rel="apple-touch-startup-image" href="launch6.png" media="(device-width: 375px)"&gt;
+ &lt;link rel="apple-touch-startup-image" href="launch6plus.png" media="(device-width: 414px)"&gt;
+</code></pre>
+
+<h3>12. window 8</h3>
+
+<p>Windows 8 磁贴颜色:</p>
+
+<pre><code>&lt;meta name="msapplication-TileColor" content="#000"/&gt; &lt;!-- Windows 8 磁贴颜色 --&gt; 
+</code></pre>
+
+<p>Windows 8 磁贴图标</p>
+
+<pre><code>&lt;meta name="msapplication-TileImage" content="icon.png"/&gt; &lt;!-- Windows 8 磁贴图标 --&gt;
+</code></pre>
+
+<h3>13 rss 订阅</h3>
+
+<pre><code>&lt;link rel="alternate" type="application/rss+xml" title="RSS" href="http://senola.uni.me/rss.xml" /&gt; &lt;!-- 添加 RSS 订阅 --&gt;
+</code></pre>
+
+<h3>14.favicon icon</h3>
+
+<pre><code>&lt;link rel="shortcut icon" type="image/ico" href="http://senola.uni.me/favicon.ico" /&gt; &lt;!-- 添加 favicon icon --&gt;
+</code></pre>
+
+<p>比较详细的 favicon 介绍可参考<a href="https://github.com/audreyr/favicon-cheat-sheet" target="_blank" style="font-size:15px;color:green;font-weight:bold;"><a href="https://github.com/audreyr/favicon-cheat-sheet">https://github.com/audreyr/favicon-cheat-sheet</a></a></p>
+
+<h3>15.移动端的meta</h3>
+
+<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" /&gt;
+&lt;meta name="apple-mobile-web-app-capable" content="yes" /&gt;
+&lt;meta name="apple-mobile-web-app-status-bar-style" content="black" /&gt;
+&lt;meta name="format-detection"content="telephone=no, email=no" /&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" /&gt;
+&lt;!-- 删除苹果默认的工具栏和菜单栏 --&gt;
+&lt;meta name="apple-mobile-web-app-capable" content="yes" /&gt;
+&lt;!-- 设置苹果工具栏颜色 --&gt;
+&lt;meta name="apple-mobile-web-app-status-bar-style" content="black" /&gt;
+&lt;!-- 忽略页面中的数字识别为电话，忽略email识别 --&gt;
+&lt;meta name="format-detection" content="telphone=no, email=no" /&gt;
+&lt;!-- 启用360浏览器的极速模式(webkit) --&gt;
+&lt;meta name="renderer" content="webkit"&gt;
+&lt;!-- 避免IE使用兼容模式 --&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+&lt;!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 --&gt;
+&lt;meta name="HandheldFriendly" content="true"&gt;
+&lt;!-- 微软的老式浏览器 --&gt;
+&lt;meta name="MobileOptimized" content="320"&gt;
+&lt;!-- uc强制竖屏 --&gt;
+&lt;meta name="screen-orientation" content="portrait"&gt;
+&lt;!-- QQ强制竖屏 --&gt;
+&lt;meta name="x5-orientation" content="portrait"&gt;
+&lt;!-- UC强制全屏 --&gt;
+&lt;meta name="full-screen" content="yes"&gt;
+&lt;!-- QQ强制全屏 --&gt;
+&lt;meta name="x5-fullscreen" content="true"&gt;
+&lt;!-- UC应用模式 --&gt;
+&lt;meta name="browsermode" content="application"&gt;
+&lt;!-- QQ应用模式 --&gt;
+&lt;meta name="x5-page-mode" content="app"&gt;
+&lt;!-- windows phone 点击无高光 --&gt;
+&lt;meta name="msapplication-tap-highlight" content="no"&gt;
+&lt;!-- 适应移动端end --&gt;   
+</code></pre>
+
+<p>参考文章：</p>
+
+<ul>
+<li><a href="https://github.com/yisibl/blog/issues/1" target="_blank" style="font-size:15px;color:green;font-weight:bold;">常用的 HTML 头部标签</a></li>
+<li><a href="https://gist.github.com/paddingme/6182708733917ae36331" target="_blank" style="font-size:15px;color:green;font-weight:bold;">html5_header</a></li>
+<li><a href="http://amazeui.org/css/" target="_blank" style="font-size:15px;color:green;font-weight:bold;">amazeui css</a></li>
+<li><a href="http://www.douban.com/note/170560091/" target="_blank" style="font-size:15px;color:green;font-weight:bold;">DOCTYPE</a></li>
+<li><a href="http://www.uisdc.com/ios8-ten-new-feature" target="_blank" style="font-size:15px;color:green;font-weight:bold;">WEB 工程师和设计师必学的 10 个 IOS 8 新鲜改变</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
