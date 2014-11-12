@@ -9,7 +9,7 @@
   <meta name="author" content="senola">
 
   
-  <meta name="description" content="浏览器到底是咋工作的？ Oct 27th, 2014 |&nbsp; 一、前言 最近工作找的很是捉急，各种碰壁Zz~(～ o ～)~zZ。哎，说到头还是自己知识储备少，不深入。去一家公司面试前端，被问得是哑口无言，“说说浏览器是怎么渲染的？”、“如果要你用原生JS去解析JSON你会怎么做？”、“ &hellip;">
+  <meta name="description" content="HTML Head 头标签 Nov 13th, 2014 |&nbsp; HTML(TyperText Markup language)的head标签、元素有很多，涉及到浏览器对网页的渲染，SEO等。移动互联网时代，head头部结构、移动端的meta元素显得更为重要。 1. DOCTYPE &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,6 +60,70 @@
     <div id="content" style="margin-top:5px;">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/11/13/head-tag/">HTML Head 头标签</a></h1>
+    
+    
+      <p class="meta" style="width:250px">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-11-13T04:41:47+08:00" pubdate data-updated="true">Nov 13<span>th</span>, 2014</time>
+        
+        
+
+        
+          |&nbsp;<a href="/blog/2014/11/13/head-tag/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20141112204147" style="font-size: 14px;color: darkgray;"></span></a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>HTML(TyperText Markup language)的<code>head</code>标签、元素有很多，涉及到浏览器对网页的渲染，SEO等。移动互联网时代，<code>head</code>头部结构、移动端的<code>meta</code>元素显得更为重要。</p>
+
+<h3>1. DOCTYPE</h3>
+
+<p>DOCTYPE(Document Type),该声明位于文档中最前面位置，处于<code>html</code>标签之前。告知浏览器文档使用哪种<code>Html</code>或者<code>XHTML</code>规范。</p>
+
+<p>DTD (Document Type Definition)声明以<code>&lt;!--DOCTYPE--&gt;</code>开始，不区分大小写，前面没有任何内容。如果有其他内容（除空格外）会使浏览器在<code>IE</code>下开启<code>quirks mode</code>模式来渲染完网页。公共<code>DTD</code>，名称格式为注册//组织//类型 标签//语言,注册指组织是否由国际标准化组织(ISO)注册，+表示是，-表示不是。组织即组织名称，如：W3C。类型一般是 DTD。标签是指定公开文本描述，即对所引用的公开文本的唯一描述性名称，后面可附带版本号。最后语言是 DTD 语言的 ISO 639 语言标识符，如：EN 表示英文，ZH 表示中文。XHTML 1.0 可声明三种 DTD 类型。分别表示严格版本，过渡版本，以及基于框架的 HTML 文档。</p>
+
+</div>
+  
+  
+    <footer class="excerpt_link_senola">
+      <a rel="full-article" href="/blog/2014/11/13/head-tag/">阅读全文 >></a>
+    </footer>
+  
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"senola"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+
+</script>
+
+    </article>
   
   
     <article>
@@ -385,80 +449,6 @@ IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/07/13/git-error/">解决 Permission denied(publicKey) 问题</a></h1>
-    
-    
-      <p class="meta" style="width:250px">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-13T09:03:47+08:00" pubdate data-updated="true">Jul 13<span>th</span>, 2014</time>
-        
-        
-
-        
-          |&nbsp;<a href="/blog/2014/07/13/git-error/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20140713090347" style="font-size: 14px;color: darkgray;"></span></a>
-         
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>好几个月没碰过<code>github Pages</code>了，一整就来事儿，花了一下午才搞定。现把问题和解决方法记录下来，以做参考。在用<code>git</code>向<code>github</code>服务器<code>push</code>代码的时候，出现了一下情况：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> Pushing generated _deploy website Permission denied (publickey). fatal: Could not read from remote...</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<p>折腾了一下，终于定位到问题所在了，原因是之前在本地生成<code>github</code>的<code>ssh key</code>失效了，导致<code>github</code>服务器验证提交请求失败，进而拒绝提交代码操作。好了，定位到问题所在就好办了，接下来就是初始化<code>SSH key</code>就行了。</p>
-
-<p>右键&mdash;&ndash;>git bath，在控制台中输入：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  ssh-keygen</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-</div>
-  
-  
-    <footer class="excerpt_link_senola">
-      <a rel="full-article" href="/blog/2014/07/13/git-error/">阅读全文 >></a>
-    </footer>
-  
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">下一页&gt;&gt;</a>
@@ -474,6 +464,10 @@ IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/11/13/head-tag/">HTML head 头标签</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/10/27/how-browsers-work/">浏览器到底是咋工作的？</a>
       </li>
     
@@ -487,10 +481,6 @@ IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 
     
       <li class="post">
         <a href="/blog/2014/07/19/javascript-getrandnum/">javascript获取随机数方法</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/17/get-browser-type/">用javascript判断各浏览器类型及版本</a>
       </li>
     
   </ul>
