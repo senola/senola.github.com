@@ -9,7 +9,7 @@
   <meta name="author" content="senola">
 
   
-  <meta name="description" content="解决 Permission denied(publicKey) 问题 Jul 13th, 2014 |&nbsp; 好几个月没碰过github Pages了，一整就来事儿，花了一下午才搞定。现把问题和解决方法记录下来，以做参考。在用git向github服务器push代码的时候，出现了一下情况： &hellip;">
+  <meta name="description" content="用javascript判断各浏览器类型及版本 Jul 17th, 2014 |&nbsp; 今天要在IE下测试大文件上传插件，发现项目组&#8221;前辈&#8221;们写的判断IE浏览器的的代码不管用了。 navigator.userAgent.toLowerCase().indexOf(" &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -60,6 +60,74 @@
     <div id="content" style="margin-top:5px;">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/07/17/get-browser-type/">用javascript判断各浏览器类型及版本</a></h1>
+    
+    
+      <p class="meta" style="width:250px">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-17T12:40:16+08:00" pubdate data-updated="true">Jul 17<span>th</span>, 2014</time>
+        
+        
+
+        
+          |&nbsp;<a href="/blog/2014/07/17/get-browser-type/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20140717124016" style="font-size: 14px;color: darkgray;"></span></a>
+         
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>今天要在<code>IE</code>下测试大文件上传插件，发现项目组&#8221;前辈&#8221;们写的判断<code>IE</code>浏览器的的代码不管用了。</p>
+
+<pre><code>navigator.userAgent.toLowerCase().indexOf("msie") != -1；
+</code></pre>
+
+<p>调试代码才发现原来<code>IE11</code>下<code>userAgent</code>值的格式与<code>IE10</code>不一样。打印出ie9,ie10,ie11三个版本的浏览器userAgent值，如下所示：</p>
+
+<pre><code>IE9：userAgent:Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)    
+IE10:userAgent:Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)  
+IE11:userAgent:Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E; rv:11.0) like Gecko;
+</code></pre>
+
+</div>
+  
+  
+    <footer class="excerpt_link_senola">
+      <a rel="full-article" href="/blog/2014/07/17/get-browser-type/">阅读全文 >></a>
+    </footer>
+  
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"senola"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+
+</script>
+
+    </article>
   
   
     <article>
@@ -382,61 +450,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title" style="font-size: 30px;"><a href="/blog/2014/02/28/0004/">Git学习</a></h1>
-    
-    
-      <p class="meta" style="width:250px">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-28T06:43:55+08:00" pubdate data-updated="true">Feb 28<span>th</span>, 2014</time>
-        
-        
-
-        
-          |&nbsp;<a href="/blog/2014/02/28/0004/#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="20140227224355" style="font-size: 14px;color: darkgray;"></span></a>
-         
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>每天学一点，每天成长一天。。。<br/>
-git基础知识，没事看看，多看看！！!<br/>
-<a href="/collections/git/git.html" target="_blank" ><strong>git基础</strong></a></p>
-</div>
-  
-  
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">下一页&gt;&gt;</a>
@@ -454,6 +467,10 @@ git基础知识，没事看看，多看看！！!<br/>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/12/23/css-border/">css之border的拓展</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/11/13/head-tag/">HTML head 头标签</a>
       </li>
     
@@ -467,10 +484,6 @@ git基础知识，没事看看，多看看！！!<br/>
     
       <li class="post">
         <a href="/blog/2014/07/19/browser-info/">主流浏览器简介</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/19/javascript-getrandnum/">javascript获取随机数方法</a>
       </li>
     
   </ul>
