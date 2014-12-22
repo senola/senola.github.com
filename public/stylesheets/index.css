@@ -106,6 +106,21 @@ p  img {
   -o-transform: scale(1.4);
   -webkit-transform: scale(1.4);
 }
+@media screen and (max-width:750px) {
+  .con .content {
+    width: 100%;
+  }
+  .con .content .circle.fade {
+    -webkit-transform: scale(0.6);
+       -moz-transform: scale(0.6);
+        -ms-transform: scale(0.6);
+         -o-transform: scale(0.6);
+            transform: scale(0.6);
+  }
+  .con .content .circle li a {
+   font-size: 23px;
+  }
+}
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
