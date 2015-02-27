@@ -358,6 +358,6 @@ css是一个很神奇的东西，只要我们换个角度去思考就会有不�
 </div>
 <div class="border-biohazard"></div> 
 #### <span style="font-style:italic;clear:both;">总结</span>   
-Though it’s true that the simple border: 1px solid black syntax goes a long way, if we’re clever, we can create a variety of helpful effects, icons, and shapes. Who would have thought that borders could be so powerful? The key is to remember that the styling for common shapes or speech bubbles should only be created once, and then abstracted away to utility classes for future usage.
+css 是一个很神奇的东西好好努力！！！
 
 

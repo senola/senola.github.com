@@ -19,16 +19,48 @@ categories: github Octopress git
 > 1. 这里是[RubyInstaller](http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-1.9.3-p484.exe?direct)下载地址。  
 > 1. 这里是[DevKit](http://cloud.github.com/downloads/oneclick/rubyinstaller/DevKit-tdm-32-4.5.2-20111229-1559-sfx.exe)下载地址。  
 
-安装好ruby后，win键+R，输入cmd进入控制台。可以输入`ruby -version`可查看ruby安装的本版信息。接着用CD的命令进入你存放DevKit的目录中，执行以下命令继续安装
+安装好ruby后，win键+R，输入cmd进入控制台。可以输入`ruby -version`可查看ruby安装的本版信息。接着用CD的命令进入你存放DevKit的目录中，DevKit只需解压到一个文件夹:
+
+![devkit.png](http://corey600.github.io/images/20130228/dkiu.jpg)
+
+执行以下命令继续安装:
+
 ```
 ruby dk.rb init       
 ruby dk.rb install
 ```
-![Landing page](https://raw.github.com/hyfather/reynard/master/screenshots/landingpage.png)
+之后会有如下输出：
+
+![devkit-load.png](https://raw.githubusercontent.com/senola/pictures/master/octopress-tutorial/devkit-load.png)
+
+虽然不知道这鸟玩意儿是作甚的，但是不执行的话，后面的`bundle install `是死活安装不了，会出现各种BUG，我试过的，作死！！！
+
+接着`cd`到博客根目录，需要安装所需依赖：
+
+```
+  gem install bundler
+  bundle install
+```
+
+但是，在天朝这个国度，这个是行不通的。没办法，得改变一个软件更细源，邮件-->git bash,输入： 
+
+```
+    gem sources -a http://ruby.taobao.org/
+	gem sources -r http://rubygems.org/
+	gem sources -l
+```
+
+![ociu](http://corey600.github.io/images/20130228/ociu.jpg)
+
+接着，打开Octopress安装目录下的D:\Blog\Gemfile，将第一行的source改成国内淘宝的http://ruby.taobao.org/ 
+
+![ociu3](http://corey600.github.io/images/20130228/ociu3.jpg)
+
+然后上边的依赖就可以正常安装了，TM 卡在这N久了~~
+
 
 ### 三、git 和 github 配置 ###
 1.先注册一个github账号,创建github pages创建一个新的`Repository`。这里须要重视的是，若是想要博客的首页是`http://yourname.github.com`则Repository的`project name`就必须是`yourname.github.com`。
 未完待续...
-
 
 
