@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: html | 潭风]]></title>
-  <link href="http://senola.uni.me/blog/categories/html/atom.xml" rel="self"/>
-  <link href="http://senola.uni.me/"/>
-  <updated>2014-12-22T23:03:01+08:00</updated>
-  <id>http://senola.uni.me/</id>
+  <link href="http://senola.github.io/blog/categories/html/atom.xml" rel="self"/>
+  <link href="http://senola.github.io/"/>
+  <updated>2015-02-27T13:00:17+08:00</updated>
+  <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[HTML head 头标签]]></title>
-    <link href="http://senola.uni.me/blog/2014/11/13/head-tag/"/>
+    <link href="http://senola.github.io/blog/2014/11/13/head-tag/"/>
     <updated>2014-11-13T04:41:47+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/11/13/head-tag</id>
+    <id>http://senola.github.io/blog/2014/11/13/head-tag</id>
     <content type="html"><![CDATA[<p>HTML(TyperText Markup language)的<code>head</code>标签、元素有很多，涉及到浏览器对网页的渲染，SEO等。移动互联网时代，<code>head</code>头部结构、移动端的<code>meta</code>元素显得更为重要。</p>
 
 <h3>1. DOCTYPE</h3>
@@ -219,22 +219,22 @@
 
 <p>rel 参数： apple-touch-icon 图片自动处理成圆角和高光等效果。 apple-touch-icon-precomposed 禁止系统自动添加效果，直接显示设计原图。 iPhone 和 iTouch，默认 57x57 像素，必须有：</p>
 
-<pre><code>&lt;link rel="apple-touch-icon-precomposed" href="http://senola.uni.me/apple-touch-icon-57x57-precomposed.png" /&gt; &lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&gt;
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" href="http://senola.github.io/apple-touch-icon-57x57-precomposed.png" /&gt; &lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&gt;
 </code></pre>
 
 <p>iPad，72x72 像素，可以没有，但推荐有：</p>
 
-<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://senola.uni.me/apple-touch-icon-72x72-precomposed.png" /&gt; &lt;!-- iPad，72x72 像素，可以没有，但推荐有 --&gt;
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://senola.github.io/apple-touch-icon-72x72-precomposed.png" /&gt; &lt;!-- iPad，72x72 像素，可以没有，但推荐有 --&gt;
 </code></pre>
 
 <p>Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有：</p>
 
-<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://senola.uni.me/apple-touch-icon-114x114-precomposed.png" /&gt; &lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&gt;
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://senola.github.io/apple-touch-icon-114x114-precomposed.png" /&gt; &lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&gt;
 </code></pre>
 
 <p>Retina iPad，144x144 像素，可以没有，但推荐有：</p>
 
-<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://senola.uni.me/apple-touch-icon-144x144-precomposed.png" /&gt; &lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&gt;
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://senola.github.io/apple-touch-icon-144x144-precomposed.png" /&gt; &lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&gt;
 </code></pre>
 
 <p>IOS 图标大小在iPhone 6 plus上是180×180，iPhone 6 是120x120。 适配iPhone 6 plus，则需要在中加上这段：</p>
@@ -250,39 +250,39 @@
 <p>iPad 的启动画面是不包括状态栏区域的。
 iPad 竖屏 768 x 1004（标准分辨率）:</p>
 
-<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="768x1004" href="http://senola.uni.me/splash-screen-768x1004.png" /&gt; &lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&gt;
+<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="768x1004" href="http://senola.github.io/splash-screen-768x1004.png" /&gt; &lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&gt;
 </code></pre>
 
 <p>iPad 竖屏 1536x2008（Retina）:</p>
 
-<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="1536x2008" href="http://senola.uni.me/splash-screen-1536x2008.png" /&gt; &lt;!-- iPad 竖屏 1536x2008（Retina） --&gt;
+<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="1536x2008" href="http://senola.github.io/splash-screen-1536x2008.png" /&gt; &lt;!-- iPad 竖屏 1536x2008（Retina） --&gt;
 </code></pre>
 
 <p>iPad 横屏 1024x748（标准分辨率）:</p>
 
-<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="1024x748" href="http://senola.uni.me/Default-Portrait-1024x748.png" /&gt; &lt;!-- iPad 横屏 1024x748（标准分辨率） --&gt;
+<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="1024x748" href="http://senola.github.io/Default-Portrait-1024x748.png" /&gt; &lt;!-- iPad 横屏 1024x748（标准分辨率） --&gt;
 </code></pre>
 
 <p>iPad 横屏 2048x1496（Retina）:</p>
 
-<pre><code> &lt;link rel="apple-touch-startup-image" sizes="2048x1496" href="http://senola.uni.me/splash-screen-2048x1496.png" /&gt; &lt;!-- iPad 横屏 2048x1496（Retina） --&gt;
+<pre><code> &lt;link rel="apple-touch-startup-image" sizes="2048x1496" href="http://senola.github.io/splash-screen-2048x1496.png" /&gt; &lt;!-- iPad 横屏 2048x1496（Retina） --&gt;
 </code></pre>
 
 <p>iPhone 和 iPod touch 的启动画面是包含状态栏区域的。</p>
 
 <p>iPhone/iPod Touch 竖屏 320x480 (标准分辨率):</p>
 
-<pre><code> &lt;link rel="apple-touch-startup-image" href="http://senola.uni.me/splash-screen-320x480.png" /&gt; &lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&gt;
+<pre><code> &lt;link rel="apple-touch-startup-image" href="http://senola.github.io/splash-screen-320x480.png" /&gt; &lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&gt;
 </code></pre>
 
 <p>iPhone/iPod Touch 竖屏 640x960 (Retina):</p>
 
-<pre><code>&lt;link rel="apple-touch-startup-image" sizes="640x960" href="http://senola.uni.me/splash-screen-640x960.png" /&gt; &lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&gt;
+<pre><code>&lt;link rel="apple-touch-startup-image" sizes="640x960" href="http://senola.github.io/splash-screen-640x960.png" /&gt; &lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&gt;
 </code></pre>
 
 <p>iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina):</p>
 
-<pre><code>&lt;link rel="apple-touch-startup-image" sizes="640x1136" href="http://senola.uni.me/splash-screen-640x1136.png" /&gt; &lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&gt;
+<pre><code>&lt;link rel="apple-touch-startup-image" sizes="640x1136" href="http://senola.github.io/splash-screen-640x1136.png" /&gt; &lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&gt;
 </code></pre>
 
 <p>添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）:</p>
@@ -310,12 +310,12 @@ iPad 竖屏 768 x 1004（标准分辨率）:</p>
 
 <h3>13 rss 订阅</h3>
 
-<pre><code>&lt;link rel="alternate" type="application/rss+xml" title="RSS" href="http://senola.uni.me/rss.xml" /&gt; &lt;!-- 添加 RSS 订阅 --&gt;
+<pre><code>&lt;link rel="alternate" type="application/rss+xml" title="RSS" href="http://senola.github.io/rss.xml" /&gt; &lt;!-- 添加 RSS 订阅 --&gt;
 </code></pre>
 
 <h3>14.favicon icon</h3>
 
-<pre><code>&lt;link rel="shortcut icon" type="image/ico" href="http://senola.uni.me/favicon.ico" /&gt; &lt;!-- 添加 favicon icon --&gt;
+<pre><code>&lt;link rel="shortcut icon" type="image/ico" href="http://senola.github.io/favicon.ico" /&gt; &lt;!-- 添加 favicon icon --&gt;
 </code></pre>
 
 <p>比较详细的 favicon 介绍可参考<a href="https://github.com/audreyr/favicon-cheat-sheet" target="_blank" style="font-size:15px;color:green;font-weight:bold;"><a href="https://github.com/audreyr/favicon-cheat-sheet">https://github.com/audreyr/favicon-cheat-sheet</a></a></p>

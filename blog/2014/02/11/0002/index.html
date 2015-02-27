@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://senola.uni.me/blog/2014/02/11/0002/">
+  <link rel="canonical" href="http://senola.github.io/blog/2014/02/11/0002/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/stylesheets/senola.css" rel="stylesheet" type="text/css">
@@ -27,11 +27,47 @@
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/senolablog.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
+ 
+  
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"senola"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+       || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+  <!-- 多说公共JS代码 end -->
+  
+  <!--google_analytics-->
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-60141994-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts 
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+-->
   <link href="/atom.xml" rel="alternate" title="潭风" type="application/atom+xml">
+
 </head>
 
 <body   >
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <nav role="navigation">    <ul class="subscription" data-subscription="rss">
   <li><a href="javascript:searchkeys()"  title="search">搜索</a></li>
   
 </ul>
@@ -108,7 +144,11 @@
 </ol>
 </blockquote>
 
-<p>安装好ruby后，win键+R，输入cmd进入控制台。可以输入<code>ruby -version</code>可查看ruby安装的本版信息。接着用CD的命令进入你存放DevKit的目录中，执行以下命令继续安装</p>
+<p>安装好ruby后，win键+R，输入cmd进入控制台。可以输入<code>ruby -version</code>可查看ruby安装的本版信息。接着用CD的命令进入你存放DevKit的目录中，DevKit只需解压到一个文件夹:</p>
+
+<p><img src="http://corey600.github.io/images/20130228/dkiu.jpg" alt="devkit.png" /></p>
+
+<p>执行以下命令继续安装:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -116,7 +156,37 @@
 </span><span class='line'>ruby dk.rb install</span></code></pre></td></tr></table></div></figure>
 
 
-<p><img src="https://raw.github.com/hyfather/reynard/master/screenshots/landingpage.png" alt="Landing page" /></p>
+<p>之后会有如下输出：</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/octopress-tutorial/devkit-load.png" alt="devkit-load.png" /></p>
+
+<p>虽然不知道这鸟玩意儿是作甚的，但是不执行的话，后面的<code>bundle install</code>是死活安装不了，会出现各种BUG，我试过的，作死！！！</p>
+
+<p>接着<code>cd</code>到博客根目录，需要安装所需依赖：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  gem install bundler
+</span><span class='line'>  bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但是，在天朝这个国度，这个是行不通的。没办法，得改变一个软件更细源，邮件&mdash;>git bash,输入：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem sources -a http://ruby.taobao.org/
+</span><span class='line'>gem sources -r http://rubygems.org/
+</span><span class='line'>gem sources -l</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://corey600.github.io/images/20130228/ociu.jpg" alt="ociu" /></p>
+
+<p>接着，打开Octopress安装目录下的D:\Blog\Gemfile，将第一行的source改成国内淘宝的<a href="http://ruby.taobao.org/">http://ruby.taobao.org/</a></p>
+
+<p><img src="http://corey600.github.io/images/20130228/ociu3.jpg" alt="ociu3" /></p>
+
+<p>然后上边的依赖就可以正常安装了，TM 卡在这N久了~~</p>
 
 <h3>三、git 和 github 配置</h3>
 
@@ -199,21 +269,9 @@ $(document).ready(function(){
 
   <section>
     <h1>文章评论</h1>
-    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread" data-thread-key="20140210220056" data-title="在github上用Octopress搭建博客的方法" data-count-type="comments"></div>
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
-<!-- Duoshuo Comment END --></div>
+    <div id="comments" aria-live="polite"><!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="/blog/2014/02/11/0002" data-title="在github上用Octopress搭建博客的方法" data-url="http://senola.github.io/blog/2014/02/11/0002/"></div>
+<!-- 多说评论框 end --></div>
   </section>
 
 
@@ -268,7 +326,7 @@ $(document).ready(function(){
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - senola -
+  Copyright &copy; 2015 - senola -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

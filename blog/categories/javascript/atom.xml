@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: javascript | 潭风]]></title>
-  <link href="http://senola.uni.me/blog/categories/javascript/atom.xml" rel="self"/>
-  <link href="http://senola.uni.me/"/>
-  <updated>2014-12-22T23:03:01+08:00</updated>
-  <id>http://senola.uni.me/</id>
+  <link href="http://senola.github.io/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://senola.github.io/"/>
+  <updated>2015-02-27T13:00:17+08:00</updated>
+  <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[浅谈javascript 中undefined、null 和 NaN，call()和apply()的区别]]></title>
-    <link href="http://senola.uni.me/blog/2014/09/13/javascript-study-140912/"/>
+    <link href="http://senola.github.io/blog/2014/09/13/javascript-study-140912/"/>
     <updated>2014-09-13T02:34:12+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/09/13/javascript-study-140912</id>
+    <id>http://senola.github.io/blog/2014/09/13/javascript-study-140912</id>
     <content type="html"><![CDATA[<h3>一、undefined、null 和 NaN</h3>
 
 <h4>1.类型区别</h4>
@@ -168,9 +168,9 @@ if(typeof(test) == "undefined") {
   
   <entry>
     <title type="html"><![CDATA[javascript获取随机数方法]]></title>
-    <link href="http://senola.uni.me/blog/2014/07/19/javascript-getrandnum/"/>
+    <link href="http://senola.github.io/blog/2014/07/19/javascript-getrandnum/"/>
     <updated>2014-07-19T10:47:19+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/07/19/javascript-getrandnum</id>
+    <id>http://senola.github.io/blog/2014/07/19/javascript-getrandnum</id>
     <content type="html"><![CDATA[<p>研究了一下<code>javascript</code>关于随机数的生成，整理如下。</p>
 
 <p>要输出随机数则须用到<code>javascript</code>的一个方法&mdash;<code>random()</code>，<code>random()</code>方法属于<code>Math</code>对象。在<code>javascript</code>中，<code>Math</code>对象用于执行数学任务，如：</p>
@@ -300,9 +300,9 @@ console.log("时间戳随机数：" + timestamp_num);
   
   <entry>
     <title type="html"><![CDATA[用javascript判断各浏览器类型及版本]]></title>
-    <link href="http://senola.uni.me/blog/2014/07/17/get-browser-type/"/>
+    <link href="http://senola.github.io/blog/2014/07/17/get-browser-type/"/>
     <updated>2014-07-17T12:40:16+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/07/17/get-browser-type</id>
+    <id>http://senola.github.io/blog/2014/07/17/get-browser-type</id>
     <content type="html"><![CDATA[<p>今天要在<code>IE</code>下测试大文件上传插件，发现项目组"前辈"们写的判断<code>IE</code>浏览器的的代码不管用了。</p>
 
 <pre><code>navigator.userAgent.toLowerCase().indexOf("msie") != -1；
@@ -403,7 +403,7 @@ Mozilla/5.0 (iPhone; U; CPU like Mac OS X) AppleWebKit/420.1 (KHTML, like Gecko)
 &lt;/script&gt;
 </code></pre>
 
-<p>往这儿瞧瞧&mdash;>: <a href="http://senola.uni.me/collections/javascript/getBrowserType/getBrowserType.html" target="_blank" style="color:green;font-weight:bold;">测试地址</a></p>
+<p>往这儿瞧瞧&mdash;>: <a href="http://senola.github.io/collections/javascript/getBrowserType/getBrowserType.html" target="_blank" style="color:green;font-weight:bold;">测试地址</a></p>
 
 <h3>总结：</h3>
 
@@ -415,9 +415,9 @@ Mozilla/5.0 (iPhone; U; CPU like Mac OS X) AppleWebKit/420.1 (KHTML, like Gecko)
   
   <entry>
     <title type="html"><![CDATA[AngularJS 学习之旅（一）]]></title>
-    <link href="http://senola.uni.me/blog/2014/04/07/20140406/"/>
+    <link href="http://senola.github.io/blog/2014/04/07/20140406/"/>
     <updated>2014-04-07T01:41:40+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/04/07/20140406</id>
+    <id>http://senola.github.io/blog/2014/04/07/20140406</id>
     <content type="html"><![CDATA[<p><strong>前言</strong>：出来工作也快一年了，给我的感觉是学到的新东西并不是很多。不过，最近由于云盘前端需要重新改版，部门请来了一位前端大牛压阵。所以有幸认识了<code>AngularJS</code>，跟着大牛的脚步走进<code>AngularJS</code>的世界痛并快乐着&hellip;.</p>
 
 <h2>一、简介</h2>

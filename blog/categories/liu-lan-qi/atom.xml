@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 浏览器 | 潭风]]></title>
-  <link href="http://senola.uni.me/blog/categories/liu-lan-qi/atom.xml" rel="self"/>
-  <link href="http://senola.uni.me/"/>
-  <updated>2014-12-22T23:03:01+08:00</updated>
-  <id>http://senola.uni.me/</id>
+  <link href="http://senola.github.io/blog/categories/liu-lan-qi/atom.xml" rel="self"/>
+  <link href="http://senola.github.io/"/>
+  <updated>2015-02-27T13:00:17+08:00</updated>
+  <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[浏览器到底是咋工作的？]]></title>
-    <link href="http://senola.uni.me/blog/2014/10/27/how-browsers-work/"/>
+    <link href="http://senola.github.io/blog/2014/10/27/how-browsers-work/"/>
     <updated>2014-10-27T23:17:27+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/10/27/how-browsers-work</id>
+    <id>http://senola.github.io/blog/2014/10/27/how-browsers-work</id>
     <content type="html"><![CDATA[<h3>一、前言</h3>
 
 <p>最近工作找的很是捉急，各种碰壁<code>Zz~(～ o ～)~zZ</code>。哎，说到头还是自己知识储备少，不深入。去一家公司面试前端，被问得是哑口无言，“说说浏览器是怎么渲染的？”、“如果要你用原生JS去解析JSON你会怎么做？”、“有自己的JS库吗？”。。。我<code>TM</code>怎么知道浏览器是如何渲染的，TM这是多高端的东西。劳资也只是刚出道一年，也就会写写页面、改改样式。<code>TM</code>我怎么知道如何去写原生的<code>JSON</code>解析，<code>javascript</code>不是有封装好的<code>JSON</code>解析<code>API</code>,鬼才会去想怎么实现啊，就面试那几分钟你能给个方案？。<!--more--><code>TM</code>我就不信我不会这些会影响工作。。</p>
@@ -166,9 +166,9 @@
   
   <entry>
     <title type="html"><![CDATA[主流浏览器简介]]></title>
-    <link href="http://senola.uni.me/blog/2014/07/19/browser-info/"/>
+    <link href="http://senola.github.io/blog/2014/07/19/browser-info/"/>
     <updated>2014-07-19T13:45:23+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/07/19/browser-info</id>
+    <id>http://senola.github.io/blog/2014/07/19/browser-info</id>
     <content type="html"><![CDATA[<p>对一个web开发者来说，浏览器信息和统计数据是非常重要的。熟知他们才能更好的运用他们。</p>
 
 <p>浏览器是指可以显示网页服务器或者文件系统的<code>HTML</code>内容，并让用户与这些文件交互的一种人间。网页浏览器主要通过<code>HTTP</code>协议也网页服务器交互并湖区网页，这些网页由<code>URL</code>制定，文件格式通常为<code>HTML</code>，并由<code>MIME</code>在<code>HTTP</code>协议中指明。常见的网页浏览器有：微软的<code>Internet Explorer</code>、Mozilla的<code>FireFox</code>、<code>Apple</code>的<code>Safari</code>,<code>Opera</code>、<code>Google Chrome</code>等。</p>

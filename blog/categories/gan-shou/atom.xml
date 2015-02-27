@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 感受 | 潭风]]></title>
-  <link href="http://senola.uni.me/blog/categories/gan-shou/atom.xml" rel="self"/>
-  <link href="http://senola.uni.me/"/>
-  <updated>2014-12-22T23:03:01+08:00</updated>
-  <id>http://senola.uni.me/</id>
+  <link href="http://senola.github.io/blog/categories/gan-shou/atom.xml" rel="self"/>
+  <link href="http://senola.github.io/"/>
+  <updated>2015-02-27T13:00:17+08:00</updated>
+  <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[迷路]]></title>
-    <link href="http://senola.uni.me/blog/2014/02/24/0003/"/>
+    <link href="http://senola.github.io/blog/2014/02/24/0003/"/>
     <updated>2014-02-24T04:57:44+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/02/24/0003</id>
+    <id>http://senola.github.io/blog/2014/02/24/0003</id>
     <content type="html"><![CDATA[<p>今天，又迷路了&hellip;</p>
 
 <p>为什么说“又”呢，哎!也许是命中注定，打小时候咱的方向感就几乎为零，也就是走着走着就回丢掉的那种。这也是我为什么选择学理科的原因之一，哎~</p>

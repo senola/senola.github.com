@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 问题，方法 | 潭风]]></title>
-  <link href="http://senola.uni.me/blog/categories/wen-ti-,fang-fa/atom.xml" rel="self"/>
-  <link href="http://senola.uni.me/"/>
-  <updated>2014-12-22T23:03:01+08:00</updated>
-  <id>http://senola.uni.me/</id>
+  <link href="http://senola.github.io/blog/categories/wen-ti-,fang-fa/atom.xml" rel="self"/>
+  <link href="http://senola.github.io/"/>
+  <updated>2015-02-27T13:00:17+08:00</updated>
+  <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[解决 Permission denied(publicKey) 问题]]></title>
-    <link href="http://senola.uni.me/blog/2014/07/13/git-error/"/>
+    <link href="http://senola.github.io/blog/2014/07/13/git-error/"/>
     <updated>2014-07-13T09:03:47+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/07/13/git-error</id>
+    <id>http://senola.github.io/blog/2014/07/13/git-error</id>
     <content type="html"><![CDATA[<p>好几个月没碰过<code>github Pages</code>了，一整就来事儿，花了一下午才搞定。现把问题和解决方法记录下来，以做参考。在用<code>git</code>向<code>github</code>服务器<code>push</code>代码的时候，出现了一下情况：</p>
 
 <p><code>

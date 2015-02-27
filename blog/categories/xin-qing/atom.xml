@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 心情 | 潭风]]></title>
-  <link href="http://senola.uni.me/blog/categories/xin-qing/atom.xml" rel="self"/>
-  <link href="http://senola.uni.me/"/>
-  <updated>2014-12-22T23:03:01+08:00</updated>
-  <id>http://senola.uni.me/</id>
+  <link href="http://senola.github.io/blog/categories/xin-qing/atom.xml" rel="self"/>
+  <link href="http://senola.github.io/"/>
+  <updated>2015-02-27T13:00:17+08:00</updated>
+  <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[猿形]]></title>
-    <link href="http://senola.uni.me/blog/2014/03/11/0005/"/>
+    <link href="http://senola.github.io/blog/2014/03/11/0005/"/>
     <updated>2014-03-11T06:54:11+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/03/11/0005</id>
+    <id>http://senola.github.io/blog/2014/03/11/0005</id>
     <content type="html"><![CDATA[<p>码农，就是一群整天敲着代码的农民，人们称之为“程序猿”。</p>
 
 <p>三月份，码农们也开始忙碌了。</p>
@@ -37,15 +37,15 @@
 
 <p>现在，他正处于迷茫期，</p>
 
-<p><a href="http://senola.uni.me/collections/mywords/20140310.html" target="_blank">何时才能进化，猿儿甚是烦心！</a></p>
+<p><a href="http://senola.github.io/collections/mywords/20140310.html" target="_blank">何时才能进化，猿儿甚是烦心！</a></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[迷路]]></title>
-    <link href="http://senola.uni.me/blog/2014/02/24/0003/"/>
+    <link href="http://senola.github.io/blog/2014/02/24/0003/"/>
     <updated>2014-02-24T04:57:44+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/02/24/0003</id>
+    <id>http://senola.github.io/blog/2014/02/24/0003</id>
     <content type="html"><![CDATA[<p>今天，又迷路了&hellip;</p>
 
 <p>为什么说“又”呢，哎!也许是命中注定，打小时候咱的方向感就几乎为零，也就是走着走着就回丢掉的那种。这也是我为什么选择学理科的原因之一，哎~</p>
@@ -90,9 +90,9 @@
   
   <entry>
     <title type="html"><![CDATA[这一天]]></title>
-    <link href="http://senola.uni.me/blog/2014/02/10/0001/"/>
+    <link href="http://senola.github.io/blog/2014/02/10/0001/"/>
     <updated>2014-02-10T01:50:34+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/02/10/0001</id>
+    <id>http://senola.github.io/blog/2014/02/10/0001</id>
     <content type="html"><![CDATA[<p>很无奈的说，整了一天<code>github pages</code>和<code>Octopress</code>也才整成这样，十分感叹自己的能力。不过却也有一些收获：比如我终于搭建了一个博客，了解了如何搭建个人博客的过程。总的说今天收获蛮大啊！给自个一个赞O(∩_∩)O~<br/>
 <code>
 1. 人有两条路要走，一条是必须走的，一条是想走的，你必须把必须走的路走漂亮，才可以走想走的路。  

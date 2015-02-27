@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: 插件 | 潭风]]></title>
-  <link href="http://senola.uni.me/blog/categories/cha-jian/atom.xml" rel="self"/>
-  <link href="http://senola.uni.me/"/>
-  <updated>2014-12-22T23:03:01+08:00</updated>
-  <id>http://senola.uni.me/</id>
+  <link href="http://senola.github.io/blog/categories/cha-jian/atom.xml" rel="self"/>
+  <link href="http://senola.github.io/"/>
+  <updated>2015-02-27T13:00:17+08:00</updated>
+  <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[上传插件之----Web Uploader]]></title>
-    <link href="http://senola.uni.me/blog/2014/04/28/webupload/"/>
+    <link href="http://senola.github.io/blog/2014/04/28/webupload/"/>
     <updated>2014-04-28T23:22:45+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/04/28/webupload</id>
+    <id>http://senola.github.io/blog/2014/04/28/webupload</id>
     <content type="html"><![CDATA[<p>最近云盘要大改版，前端采用了谷歌的<code>AngularJS</code>框架。大改嘛，之前云盘用插件要换的也都要换。飞哥说插件可以用但是却不能乱用，尤其是将其用于商业领域的，必须慎重加慎重，首先选选择的插件得符合相关的开原协议（如上篇），因滥用别的插件而上法庭的例子举不胜数。作为小菜的我一直都以够用，管用，好用的心态去用这些插件的，什么开原协议啊，什么版权啊之类的，不懂~大神告诉我，这个很重要，因为一旦被查出，后果很严重。。。飞哥推荐使用以<code>MIT</code>开源协议发布的<code>Web Uploader</code>作为上传插件。研究了它几天，苦恼，痛苦，桑心&hellip;</p>
 
 <!-- more -->

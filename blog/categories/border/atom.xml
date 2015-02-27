@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: border | 潭风]]></title>
-  <link href="http://senola.uni.me/blog/categories/border/atom.xml" rel="self"/>
-  <link href="http://senola.uni.me/"/>
-  <updated>2014-12-22T23:03:01+08:00</updated>
-  <id>http://senola.uni.me/</id>
+  <link href="http://senola.github.io/blog/categories/border/atom.xml" rel="self"/>
+  <link href="http://senola.github.io/"/>
+  <updated>2015-02-27T13:00:17+08:00</updated>
+  <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[css之border的拓展]]></title>
-    <link href="http://senola.uni.me/blog/2014/12/23/css-border/"/>
+    <link href="http://senola.github.io/blog/2014/12/23/css-border/"/>
     <updated>2014-12-23T06:16:06+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/12/23/css-border</id>
+    <id>http://senola.github.io/blog/2014/12/23/css-border</id>
     <content type="html"><![CDATA[<p>关于css的border属性相信大家已经熟悉的不能再熟悉了。那么是不是这就意味border没有什么可以探究了呢？ <span style="font-style:italic;font-weight:bold;color:green;">now,let learn something that we never konew about!</span></p>
 
 <p>我们知道CSS3可以很简单地创建圆角，而CSS2要实现圆角效果就复杂多了。在这些新技术未出现之前，我们可以通过使用绝对定位背景图片来显示圆或箭头，这就意味着需要另外的图片处理工具（如photoshop）配合使用。其实，如今显示圆或者圆角已不再需要其他背景图片了。<!--more--></p>
@@ -435,7 +435,7 @@ css是一个很神奇的东西，只要我们换个角度去思考就会有不�
 
 <h4><span style="font-style:italic;clear:both;">总结</span></h4>
 
-<p>Though it’s true that the simple border: 1px solid black syntax goes a long way, if we’re clever, we can create a variety of helpful effects, icons, and shapes. Who would have thought that borders could be so powerful? The key is to remember that the styling for common shapes or speech bubbles should only be created once, and then abstracted away to utility classes for future usage.</p>
+<p>css 是一个很神奇的东西好好努力！！！</p>
 ]]></content>
   </entry>
   

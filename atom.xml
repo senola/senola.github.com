@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[潭风]]></title>
-  <link href="http://senola.uni.me/atom.xml" rel="self"/>
-  <link href="http://senola.uni.me/"/>
-  <updated>2014-12-22T23:03:01+08:00</updated>
-  <id>http://senola.uni.me/</id>
+  <link href="http://senola.github.io/atom.xml" rel="self"/>
+  <link href="http://senola.github.io/"/>
+  <updated>2015-02-27T13:00:17+08:00</updated>
+  <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[css之border的拓展]]></title>
-    <link href="http://senola.uni.me/blog/2014/12/23/css-border/"/>
+    <link href="http://senola.github.io/blog/2014/12/23/css-border/"/>
     <updated>2014-12-23T06:16:06+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/12/23/css-border</id>
+    <id>http://senola.github.io/blog/2014/12/23/css-border</id>
     <content type="html"><![CDATA[<p>关于css的border属性相信大家已经熟悉的不能再熟悉了。那么是不是这就意味border没有什么可以探究了呢？ <span style="font-style:italic;font-weight:bold;color:green;">now,let learn something that we never konew about!</span></p>
 
 <p>我们知道CSS3可以很简单地创建圆角，而CSS2要实现圆角效果就复杂多了。在这些新技术未出现之前，我们可以通过使用绝对定位背景图片来显示圆或箭头，这就意味着需要另外的图片处理工具（如photoshop）配合使用。其实，如今显示圆或者圆角已不再需要其他背景图片了。<!--more--></p>
@@ -511,15 +511,15 @@
 
 <h4><span style="font-style:italic;clear:both;">总结</span></h4>
 
-<p>Though it’s true that the simple border: 1px solid black syntax goes a long way, if we’re clever, we can create a variety of helpful effects, icons, and shapes. Who would have thought that borders could be so powerful? The key is to remember that the styling for common shapes or speech bubbles should only be created once, and then abstracted away to utility classes for future usage.</p>
+<p>css 是一个很神奇的东西好好努力！！！</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[HTML head 头标签]]></title>
-    <link href="http://senola.uni.me/blog/2014/11/13/head-tag/"/>
+    <link href="http://senola.github.io/blog/2014/11/13/head-tag/"/>
     <updated>2014-11-13T04:41:47+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/11/13/head-tag</id>
+    <id>http://senola.github.io/blog/2014/11/13/head-tag</id>
     <content type="html"><![CDATA[<p>HTML(TyperText Markup language)的<code>head</code>标签、元素有很多，涉及到浏览器对网页的渲染，SEO等。移动互联网时代，<code>head</code>头部结构、移动端的<code>meta</code>元素显得更为重要。</p>
 
 <h3>1. DOCTYPE</h3>
@@ -721,22 +721,22 @@
 
 <p>rel 参数： apple-touch-icon 图片自动处理成圆角和高光等效果。 apple-touch-icon-precomposed 禁止系统自动添加效果，直接显示设计原图。 iPhone 和 iTouch，默认 57x57 像素，必须有：</p>
 
-<pre><code>&lt;link rel="apple-touch-icon-precomposed" href="http://senola.uni.me/apple-touch-icon-57x57-precomposed.png" /&gt; &lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&gt;
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" href="http://senola.github.io/apple-touch-icon-57x57-precomposed.png" /&gt; &lt;!-- iPhone 和 iTouch，默认 57x57 像素，必须有 --&gt;
 </code></pre>
 
 <p>iPad，72x72 像素，可以没有，但推荐有：</p>
 
-<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://senola.uni.me/apple-touch-icon-72x72-precomposed.png" /&gt; &lt;!-- iPad，72x72 像素，可以没有，但推荐有 --&gt;
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://senola.github.io/apple-touch-icon-72x72-precomposed.png" /&gt; &lt;!-- iPad，72x72 像素，可以没有，但推荐有 --&gt;
 </code></pre>
 
 <p>Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有：</p>
 
-<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://senola.uni.me/apple-touch-icon-114x114-precomposed.png" /&gt; &lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&gt;
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://senola.github.io/apple-touch-icon-114x114-precomposed.png" /&gt; &lt;!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 --&gt;
 </code></pre>
 
 <p>Retina iPad，144x144 像素，可以没有，但推荐有：</p>
 
-<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://senola.uni.me/apple-touch-icon-144x144-precomposed.png" /&gt; &lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&gt;
+<pre><code>&lt;link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://senola.github.io/apple-touch-icon-144x144-precomposed.png" /&gt; &lt;!-- Retina iPad，144x144 像素，可以没有，但推荐有 --&gt;
 </code></pre>
 
 <p>IOS 图标大小在iPhone 6 plus上是180×180，iPhone 6 是120x120。 适配iPhone 6 plus，则需要在中加上这段：</p>
@@ -752,39 +752,39 @@
 <p>iPad 的启动画面是不包括状态栏区域的。
 iPad 竖屏 768 x 1004（标准分辨率）:</p>
 
-<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="768x1004" href="http://senola.uni.me/splash-screen-768x1004.png" /&gt; &lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&gt;
+<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="768x1004" href="http://senola.github.io/splash-screen-768x1004.png" /&gt; &lt;!-- iPad 竖屏 768 x 1004（标准分辨率） --&gt;
 </code></pre>
 
 <p>iPad 竖屏 1536x2008（Retina）:</p>
 
-<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="1536x2008" href="http://senola.uni.me/splash-screen-1536x2008.png" /&gt; &lt;!-- iPad 竖屏 1536x2008（Retina） --&gt;
+<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="1536x2008" href="http://senola.github.io/splash-screen-1536x2008.png" /&gt; &lt;!-- iPad 竖屏 1536x2008（Retina） --&gt;
 </code></pre>
 
 <p>iPad 横屏 1024x748（标准分辨率）:</p>
 
-<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="1024x748" href="http://senola.uni.me/Default-Portrait-1024x748.png" /&gt; &lt;!-- iPad 横屏 1024x748（标准分辨率） --&gt;
+<pre><code>  &lt;link rel="apple-touch-startup-image" sizes="1024x748" href="http://senola.github.io/Default-Portrait-1024x748.png" /&gt; &lt;!-- iPad 横屏 1024x748（标准分辨率） --&gt;
 </code></pre>
 
 <p>iPad 横屏 2048x1496（Retina）:</p>
 
-<pre><code> &lt;link rel="apple-touch-startup-image" sizes="2048x1496" href="http://senola.uni.me/splash-screen-2048x1496.png" /&gt; &lt;!-- iPad 横屏 2048x1496（Retina） --&gt;
+<pre><code> &lt;link rel="apple-touch-startup-image" sizes="2048x1496" href="http://senola.github.io/splash-screen-2048x1496.png" /&gt; &lt;!-- iPad 横屏 2048x1496（Retina） --&gt;
 </code></pre>
 
 <p>iPhone 和 iPod touch 的启动画面是包含状态栏区域的。</p>
 
 <p>iPhone/iPod Touch 竖屏 320x480 (标准分辨率):</p>
 
-<pre><code> &lt;link rel="apple-touch-startup-image" href="http://senola.uni.me/splash-screen-320x480.png" /&gt; &lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&gt;
+<pre><code> &lt;link rel="apple-touch-startup-image" href="http://senola.github.io/splash-screen-320x480.png" /&gt; &lt;!-- iPhone/iPod Touch 竖屏 320x480 (标准分辨率) --&gt;
 </code></pre>
 
 <p>iPhone/iPod Touch 竖屏 640x960 (Retina):</p>
 
-<pre><code>&lt;link rel="apple-touch-startup-image" sizes="640x960" href="http://senola.uni.me/splash-screen-640x960.png" /&gt; &lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&gt;
+<pre><code>&lt;link rel="apple-touch-startup-image" sizes="640x960" href="http://senola.github.io/splash-screen-640x960.png" /&gt; &lt;!-- iPhone/iPod Touch 竖屏 640x960 (Retina) --&gt;
 </code></pre>
 
 <p>iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina):</p>
 
-<pre><code>&lt;link rel="apple-touch-startup-image" sizes="640x1136" href="http://senola.uni.me/splash-screen-640x1136.png" /&gt; &lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&gt;
+<pre><code>&lt;link rel="apple-touch-startup-image" sizes="640x1136" href="http://senola.github.io/splash-screen-640x1136.png" /&gt; &lt;!-- iPhone 5/iPod Touch 5 竖屏 640x1136 (Retina) --&gt;
 </code></pre>
 
 <p>添加智能 App 广告条 Smart App Banner（iOS 6+ Safari）:</p>
@@ -812,12 +812,12 @@ iPad 竖屏 768 x 1004（标准分辨率）:</p>
 
 <h3>13 rss 订阅</h3>
 
-<pre><code>&lt;link rel="alternate" type="application/rss+xml" title="RSS" href="http://senola.uni.me/rss.xml" /&gt; &lt;!-- 添加 RSS 订阅 --&gt;
+<pre><code>&lt;link rel="alternate" type="application/rss+xml" title="RSS" href="http://senola.github.io/rss.xml" /&gt; &lt;!-- 添加 RSS 订阅 --&gt;
 </code></pre>
 
 <h3>14.favicon icon</h3>
 
-<pre><code>&lt;link rel="shortcut icon" type="image/ico" href="http://senola.uni.me/favicon.ico" /&gt; &lt;!-- 添加 favicon icon --&gt;
+<pre><code>&lt;link rel="shortcut icon" type="image/ico" href="http://senola.github.io/favicon.ico" /&gt; &lt;!-- 添加 favicon icon --&gt;
 </code></pre>
 
 <p>比较详细的 favicon 介绍可参考<a href="https://github.com/audreyr/favicon-cheat-sheet" target="_blank" style="font-size:15px;color:green;font-weight:bold;"><a href="https://github.com/audreyr/favicon-cheat-sheet">https://github.com/audreyr/favicon-cheat-sheet</a></a></p>
@@ -875,9 +875,9 @@ iPad 竖屏 768 x 1004（标准分辨率）:</p>
   
   <entry>
     <title type="html"><![CDATA[浏览器到底是咋工作的？]]></title>
-    <link href="http://senola.uni.me/blog/2014/10/27/how-browsers-work/"/>
+    <link href="http://senola.github.io/blog/2014/10/27/how-browsers-work/"/>
     <updated>2014-10-27T23:17:27+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/10/27/how-browsers-work</id>
+    <id>http://senola.github.io/blog/2014/10/27/how-browsers-work</id>
     <content type="html"><![CDATA[<h3>一、前言</h3>
 
 <p>最近工作找的很是捉急，各种碰壁<code>Zz~(～ o ～)~zZ</code>。哎，说到头还是自己知识储备少，不深入。去一家公司面试前端，被问得是哑口无言，“说说浏览器是怎么渲染的？”、“如果要你用原生JS去解析JSON你会怎么做？”、“有自己的JS库吗？”。。。我<code>TM</code>怎么知道浏览器是如何渲染的，TM这是多高端的东西。劳资也只是刚出道一年，也就会写写页面、改改样式。<code>TM</code>我怎么知道如何去写原生的<code>JSON</code>解析，<code>javascript</code>不是有封装好的<code>JSON</code>解析<code>API</code>,鬼才会去想怎么实现啊，就面试那几分钟你能给个方案？。<!--more--><code>TM</code>我就不信我不会这些会影响工作。。</p>
@@ -1026,9 +1026,9 @@ iPad 竖屏 768 x 1004（标准分辨率）:</p>
   
   <entry>
     <title type="html"><![CDATA[浅谈javascript 中undefined、null 和 NaN，call()和apply()的区别]]></title>
-    <link href="http://senola.uni.me/blog/2014/09/13/javascript-study-140912/"/>
+    <link href="http://senola.github.io/blog/2014/09/13/javascript-study-140912/"/>
     <updated>2014-09-13T02:34:12+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/09/13/javascript-study-140912</id>
+    <id>http://senola.github.io/blog/2014/09/13/javascript-study-140912</id>
     <content type="html"><![CDATA[<h3>一、undefined、null 和 NaN</h3>
 
 <h4>1.类型区别</h4>
@@ -1179,9 +1179,9 @@ if(typeof(test) == "undefined") {
   
   <entry>
     <title type="html"><![CDATA[主流浏览器简介]]></title>
-    <link href="http://senola.uni.me/blog/2014/07/19/browser-info/"/>
+    <link href="http://senola.github.io/blog/2014/07/19/browser-info/"/>
     <updated>2014-07-19T13:45:23+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/07/19/browser-info</id>
+    <id>http://senola.github.io/blog/2014/07/19/browser-info</id>
     <content type="html"><![CDATA[<p>对一个web开发者来说，浏览器信息和统计数据是非常重要的。熟知他们才能更好的运用他们。</p>
 
 <p>浏览器是指可以显示网页服务器或者文件系统的<code>HTML</code>内容，并让用户与这些文件交互的一种人间。网页浏览器主要通过<code>HTTP</code>协议也网页服务器交互并湖区网页，这些网页由<code>URL</code>制定，文件格式通常为<code>HTML</code>，并由<code>MIME</code>在<code>HTTP</code>协议中指明。常见的网页浏览器有：微软的<code>Internet Explorer</code>、Mozilla的<code>FireFox</code>、<code>Apple</code>的<code>Safari</code>,<code>Opera</code>、<code>Google Chrome</code>等。</p>
@@ -1239,9 +1239,9 @@ if(typeof(test) == "undefined") {
   
   <entry>
     <title type="html"><![CDATA[javascript获取随机数方法]]></title>
-    <link href="http://senola.uni.me/blog/2014/07/19/javascript-getrandnum/"/>
+    <link href="http://senola.github.io/blog/2014/07/19/javascript-getrandnum/"/>
     <updated>2014-07-19T10:47:19+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/07/19/javascript-getrandnum</id>
+    <id>http://senola.github.io/blog/2014/07/19/javascript-getrandnum</id>
     <content type="html"><![CDATA[<p>研究了一下<code>javascript</code>关于随机数的生成，整理如下。</p>
 
 <p>要输出随机数则须用到<code>javascript</code>的一个方法&mdash;<code>random()</code>，<code>random()</code>方法属于<code>Math</code>对象。在<code>javascript</code>中，<code>Math</code>对象用于执行数学任务，如：</p>
@@ -1392,9 +1392,9 @@ console.log("时间戳随机数：" + timestamp_num);
   
   <entry>
     <title type="html"><![CDATA[用javascript判断各浏览器类型及版本]]></title>
-    <link href="http://senola.uni.me/blog/2014/07/17/get-browser-type/"/>
+    <link href="http://senola.github.io/blog/2014/07/17/get-browser-type/"/>
     <updated>2014-07-17T12:40:16+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/07/17/get-browser-type</id>
+    <id>http://senola.github.io/blog/2014/07/17/get-browser-type</id>
     <content type="html"><![CDATA[<p>今天要在<code>IE</code>下测试大文件上传插件，发现项目组&#8221;前辈&#8221;们写的判断<code>IE</code>浏览器的的代码不管用了。</p>
 
 <pre><code>navigator.userAgent.toLowerCase().indexOf("msie") != -1；
@@ -1495,7 +1495,7 @@ Mozilla/5.0 (iPhone; U; CPU like Mac OS X) AppleWebKit/420.1 (KHTML, like Gecko)
 &lt;/script&gt;
 </code></pre>
 
-<p>往这儿瞧瞧&mdash;>: <a href="http://senola.uni.me/collections/javascript/getBrowserType/getBrowserType.html" target="_blank" style="color:green;font-weight:bold;">测试地址</a></p>
+<p>往这儿瞧瞧&mdash;>: <a href="http://senola.github.io/collections/javascript/getBrowserType/getBrowserType.html" target="_blank" style="color:green;font-weight:bold;">测试地址</a></p>
 
 <h3>总结：</h3>
 
@@ -1507,9 +1507,9 @@ Mozilla/5.0 (iPhone; U; CPU like Mac OS X) AppleWebKit/420.1 (KHTML, like Gecko)
   
   <entry>
     <title type="html"><![CDATA[解决 Permission denied(publicKey) 问题]]></title>
-    <link href="http://senola.uni.me/blog/2014/07/13/git-error/"/>
+    <link href="http://senola.github.io/blog/2014/07/13/git-error/"/>
     <updated>2014-07-13T09:03:47+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/07/13/git-error</id>
+    <id>http://senola.github.io/blog/2014/07/13/git-error</id>
     <content type="html"><![CDATA[<p>好几个月没碰过<code>github Pages</code>了，一整就来事儿，花了一下午才搞定。现把问题和解决方法记录下来，以做参考。在用<code>git</code>向<code>github</code>服务器<code>push</code>代码的时候，出现了一下情况：</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1563,9 +1563,9 @@ Mozilla/5.0 (iPhone; U; CPU like Mac OS X) AppleWebKit/420.1 (KHTML, like Gecko)
   
   <entry>
     <title type="html"><![CDATA[上传插件之----Web Uploader]]></title>
-    <link href="http://senola.uni.me/blog/2014/04/28/webupload/"/>
+    <link href="http://senola.github.io/blog/2014/04/28/webupload/"/>
     <updated>2014-04-28T23:22:45+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/04/28/webupload</id>
+    <id>http://senola.github.io/blog/2014/04/28/webupload</id>
     <content type="html"><![CDATA[<p>最近云盘要大改版，前端采用了谷歌的<code>AngularJS</code>框架。大改嘛，之前云盘用插件要换的也都要换。飞哥说插件可以用但是却不能乱用，尤其是将其用于商业领域的，必须慎重加慎重，首先选选择的插件得符合相关的开原协议（如上篇），因滥用别的插件而上法庭的例子举不胜数。作为小菜的我一直都以够用，管用，好用的心态去用这些插件的，什么开原协议啊，什么版权啊之类的，不懂~大神告诉我，这个很重要，因为一旦被查出，后果很严重。。。飞哥推荐使用以<code>MIT</code>开源协议发布的<code>Web Uploader</code>作为上传插件。研究了它几天，苦恼，痛苦，桑心&hellip;</p>
 
 <!-- more -->
@@ -1918,9 +1918,9 @@ Mozilla/5.0 (iPhone; U; CPU like Mac OS X) AppleWebKit/420.1 (KHTML, like Gecko)
   
   <entry>
     <title type="html"><![CDATA[开源协议]]></title>
-    <link href="http://senola.uni.me/blog/2014/04/23/license/"/>
+    <link href="http://senola.github.io/blog/2014/04/23/license/"/>
     <updated>2014-04-23T04:06:43+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/04/23/license</id>
+    <id>http://senola.github.io/blog/2014/04/23/license</id>
     <content type="html"><![CDATA[<p>越来越多的开发者与设计者希望将自己的产品开源，以便其他人可以在他们的代码基础上做更多事，开源社区也因此充满生机。在我们所能想到的应用领域，都有开源软件存在（如：<code>WordPress</code>，<code>Drupal</code>这些开源<code>CMS</code>）。不懂，所以学习下常见的几种开原协议~</p>
 
 <h3>一、BSD</h3>
@@ -1978,9 +1978,9 @@ GPL/LGPL都保障原作者的知识产权，避免有人利用开源代码复制
   
   <entry>
     <title type="html"><![CDATA[AngularJS 学习之旅（一）]]></title>
-    <link href="http://senola.uni.me/blog/2014/04/07/20140406/"/>
+    <link href="http://senola.github.io/blog/2014/04/07/20140406/"/>
     <updated>2014-04-07T01:41:40+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/04/07/20140406</id>
+    <id>http://senola.github.io/blog/2014/04/07/20140406</id>
     <content type="html"><![CDATA[<p><strong>前言</strong>：出来工作也快一年了，给我的感觉是学到的新东西并不是很多。不过，最近由于云盘前端需要重新改版，部门请来了一位前端大牛压阵。所以有幸认识了<code>AngularJS</code>，跟着大牛的脚步走进<code>AngularJS</code>的世界痛并快乐着&hellip;.</p>
 
 <h2>一、简介</h2>
@@ -2352,9 +2352,9 @@ Filters 能使用一系列的filter,这称为“chaining(链)”，语法如下�
   
   <entry>
     <title type="html"><![CDATA[猿形]]></title>
-    <link href="http://senola.uni.me/blog/2014/03/11/0005/"/>
+    <link href="http://senola.github.io/blog/2014/03/11/0005/"/>
     <updated>2014-03-11T06:54:11+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/03/11/0005</id>
+    <id>http://senola.github.io/blog/2014/03/11/0005</id>
     <content type="html"><![CDATA[<p>码农，就是一群整天敲着代码的农民，人们称之为“程序猿”。</p>
 
 <p>三月份，码农们也开始忙碌了。</p>
@@ -2374,26 +2374,26 @@ Filters 能使用一系列的filter,这称为“chaining(链)”，语法如下�
 
 <p>现在，他正处于迷茫期，</p>
 
-<p><a href="http://senola.uni.me/collections/mywords/20140310.html" target="_blank">何时才能进化，猿儿甚是烦心！</a></p>
+<p><a href="http://senola.github.io/collections/mywords/20140310.html" target="_blank">何时才能进化，猿儿甚是烦心！</a></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[git学习]]></title>
-    <link href="http://senola.uni.me/blog/2014/02/28/0004/"/>
+    <link href="http://senola.github.io/blog/2014/02/28/0004/"/>
     <updated>2014-02-28T06:43:55+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/02/28/0004</id>
+    <id>http://senola.github.io/blog/2014/02/28/0004</id>
     <content type="html"><![CDATA[<p>每天学一点，每天成长一天。。。<br/>
 git基础知识，没事看看，多看看！！!<br/>
-<a href="http://senola.uni.me/collections/git/git.html" target="_blank" ><strong>git基础</strong></a></p>
+<a href="http://senola.github.io/collections/git/git.html" target="_blank" ><strong>git基础</strong></a></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[迷路]]></title>
-    <link href="http://senola.uni.me/blog/2014/02/24/0003/"/>
+    <link href="http://senola.github.io/blog/2014/02/24/0003/"/>
     <updated>2014-02-24T04:57:44+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/02/24/0003</id>
+    <id>http://senola.github.io/blog/2014/02/24/0003</id>
     <content type="html"><![CDATA[<p>今天，又迷路了&hellip;</p>
 
 <p>为什么说“又”呢，哎!也许是命中注定，打小时候咱的方向感就几乎为零，也就是走着走着就回丢掉的那种。这也是我为什么选择学理科的原因之一，哎~</p>
@@ -2438,9 +2438,9 @@ git基础知识，没事看看，多看看！！!<br/>
   
   <entry>
     <title type="html"><![CDATA[在github上用Octopress搭建博客的方法]]></title>
-    <link href="http://senola.uni.me/blog/2014/02/11/0002/"/>
+    <link href="http://senola.github.io/blog/2014/02/11/0002/"/>
     <updated>2014-02-11T06:00:56+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/02/11/0002</id>
+    <id>http://senola.github.io/blog/2014/02/11/0002</id>
     <content type="html"><![CDATA[<h3>一、Octopress及Github简介</h3>
 
 <p><a href="http://octopress.org">Octopress</a> 是一款优秀的静态化博客系统，也是一个本地化的博客系统，Github为我们提供长期稳定的免费空间服务，但是Github空间不是一般意义上的PHP或者ASP空间。</p>
@@ -2458,7 +2458,11 @@ git基础知识，没事看看，多看看！！!<br/>
 </ol>
 </blockquote>
 
-<p>安装好ruby后，win键+R，输入cmd进入控制台。可以输入<code>ruby -version</code>可查看ruby安装的本版信息。接着用CD的命令进入你存放DevKit的目录中，执行以下命令继续安装</p>
+<p>安装好ruby后，win键+R，输入cmd进入控制台。可以输入<code>ruby -version</code>可查看ruby安装的本版信息。接着用CD的命令进入你存放DevKit的目录中，DevKit只需解压到一个文件夹:</p>
+
+<p><img src="http://corey600.github.io/images/20130228/dkiu.jpg" alt="devkit.png" /></p>
+
+<p>执行以下命令继续安装:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -2466,7 +2470,37 @@ git基础知识，没事看看，多看看！！!<br/>
 </span><span class='line'>ruby dk.rb install</span></code></pre></td></tr></table></div></figure>
 
 
-<p><img src="https://raw.github.com/hyfather/reynard/master/screenshots/landingpage.png" alt="Landing page" /></p>
+<p>之后会有如下输出：</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/octopress-tutorial/devkit-load.png" alt="devkit-load.png" /></p>
+
+<p>虽然不知道这鸟玩意儿是作甚的，但是不执行的话，后面的<code>bundle install</code>是死活安装不了，会出现各种BUG，我试过的，作死！！！</p>
+
+<p>接着<code>cd</code>到博客根目录，需要安装所需依赖：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  gem install bundler
+</span><span class='line'>  bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<p>但是，在天朝这个国度，这个是行不通的。没办法，得改变一个软件更细源，邮件&mdash;>git bash,输入：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem sources -a http://ruby.taobao.org/
+</span><span class='line'>gem sources -r http://rubygems.org/
+</span><span class='line'>gem sources -l</span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://corey600.github.io/images/20130228/ociu.jpg" alt="ociu" /></p>
+
+<p>接着，打开Octopress安装目录下的D:\Blog\Gemfile，将第一行的source改成国内淘宝的<a href="http://ruby.taobao.org/">http://ruby.taobao.org/</a></p>
+
+<p><img src="http://corey600.github.io/images/20130228/ociu3.jpg" alt="ociu3" /></p>
+
+<p>然后上边的依赖就可以正常安装了，TM 卡在这N久了~~</p>
 
 <h3>三、git 和 github 配置</h3>
 
@@ -2477,9 +2511,9 @@ git基础知识，没事看看，多看看！！!<br/>
   
   <entry>
     <title type="html"><![CDATA[这一天]]></title>
-    <link href="http://senola.uni.me/blog/2014/02/10/0001/"/>
+    <link href="http://senola.github.io/blog/2014/02/10/0001/"/>
     <updated>2014-02-10T01:50:34+08:00</updated>
-    <id>http://senola.uni.me/blog/2014/02/10/0001</id>
+    <id>http://senola.github.io/blog/2014/02/10/0001</id>
     <content type="html"><![CDATA[<p>很无奈的说，整了一天<code>github pages</code>和<code>Octopress</code>也才整成这样，十分感叹自己的能力。不过却也有一些收获：比如我终于搭建了一个博客，了解了如何搭建个人博客的过程。总的说今天收获蛮大啊！给自个一个赞O(∩_∩)O~</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
