@@ -5,7 +5,7 @@ date: 2014-12-22 22:16:06
 articleid: 20141112204147
 tags: [css,border]
 comments: true
-categories: border
+categories: css
 ---
 
 关于css的border属性相信大家已经熟悉的不能再熟悉了。那么是不是这就意味border没有什么可以探究了呢？ <span style="font-style:italic;font-weight:bold;color:green;">now,let learn something that we never konew about!</span>    
