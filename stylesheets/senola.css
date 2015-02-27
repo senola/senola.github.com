@@ -90,3 +90,23 @@
   }
 
 }
+
+/**
+ *  超链接hover效果 
+ *
+ */
+
+.senola-a {
+  color: #C78D6B;
+  font-weight: bold;
+  text-decoration: none;
+}
+.senola-a:hover {
+  background: #4E6E38;
+  color: #fff;
+  transition: all 0.5s;
+}
+.senola-a:focus, .senola-a:active{
+  color: transparent;
+  outline: none;
+}

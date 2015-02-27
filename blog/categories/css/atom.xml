@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: css | 潭风]]></title>
+  <link href="http://senola.github.io/blog/categories/css/atom.xml" rel="self"/>
+  <link href="http://senola.github.io/"/>
+  <updated>2015-02-27T14:24:06+08:00</updated>
+  <id>http://senola.github.io/</id>
+  <author>
+    <name><![CDATA[senola]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[那些年，在前端路上踩过的的坑]]></title>
+    <link href="http://senola.github.io/blog/2015/02/27/the-bug-of-fontend/"/>
+    <updated>2015-02-27T21:38:35+08:00</updated>
+    <id>http://senola.github.io/blog/2015/02/27/the-bug-of-fontend</id>
+    <content type="html"><![CDATA[<p>大千世界，齐路万千。一不小心踩坑，深陷囵圄。几番周折，才得以逃脱。。。痛，来自爱。因爱生痛，痛的彻底，痛的刻骨。大爱前端，所以逢坑必填。试想，多年之后回首，万千平路，皆吾填之。故，坑，必填也。</p>
+
+<!--more-->
+
+
+<h3><a name="list">目录</a></h3>
+
+<ul>
+<li><a href="#0001" class="senola-a">一、input框设置width:100%溢出父类容器</a></li>
+<li><a href="#0002" class="senola-a">二、safari下input输入框有内描边及webkit css 整理</a></li>
+<li><a href="#0003" class="senola-a">三、移动端最佳使用单位](#0003)</a></li>
+<li><a href="#0004" class="senola-a">四、模拟:hover伪类</a></li>
+<li><a href="#0005" class="senola-a">五、input类型为date情况下不支持placeholder</a></li>
+<li><a href="#0006" class="senola-a">六、active的兼容</a></li>
+<li><a href="#0007" class="senola-a">七、测试是否支持svg</a></li>
+<li><a href="#0008" class="senola-a">八、ios下的隐私模式</a></li>
+<li><a href="#0009" class="senola-a">九、关于 iOS 系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格</a></li>
+<li><a href="#0010" class="senola-a">十、关于音频跟视频</a></li>
+</ul>
+
+
+<h3><a name="0001">一、input框设置width:100%,溢出父类容器</a></h3>
+
+<p>2014,已去！为迎接新的一年公司会在除夕之时搞一场大型活动。而我，有幸参与此次活动的研发。是的，坑就是在这中情况下来的。</p>
+
+<p>我们知道，浏览器是一种很神奇的东西（此处省略一万字）。各种奇形怪状，杂七杂八的BUG随处可见。这不，我就在input标签中踩着了。。。</p>
+
+<p><strong>情景：</strong> 项目引入了标准的normalize.css, 整个页面设在一个<code>&lt;div class="container"&gt;&lt;/div&gt;</code>下，由她来控制整个文档流整体的在页面中的显示（如居中，与两边的宽度等）。之后在其内部有一个input输入框，为了让其跨浏览器显示一般我们会将元素的宽度设置成百分比，即设置input的宽度为“100%”，那么问题来了：在PC浏览器上显示正常，但在移动端偏偏input越界了。这令我很是费解，尝试了N中方法就是不行，差点就选择用绝对长度来定位了。如下图：</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/css/input/input-width-100%25-wrong.png" alt="input-width-100%25-wrong.png" /></p>
+
+<p><strong>解决方法：</strong>没事找我，有事找谷歌。overstack是个好东西，几乎你遇到的问题别人都遇到过了。结果增加了以下代码就ok了：</p>
+
+<p>```</p>
+
+<pre><code>input {   
+ width: 100%;     
+ box-sizing: border-box;   
+ -webkit-box-sizing:border-box;   
+ -moz-box-sizing: border-box;   
+}  
+</code></pre>
+
+<p>```</p>
+
+<p>效果如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/css/input/input-wdth-100%25-ok.png" alt="input-wdth-100%25-ok.png" /></p>
+
+<p>那么这究竟是为什么呢？为此特意去study了一下&hellip;</p>
+
+<p>我们知道每一个元素都有一个盒模型，而世界上存在两种计算元素宽度的方式： 一种是W3C的标准（宽度及为元素的宽度，不包括padding和border），另一种是传统的盒模型（宽度包括了了元素自身的宽度再加上padding和border）。</p>
+
+<p>浏览器一般都是默认按照W3C标准盒模型来计算元素宽度的（除了IE的“Quirks Mode”）.</p>
+
+<p>比如：两种模式下相同样式不同结果</p>
+
+<p>```</p>
+
+<pre><code>.demo {
+    width: 250px;
+    height: 100px;
+    border: 5px solid #6374AB;
+    padding: 10px;
+}
+</code></pre>
+
+<p>```</p>
+
+<p>第一个使用传统的盒模型，第二个使用W3C的盒模型，效果如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/css/box-model/box.gif" alt="box.gif" /></p>
+
+<p>区别很明显，传统的盒模型中元素的宽度就是content + padding + border,而
+W3C的盒模型中元素的宽度是content。这就解释了为什么input输入框设置了100%会超出父类宽度了。因为当时环境中是width=100%，但padding和border不包括在这100%的宽度中，故渲染出来的宽度大于100%。</p>
+
+<p>显然，按照传统的盒模型比较好控制。css3中出现了<code>box-sizing</code>属性，允许你切换盒模型：</p>
+
+<p>```</p>
+
+<pre><code>box-sizing: border-box;
+box-sizing: content-box;
+</code></pre>
+
+<p><code>``
+</code>box-sizing: border-box<code>表示元素的大小是包括border以内的所有宽度，即传统盒模型，而</code>box-sizing: content-box<code>表示元素的宽度即content的宽度，不包括</code>padding、border`。</p>
+
+<p><code>Mozilla</code>支持<code>padding-box</code>,即表示元素的大小是padding以内的宽度，不包括<code>border</code>。</p>
+
+<p>更精确的测试如下：</p>
+
+<p>```</p>
+
+<pre><code> div.test {
+    width: 300px;
+    padding: 10px;
+    border: 5px solid #000000;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+ }
+</code></pre>
+
+<p>```</p>
+
+<p>效果如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/css/box-model/box-model-test.png" alt="box-model-test.png" /></p>
+
+<p>经此一役，恍然大悟。于是在normalize.css加上一下代码，确保万无一失：</p>
+
+<p>```</p>
+
+<pre><code>/*清除浮动*/
+.clearfix:before, .clearfix:after {
+  content: '';
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+  overflow: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+/*设置所有元素为传统盒模型*/
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+</code></pre>
+
+<p>```</p>
+
+<h3><a name="0002">二、safari下input输入框有内描边及webkit css 整理</a></h3>
+
+<p>webkit内核浏览器默认会给input输入框加上内描边，这对专业的设计师来说是不能容忍的。而前端叉子们就得想尽办法出去她~ 多悲伤啊，人家浏览器也是为了你好，至于么？？？？  代码如下：</p>
+
+<p>```</p>
+
+<pre><code>input {
+   -webkit-appearance: none; // Safari 去掉内阴影
+}
+</code></pre>
+
+<p>```
+移动端中，使用click会出现绑定点击区域有高亮背景，修改背景颜色方法：</p>
+
+<p>```
+  input{</p>
+
+<pre><code>-webkit-tap-highlight-color: rgba(0,0,0,0); // 设置点击区域的颜色
+</code></pre>
+
+<p>  }
+```</p>
+
+<p>ios中滑动效果：</p>
+
+<p>```</p>
+
+<pre><code>body{
+  -webkit-overflow-scrolling: touch;
+}
+</code></pre>
+
+<p>```</p>
+
+<p>好吧，webkit属性太多，整体把握才是王道，于是整理如下：</p>
+
+<h5>1. &ldquo;box model"相关，包括content、padding、margin等</h5>
+
+<p>```</p>
+
+<pre><code>-webkit-border-bottom-left-radius: radius;
+-webkit-border-top-left-radius: horizontal_radius vertical_radius;
+-webkit-border-radius: radius;      //容器圆角
+-webkit-box-sizing: sizing_model; 边框常量值：border-box/content-box
+-webkit-box-shadow: hoff voff blur color; //容器阴影（参数分别为：水平X 方向偏移量；垂直Y 方向偏移量；高斯模糊半径值；阴影颜色值）
+-webkit-margin-bottom-collapse: collapse_behavior; 常量值：collapse/discard/separate
+-webkit-margin-start: width;
+-webkit-padding-start: width;
+-webkit-border-image: url(borderimg.gif) 25 25 25 25 round/stretch round/stretch;
+-webkit-appearance: push-button;   //内置的CSS 表现，暂时只支持push-button
+</code></pre>
+
+<p>```</p>
+
+<h5>2. 视觉格式化模型”描述性质，确定了位置和大小的块元素</h5>
+
+<p>```</p>
+
+<pre><code>clip: rect(10px, 5px, 10px, 5px)
+resize: auto; 常量：auto/both/horizontal/none/vertical
+visibility: visible; 常量: collapse/hidden/visible
+-webkit-transition: opacity 1s linear; 动画效果 ease/linear/ease-in/ease-out/ease-in-out
+-webkit-backface-visibility: visibler; 常量：visible(默认值)/hidden
+-webkit-box-reflect: right 1px; //镜向反转
+-webkit-box-reflect: below 4px -webkit-gradient(linear, left top, left bottom,from(transparent), color-stop(0.5, transparent), to(white));
+-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));;   //CSS 遮罩/蒙板效果
+-webkit-mask-attachment: fixed; 常量：fixed/scroll
+-webkit-perspective: value; 常量：none(默认)
+-webkit-perspective-origin: left top;
+-webkit-transform: rotate(5deg);
+-webkit-transform-style: preserve-3d; 常量：flat/preserve-3d; (2D 与3D)
+</code></pre>
+
+<p>```</p>
+
+<h5>3.“颜色和背景”描述属性控制背景下的块级元素和颜色的文本内容的组成部分</h5>
+
+<p>```</p>
+
+<pre><code>-webkit-background-clip: content; 常量：border/content/padding/text
+-webkit-background-origin: padding; 常量：border/content/padding/text
+-webkit-background-size: 55px; 常量：length/length_x/length_y
+</code></pre>
+
+<p>```</p>
+
+<h5>4. “文本”描述属性的特定文字样式，间距和自动滚屏</h5>
+
+<p>```</p>
+
+<pre><code> text-shadow: #00FFFC 10px 10px 5px;
+ text-transform: capitalize; 常量：capitalize/lowercase/none/uppercase
+ word-wrap: break-word; 常量：break-word/normal
+-webkit-marquee: right large infinite normal 10s; 常量：direction(方向) increment(迭代次数) repetition(重复) style(样式) speed(速度);
+-webkit-marquee-direction: ahead/auto/backwards/down/forwards/left/reverse/right/up
+-webkit-marquee-incrementt: 1-n/infinite(无穷次)
+-webkit-marquee-speed: fast/normal/slow
+-webkit-marquee-style: alternate/none/scroll/slide
+-webkit-text-fill-color: #ff6600; 常量：capitalize, lowercase, none, uppercase  
+-webkit-text-security: circle; 常量：circle/disc/none/square  // 如密码输入框使用该属性
+-webkit-text-size-adjust: none; 常量:auto/none; //阻止屏幕旋转时字体自动调整
+-webkit-text-stroke: 15px #fff;
+-webkit-line-break: after-white-space; 常量：normal/after-white-space
+-webkit-appearance: caps-lock-indicator;
+-webkit-nbsp-mode: space; 常量： normal/space
+-webkit-rtl-ordering: logical; 常量：visual/logical
+-webkit-user-drag: element; 常量：element/auto/none
+-webkit-user-modify: read-only; 常量：read-write-plaintext-only/read-write/read-only
+-webkit-user-select: text; 常量：text/auto/none  // 是否允许用户选中文本
+-webkit-touch-callout:none  //禁止 iOS 弹出各种操作窗口
+input::-webkit-input-speech-button {display: none} // Andriod 上去掉语音输入按钮
+</code></pre>
+
+<p>```</p>
+
+<h5>5. “表格”描述的布局和设计性能表的具体内容</h5>
+
+<p>```</p>
+
+<pre><code>-webkit-border-horizontal-spacing: 2px;
+-webkit-border-vertical-spacing: 2px;
+-webkit-column-break-after: right; 常量：always/auto/avoid/left/right
+-webkit-column-break-before: right; 常量：always/auto/avoid/left/right
+–webkit-column-break-inside: logical; 常量：avoid/auto
+-webkit-column-count: 3; //分栏
+-webkit-column-rule: 1px solid #fff;
+style:dashed,dotted,double,groove,hidden,inset,none,outset,ridge,solid
+</code></pre>
+
+<p>```</p>
+
+<h5>6. “用户界面”描述属性，涉及到用户界面元素在浏览器中，如滚动文字区，滚动条，等等</h5>
+
+<p>```</p>
+
+<pre><code>-webkit-box-align: baseline,center,end,start,stretch 常量：baseline/center/end/start/stretch
+-webkit-box-direction: normal;常量：normal/reverse
+-webkit-box-flex: flex_valuet
+-webkit-box-flex-group: group_number
+-webkit-box-lines: multiple; 常量：multiple/single
+-webkit-box-ordinal-group: group_number
+-webkit-box-orient: block-axis; 常量：block-axis/horizontal/inline-axis/vertical/orientation
+–webkit-box-pack: alignment; 常量：center/end/justify/start
+</code></pre>
+
+<p>```</p>
+
+<h5>7. 动画过渡</h5>
+
+<p>```</p>
+
+<pre><code>-webkit-animation: title infinite ease-in-out 3s;
+animation 有这几个属性：
+-webkit-animation-name： //属性名，就是我们定义的keyframes
+-webkit-animation-duration：3s //持续时间
+-webkit-animation-timing-function： //过渡类型：ease/ linear(线性) /ease-in(慢到快)/ease-out(快到慢) /ease-in-out(慢到快再到慢) /cubic-bezier
+-webkit-animation-delay：10ms //动画延迟(默认0)
+-webkit-animation-iteration-count： //循环次数(默认1)，infinite 为无限
+-webkit-animation-direction： //动画方式：normal(默认 正向播放)； alternate(交替方向，第偶数次正向播放，第奇数次反向播放)
+</code></pre>
+
+<p>```</p>
+
+<h3><a name="0003">三、移动端最佳使用单位</a></h3>
+
+<p>移动端使用什么单位是开发者最迫切需要知道的，px、%、pt、em 还是rem？ 当然是rem。rem是非常好用的一个属性，可以根据html来设定基准值，而且兼容性也很不错。不过有的时候还是需要对一些莫名其妙的浏览器优雅降级。可以用以下的代码片段保证在低端浏览器下也不会出问题：</p>
+
+<p>```</p>
+
+<pre><code>html { font-size: 62.5%; }
+body { font-size: 14px; font-size: 1.4rem; } /* =14px */
+h1   { font-size: 24px; font-size: 2.4rem; } /* =24px */
+</code></pre>
+
+<p>```</p>
+
+<h3><a name="0004">四、模拟:hover伪类</a></h3>
+
+<p>由于移动端没有鼠标指针，所以没有hover事件，所以css:hover伪类就没用了。但是移动端有touch事件，onTouchStart 类似 onMouseOver，onTouchEnd 类似 onMouseOut。所以我们可以用它来模拟hover。使用Javascript：</p>
+
+<p>```</p>
+
+<pre><code>var myLinks = document.getElementsByTagName('a');
+for(var i = 0, len = myLinks.length ; i &lt; len; i++){
+　　myLinks[i].addEventListener(’touchstart’, function(){this.className = “hover”;}, false);
+　　myLinks[i].addEventListener(’touchend’, function(){this.className = “”;}, false);
+}
+</code></pre>
+
+<p>```
+然后用css增加hover效果：</p>
+
+<p>```</p>
+
+<pre><code>a:hover, a:hover {/* 你要的效果*/}
+</code></pre>
+
+<p>```</p>
+
+<p>这样设计一个链接，感觉可以更像按钮。并且，这个模拟可以用在任何元素上。</p>
+
+<h3><a name="0005">五、input类型为date情况下不支持placeholder</a></h3>
+
+<p>由于浏览器会针对date类型的input增加datepicker模块，所以有些系统不支持placeholder:</p>
+
+<p>桌面端（Mac）
+&ndash; Safari 不支持 datepicker，placeholder 正常显示。
+&ndash; Firefox 不支持 datepicker，placeholder 正常显示。
+&ndash; Chrome 支持 datepicker，显示 年、月、日 格式，忽略placeholder。</p>
+
+<p>移动端
+&ndash; iPhone5 iOS7 有 datepicker 功能，但是不显示 placeholder。
+&ndash; Andorid 4.0.4 无 datepicker 功能，不显示 placeholder</p>
+
+<p>解决方法：</p>
+
+<p>```</p>
+
+<pre><code>&lt;input placeholder="Date" class="textbox-n" type="text" onfocus="(this.type='date')"  id="date"&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>因为text是支持placeholder的。因此当用户focus的时候自动把type类型改变为date，这样既有placeholder也有datepicker了。</p>
+
+<h3><a name="0006">六、active的兼容</a></h3>
+
+<p>要让a链接的CSS active伪类生效，只需要给这个a链接的touch系列的任意事件touchstart/touchend绑定一个空的匿名方法即可hack成功:</p>
+
+<p>```</p>
+
+<pre><code>&lt;style&gt;
+    a {
+    color: #000;
+    }
+    a:active {
+    color: #fff;
+    }
+&lt;/style&gt;
+&lt;a herf=”asdasd”&gt;asdasd&lt;/a&gt;
+&lt;script&gt;
+    var a=document.getElementsByTagName(‘a’);
+    for(var i=0;i&lt;a.length;i++){
+    a[i].addEventListener(‘touchstart’,function(){},false);
+    }
+&lt;/script&gt;
+</code></pre>
+
+<p>```</p>
+
+<h3><a name="0007">七、测试是否支持svg</a></h3>
+
+<p>用以下代码：</p>
+
+<p>```</p>
+
+<pre><code>document.implementation.hasFeature("http:// www.w3.org/TR/SVG11/feature#Image", "1.1");
+</code></pre>
+
+<p>```</p>
+
+<h3><a name="0008">八、ios下的隐私模式</a></h3>
+
+<p>这个“隐私模式”是最容易被忽视的。ios的safari提供一种“隐私模式”，如果你的webapp没有考虑这个兼容模式，那么在使用html5的本地存储的“localstorage”时，可能因为“隐私模式”下没有权限读写localstorage而使代码抛出错误，导致后续的js代码无法运行~</p>
+
+<p>所以在使用localstorage的时候，首先应该判断是否支持localstorage。但是问题又来了：测试发现，即使在safari的“隐私模式”下，’localStorage’ in window的返回值依然为true，也就是不能用“'localStorage' in window”来判断。接下来只能相当使用try catch了，虽然这是一个不太推荐被使用的方法，使用try catch捕获错误，使后续的js代码可以继续运行，代码如下：</p>
+
+<p>```</p>
+
+<pre><code>try{
+    if('localStorage' in window){
+         //需要使用localStorage的代码写在这
+    }else{
+         //不支持的提示和向下兼容代码
+    }
+}catch(e){
+    // 隐私模式相关提示代码和不支持的提示和向下兼容代码
+}
+</code></pre>
+
+<p>```
+所以，在需要兼容ios的safari的“隐私模式”的情况下，本地存储相关的代码需要使用try catch包裹并降级兼容。如果不知道的话，呵呵，那就惨了！！！！！</p>
+
+<h3><a name="0009">九、中文输入法输入英文，字母之间可能会出现一个六分之一空格</a></h3>
+
+<p>关于 iOS 系统中，中文输入法输入英文时，字母之间可能会出现一个六分之一空格，可以使用正则表达式过滤：</p>
+
+<p>```</p>
+
+<pre><code>this.value = this.value.replace(/\u2006/g, '');
+</code></pre>
+
+<p>```</p>
+
+<h3><a name="0010">十、关于音频跟视频</a></h3>
+
+<p>代码：</p>
+
+<p>```</p>
+
+<pre><code>&lt;audio autoplay&gt;
+    &lt;source  src="audio/alarm1.mp3" type="audio/mpeg"&gt;
+&lt;/audio&gt;
+</code></pre>
+
+<p>```</p>
+
+<p>如上代码，系统默认情况下audio的autoplay属性是无法生效的，这也是手机为节省用户流量做的考虑。如果必须要自动播放，有两种方式可以解决。</p>
+
+<h5>1.捕捉一次用户输入后，让音频加载，下次即可播放</h5>
+
+<p>```</p>
+
+<pre><code>//play and pause it once
+document.addEventListener('touchstart', function () {
+    document.getElementsByTagName('audio')[0].play();
+    document.getElementsByTagName('audio')[0].pause();
+});
+</code></pre>
+
+<p>```
+这种方法需要捕获一次用户的点击事件来促使音频跟视频加载。当加载后，你就可以用javascript控制音频的播放了，如调用audio.play().</p>
+
+<h5>2. 利用iframe加载资源</h5>
+
+<p>```</p>
+
+<pre><code>var ifr=document.createElement("iframe");
+ifr.setAttribute('src', "http://mysite.com/myvideo.mp4");
+ifr.setAttribute('width', '1px');
+ifr.setAttribute('height', '1px');
+ifr.setAttribute('scrolling', 'no');
+ifr.style.border="0px";
+document.body.appendChild(ifr);
+</code></pre>
+
+<p>```</p>
+
+<p>这种方式其实跟第一种原理是一样的。当资源加载了你就可以控制播放了，但是这里使用iframe来加载，相当于直接触发资源加载。 注意，使用创建audio标签并让其加载的方式是不可行的。 慎用这种方法，会对用户造成很糟糕的影响。</p>
+
+<p><span style="font-weight:bold;color:green;font-size:18px;">&gt;&gt; 持续踩坑中&hellip;</span></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[css之border的拓展]]></title>
+    <link href="http://senola.github.io/blog/2014/12/23/css-border/"/>
+    <updated>2014-12-23T06:16:06+08:00</updated>
+    <id>http://senola.github.io/blog/2014/12/23/css-border</id>
+    <content type="html"><![CDATA[<p>关于css的border属性相信大家已经熟悉的不能再熟悉了。那么是不是这就意味border没有什么可以探究了呢？ <span style="font-style:italic;font-weight:bold;color:green;">now,let learn something that we never konew about!</span></p>
+
+<p>我们知道CSS3可以很简单地创建圆角，而CSS2要实现圆角效果就复杂多了。在这些新技术未出现之前，我们可以通过使用绝对定位背景图片来显示圆或箭头，这就意味着需要另外的图片处理工具（如photoshop）配合使用。其实，如今显示圆或者圆角已不再需要其他背景图片了。<!--more--></p>
+
+<h4><span style="font-style:italic;">1.The Basic</span></h4>
+
+<p>可以经常看到border的一下用法：</p>
+
+<p><code>
+   border: 1px solid black;
+</code></p>
+
+<p>上面代码的意思为给元素加上一个1px的边框。这是border属性的简写方式，普通而又简单，我们也可以拆分如下：</p>
+
+<p><code>
+   border-width: thick;   
+   border-style: solid;
+   border-color: black;
+</code></p>
+
+<p>border-width属性有了三个特殊值可供选择，分别是：thin，medium和thick。效果如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/css/border/border-width.jpg" alt="border-image" /></p>
+
+<p>看起来似乎将border属性分开来写不仅多余而且麻烦，但在某些特定的场合下还是很有用的，比如hover下改变边框的颜色，如果用简写的话还需要重复编写：</p>
+
+<p>```
+   .box {</p>
+
+<pre><code>  border: 1px solid red;
+</code></pre>
+
+<p>   }
+   .box:hover {</p>
+
+<pre><code>  border: 1px solid green;
+</code></pre>
+
+<p>   }
+```</p>
+
+<p>接用border-color属性的话依旧能达到同样的效果，而且这也是最合理的写法：</p>
+
+<p>```
+   .box {</p>
+
+<pre><code>  border: 1px solid red;
+</code></pre>
+
+<p>   }
+   .box:hover {</p>
+
+<pre><code>  border-color: green;
+</code></pre>
+
+<p>   }
+```</p>
+
+<h4><span style="font-style:italic;">2.border-radius</span></h4>
+
+<p>border-radius 是CSS3提供的，并且是第一个被社区广泛使用的属性。IE8以上，所有现在浏览器都支持显示圆角。因为有了它，妈妈怎么也不担心我不会photoshop了~</p>
+
+<p>显然，为了在各个浏览器中达到同样的效果，border-radius需要加上特定的前缀:</p>
+
+<p>```
+   -webkit-border-radius: 10px;</p>
+
+<pre><code>  -moz-border-radius: 10px;
+       border-radius: 10px;
+</code></pre>
+
+<p>```</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/css/border/border-radius.jpg" alt="border-radius.jpg" /></p>
+
+<p>当然，我们也可以将它拆分成多个属性，自由的控制每一个角的显示：</p>
+
+<p><code>
+   border-top-left-radius: 20px;
+   border-top-right-radius: 0;
+   border-bottom-right-radius: 30px;
+   border-bottom-left-radius: 0;
+</code>
+<img src="https://raw.githubusercontent.com/senola/pictures/master/css/border/each-side.jpg" alt="each-side.jpg" /></p>
+
+<p>事实上，上面代码设置<code>border-top-right-radius: 0</code>和<code>border-bottom-left-radius: 0;</code>属性是多余的，除非该属性会被继承时才需要重设。很显然border-radius不需要。</p>
+
+<p>使用border-radius可以很简单的画一个柠檬：</p>
+
+<p>```
+   .lemon {</p>
+
+<pre><code>   width: 200px; height: 200px; 
+   background: #F5F240;
+   border: 1px solid #F0D900;      
+   border-radius: 10px 150px 30px 150px;
+</code></pre>
+
+<p>   }
+```
+<img src="https://raw.githubusercontent.com/senola/pictures/master/css/border/lemon.jpg" alt="lemon.jpg" /></p>
+
+<p>额，是不是上面内容过于简单常见呢？我觉得也是，早就会了嘛。。接下来我们玩点新鲜的~</p>
+
+<h4><span style="font-style:italic;">3. Multiple Borders</span></h4>
+
+<p>当我们想把多重边框应用到一个元素上的时，有很多技术我们可以参考：</p>
+
+<h5><span style="font-style:italic;color:red;">(1). border-style </span></h5>
+
+<p>我们知道<code>solid</code>,<code>dashed</code>和<code>dotted</code>是<code>border-style</code>最常用的属性值。除了这些，我们还可以使用不常见的<code>groove</code>和<code>ridge</code>.</p>
+
+<p><code>
+   border: 20px groove #e3e3e3;
+</code></p>
+
+<p>也可以拆分成如下代码：</p>
+
+<p><code>
+   border-color: #e3e3e3;
+   border-width: 20px;
+   border-style: groove;
+</code></p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/css/border/groove-ridge.jpg" alt="groove-ridge.jpg" /></p>
+
+<p>虽然这相当的有用，但是<code>ridge</code>或<code>groove</code>事实上都不是真正的多边框。</p>
+
+<h5><span style="font-style:italic;color:red;">(2). outline </span></h5>
+
+<p>目前，创建两个边框最流行的技术是使用<code>outline</code>属性。</p>
+
+<p>```
+   .box {</p>
+
+<pre><code>  border: 5px solid #292929;
+  outline: 5px solid #e3e3e3;
+</code></pre>
+
+<p>   }
+```
+<img src="https://raw.githubusercontent.com/senola/pictures/master/css/border/outline.jpg" alt="outline.jpg" /></p>
+
+<p>这种方法运行效果棒，但是有一个限制就是只能创建两个边框。如果你需要创建一个有分层、带渐变效果时，得使用另外的方法。</p>
+
+<h5><span style="font-style:italic;color:red;">(3). pseudo element (伪元素) </span></h5>
+
+<p>当<code>outline</code>技术无法满足需要的时候，一种替代的方法是利用<code>:before</code>和<code>:after</code>伪元素，并且使用任何必要的额外边界生成的内容。</p>
+
+<p>```
+   .box {</p>
+
+<pre><code>  position: relative;
+  width: 400px; 
+  height: 400px;
+  background: #e3e3e3;
+  border: 10px solid green;  
+}
+
+/* Create two boxes with the same width of the container */
+.box:after, .box:before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.box:after {
+  border: 5px solid red;
+  outline: 5px solid yellow;
+}
+
+.box:before {
+  border: 10px solid blue;
+}
+</code></pre>
+
+<p>```</p>
+
+<p><img src="https://raw.githubusercontent.com/senola/pictures/master/css/border/pseudo-borders.jpg" alt="pseudo-borders.jpg" /></p>
+
+<p>虽然这种方法不是最优雅的，但却也能达到预期效果。但也一点不理想就是颜色的顺序和边界颜色容易混淆。</p>
+
+<h5><span style="font-style:italic;color:red;">(4). box-shadow </span></h5>
+
+<p>最酷的且能创建无数边框的方法是利用<code>box-shadow</code>的<code>spread</code>参数。</p>
+
+<p>```
+   .box {</p>
+
+<pre><code>  border: 5px solid red;
+  box-shadow: 0 0 0 5px green,
+              0 0 0 10px yellow,
+              0 0 0 15px orange;
+</code></pre>
+
+<p>   }
+```</p>
+
+<div style="width: 400px; height: 400px;margin: 0 auto;margin-top: 25px;margin-bottom: 25px;background: #e3e3e3;border: 5px solid red;box-shadow: 0 0 0 5px green,0 0 0 10px yellow,0 0 0 15px orange;"></div>
+
+
+<p>通过设置<code>box-shadow</code>的<code>x</code>,<code>y</code>,<code>blur</code>为0，我们可以使用<code>spread</code>值来创建边框，由于<code>box-shadow</code>可以对方，通过使用“，”就可以无限创建边框，是不是很有意思呢&hellip;(注意，老的浏览器并不识别该属性，不过作为现代人，就应该使用现代浏览器！！！)</p>
+
+<h4><span style="font-style:italic;">4. modifying angles</span></h4>
+
+<p>另外，我们可用使用“/”给<code>border-radius</code>赋值，定义唯一的水平和垂直半径：</p>
+
+<p><code>
+   border-radius: 50px / 100px; /* horizontal radius, vertical radius */
+</code></p>
+
+<p>等价于：</p>
+
+<p><code>
+   border-top-left-radius: 50px 100px;
+   border-top-right-radius: 50px 100px;
+   border-bottom-right-radius: 50px 100px;
+   border-bottom-left-radius: 50px 100px;
+</code></p>
+
+<p>这种技术是特别有用，当你需要模拟一个微妙的，冗长的曲线，而不是一个通用的圆角。例如,下面的代码允许我们稍微脱离一个正方形形状，就有卷纸一样的效果。</p>
+
+<p>```
+   .box {</p>
+
+<pre><code>   width: 200px; 
+   height: 200px;
+   background: #666;
+   border-top-left-radius: 15em 1em;
+   border-bottom-right-radius: 15em 1em;
+</code></pre>
+
+<p>   }
+```</p>
+
+<div style="width: 200px; height: 200px; margin: 0 auto;background: #666; outline: lightgrey 1px solid;border-top-left-radius: 15em 1em;border-bottom-right-radius: 15em 1em;"></div>
+
+
+<h4><span style="font-style:italic;">5. css shapes</span></h4>
+
+<p>也许最赞的是将0宽度和0高度的边框运用于元素，很疑惑？哈&hellip;让我们看看示例：</p>
+
+<p>下面几个例子都是用的同样的标记。</p>
+
+<p><code>
+   &lt;div class="box"&gt;&lt;/div&gt;
+</code></p>
+
+<p>增加样式如下：</p>
+
+<p>```
+   .box {</p>
+
+<pre><code>    width: 200px;
+    height: 200px;
+    background: black;
+</code></pre>
+
+<p>   }
+<code>``
+最流行的演示例子是在项目中如何使用css创建箭头。理解它的核心思想，你会发现其实也就是那么回事。首先得为每一边设置背景颜色然后同时设置容器的</code>width<code>和</code>height`的值为0。</p>
+
+<p>假设有一个<code>div</code>并且带有一个叫<code>arrow</code>的<code>class</code>:</p>
+
+<p>```
+   .arrow {</p>
+
+<pre><code>  width: 0;
+  height: 0;
+  border-top: 100px solid red;
+  border-right: 100px solid green;
+  border-bottom: 100px solid blue;
+  border-left: 100px solid yellow;
+</code></pre>
+
+<p>   }
+```
+同时你也可以这样简写：</p>
+
+<p>```
+   .arrow {</p>
+
+<pre><code>  width: 0;
+  height: 0;
+  border: 100px solid;  
+  border-top-color: red;
+  border-right-color: green;
+  border-bottom-color: blue;
+  border-left-color: yellow;
+</code></pre>
+
+<p>   }
+```
+还一种更为炫酷的写法，相信你会喜欢：</p>
+
+<p><code>
+   width: 0; height: 0;
+   border: 100px solid;
+   border-color: red green blue yellow;
+</code>
+<img src="https://raw.githubusercontent.com/senola/pictures/master/css/border/all-side-colors.jpg" alt="all-side-colors.jpg" /></p>
+
+<p>是不是很有趣呢？赶紧试试吧！我们只需要设置容器的宽度和高度为0，在设置各个边的颜色，宽度就能达到效果。那么当我们把其中的三条边的颜色设置为透明又会是什么效果呢？</p>
+
+<p>```
+   .arrow {</p>
+
+<pre><code>  width: 0; height: 0;
+  border: 100px solid;
+  border-bottom-color: blue;
+</code></pre>
+
+<p>   }
+```
+<img src="https://raw.githubusercontent.com/senola/pictures/master/css/border/single-border.jpg" alt="single-border.jpg" /></p>
+
+<p>哈&hellip;这是一个充满神奇的世界。不过，我们的探索可不是仅仅止步于此！如果用一个div来表示一个箭头，太语意话了。在实际运用中我们常常会使用伪元素创建类似气泡的样式。</p>
+
+<h5><span style="font-style:italic;color:red;">(1). create a speech bubble</span></h5>
+
+<p>我们可以用纯css创建一个类似气泡的对话。</p>
+
+<p><code>
+   &lt;div class="speech-bubble"&gt;Hello world&lt;/div&gt;
+</code></p>
+
+<p>增加css样式：</p>
+
+<p>```
+   .speech-bubble{</p>
+
+<pre><code>  position: relative;
+  width: 200px;
+  height: 150px;
+  line-height: 150px; /* 垂直居中 */
+  color: white;
+  text-align: center;
+  background-color: #292929;
+  margin: 0 auto;
+  border-radius: 10px;
+</code></pre>
+
+<p>   }
+   .speech-bubble:after { /<em>伪元素充当箭头</em>/</p>
+
+<pre><code>  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10px solid;
+  border-top-color: #292929;
+  top: 100%;
+  left: 45%;
+</code></pre>
+
+<p>   }
+```
+<img src="https://raw.githubusercontent.com/senola/pictures/master/css/border/final.jpg" alt="final.jpg" /></p>
+
+<h5><span style="font-style:italic;color:red;">(2). 垂直居中</span></h5>
+
+<p>如上，如果文字很多的话，设置line-height是效果不好的，可以将容器的display设置为table,在设置容器中的文字为vertical-align: middle</p>
+
+<p>```
+   <div class="speech-bubble speech-bubble-top"></p>
+
+<pre><code>   &lt;p&gt;Text goes here.&lt;/p&gt;
+</code></pre>
+
+<p>   </div>
+```</p>
+
+<p>css为：<br/>
+```
+   .speech-bubble {</p>
+
+<pre><code>/* other styles */
+ display: table;
+</code></pre>
+
+<p>   }</p>
+
+<p>   .speech-bubble p {</p>
+
+<pre><code> display: table-cell;
+ vertical-align: middle;
+</code></pre>
+
+<p>   }
+```
+css是一个很神奇的东西，只要我们换个角度去思考就会有不一样的效果。附上两个例子：</p>
+
+<div class="border-trans clearfix">
+    <div class="border-hex-row">
+        <div class="border-hex"><div class="border-top"></div><div class="border-middle"></div><div class="border-bottom"></div></div>
+        <div class="border-hex"><div class="border-top"></div><div class="border-middle"></div><div class="border-bottom"></div></div>
+        <div class="border-hex"><div class="border-top"></div><div class="border-middle"></div><div class="border-bottom"></div></div>
+    </div>
+    <div class="border-hex-row border-even">
+        <div class="border-hex"><div class="border-top"></div><div class="border-middle"></div><div class="border-bottom"></div></div>
+        <div class="border-hex"><div class="border-top"></div><div class="border-middle"></div><div class="border-bottom"></div></div>
+    </div>
+    <div class="border-hex-row">
+        <div class="border-hex"><div class="border-top"></div><div class="border-middle"></div><div class="border-bottom"></div></div>
+        <div class="border-hex"><div class="border-top"></div><div class="border-middle"></div><div class="border-bottom"></div></div>
+        <div class="border-hex"><div class="border-top"></div><div class="border-middle"></div><div class="border-bottom"></div></div>
+    </div>
+</div>
+
+
+<div class="border-biohazard"></div>
+
+
+<p></p>
+
+<h4><span style="font-style:italic;clear:both;">总结</span></h4>
+
+<p>css 是一个很神奇的东西好好努力！！！</p>
+]]></content>
+  </entry>
+  
+</feed>
