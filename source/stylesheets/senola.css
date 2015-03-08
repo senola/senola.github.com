@@ -1,0 +1,92 @@
+.clearfix:before, .clearfix:after {
+   content:"";
+   display:table;
+}
+.clearfix:after{
+   clear:both;
+   overflow:hidden;
+}
+.clearfix{
+   zoom:1;
+}
+/**
+ * 自定义的样式
+ */	
+ h1, h2, h3, h4, h5, h6 {
+	margin-top: 1em;
+}
+/*
+ *  css之border拓展样式
+ */
+.border-biohazard{
+  width: 0;
+  height: 0;
+  margin: 100px auto;
+  border: 150px solid;
+  border-radius: 50%;
+  border-top-color: black;
+  border-bottom-color: black;
+  border-left-color: yellow;
+  border-right-color: yellow; 
+  -webkit-animation: borderColorchange 1s infinite;
+  transition: all 3s;
+}
+.border-trans {
+  width: 400px;
+  margin: 0 auto;
+  -webkit-transform: perspective(600px) rotateX(60deg);
+  -moz-transform: perspective(600px) rotateX(60deg);
+  -ms-transform: perspective(600px) rotateX(60deg);
+  -o-transform: perspective(600px) rotateX(60deg);
+  transform: perspective(600px) rotateX(60deg);
+}
+.border-hex {
+   float: left;
+   margin-left: 3px;
+   margin-bottom: -26px;
+}
+.border-hex .border-top {
+   width: 0;
+   border-bottom: 30px solid #6C6;
+   border-left: 52px solid transparent;
+   border-right: 52px solid transparent;
+}
+.border-hex .border-middle {
+   width: 104px;
+   height: 60px;
+   background: #6C6;
+}
+.border-hex .border-bottom {
+   width: 0;
+   border-top: 30px solid #6C6;
+   border-left: 52px solid transparent;
+   border-right: 52px solid transparent;
+}
+.border-hex-row {
+   clear: left;
+}
+.border-hex-row.border-even {
+   margin-left: 53px;
+}
+
+@-webkit-keyframes borderColorchange {
+  0%{ 
+     border-top-color: black;
+     border-bottom-color: black;
+     border-left-color: yellow;
+     border-right-color: yellow; 
+  }
+  50%{ 
+    border-top-color: yellow;
+     border-bottom-color: yellow;
+     border-left-color: black;
+     border-right-color: black; 
+  }
+  100%{ 
+     border-top-color: black;
+     border-bottom-color: black;
+     border-left-color: yellow;
+     border-right-color: yellow; 
+  }
+
+}
