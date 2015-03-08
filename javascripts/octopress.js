@@ -3,13 +3,13 @@
  * date: 2014-3-8 10:13:49
  * 
  */
-//谷歌站内搜索
-function searchkeys(){
-	var domainroot="senola.github.io"//个人站点域名，替换成你的网站的网址即可 
-    var keywords="site:"+domainroot+" "+$("#input_keywords_senola").val(); 
-    $("#searchkeys_senola").val(keywords);
-    $("#googlesearch").submit();
-}
+// //谷歌站内搜索
+// function searchkeys(){
+// 	var domainroot="senola.github.io"//个人站点域名，替换成你的网站的网址即可 
+//     var keywords="site:"+domainroot+" "+$("#input_keywords_senola").val(); 
+//     $("#searchkeys_senola").val(keywords);
+//     $("#googlesearch").submit();
+// }
 function getNav() {
   var mobileNav = $('nav[role=navigation] fieldset[role=search]').after('<fieldset class="mobile-nav"></fieldset>').next().append('<select></select>');
   mobileNav.children('select').append('<option value="">Navigate&hellip;</option>');

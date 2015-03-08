@@ -5,11 +5,21 @@
  */
 //谷歌站内搜索
 function searchkeys(){
-	var domainroot="senola.github.io"//个人站点域名，替换成你的网站的网址即可 
+	  var domainroot="senola.github.io"//个人站点域名，替换成你的网站的网址即可 
     var keywords="site:"+domainroot+" "+$("#input_keywords_senola").val(); 
     $("#searchkeys_senola").val(keywords);
-    $("#googlesearch").submit();
+    window.location.href="http://www.baidu.com/s?wd=" + keywords;
 }
+function setvalues() {
+    var domainroot="senola.github.io"//个人站点域名，替换成你的网站的网址即可 
+    var keywords="site:"+domainroot+" "+$("#input_keywords_senola").val(); 
+    $("#searchkeys_senola").val(keywords);
+}
+setTimeout(function(){
+  $("#input_keywords_senola").bind('keyup', function(event) {
+      setvalues();
+  });
+},5000);
 // 随机数
 function getRandomNum(under, over){
 	switch ( arguments.length ){
