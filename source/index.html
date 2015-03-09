@@ -9,9 +9,9 @@
   
   <link rel="stylesheet" href="stylesheets/index.css" media="screen" type="text/css">
   <link rel="shortcut icon" type="image/ico" href="http://senola.github.io/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="https://raw.githubusercontent.com/senola/pictures/master/head/%E5%A4%B4%E5%83%8F.jpg">
+<!--   <link rel="apple-touch-icon-precomposed" href="https://raw.githubusercontent.com/senola/pictures/master/head/%E5%A4%B4%E5%83%8F.jpg">
   <meta name="msapplication-TileColor" content="#FFFFFF">
-  <meta name="msapplication-TileImage" content="https://raw.githubusercontent.com/senola/pictures/master/head/%E5%A4%B4%E5%83%8F.jpg">
+  <meta name="msapplication-TileImage" content="https://raw.githubusercontent.com/senola/pictures/master/head/%E5%A4%B4%E5%83%8F.jpg"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <!-- 删除苹果默认的工具栏和菜单栏 -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -45,20 +45,18 @@
 </head>
 
 <body>
-
-  <body>
-<div class="con">
-  <div class="content">
-    <ul class="circle fade">
-      <li><a href="http://senola.github.io/blog/index.html">blog</a></li>
-      <li><a href="http://senola.github.io/html-demo/index.html">frontend</a></li>
-      <li><a href="#">three</a></li>
-      <li><a href="#">four</a></li>
-      <li><a href="#">five</a></li>
-      <li><a href="#">six</a></li>
-    </ul>
+  <div class="con">
+    <div class="content">
+      <ul class="circle fade">
+        <li><a href="//senola.github.io/blog/index.html">blog</a></li>
+        <li><a href="//senola.github.io/html-demo/index.html">frontend</a></li>
+        <li><a href="#">three</a></li>
+        <li><a href="#">four</a></li>
+        <li><a href="#">five</a></li>
+        <li><a href="#">six</a></li>
+      </ul>
+    </div>
   </div>
-</div>
 </body>
   <script src='javascripts/jquery-1.11.0.min.js'></script>
   <script type="text/javascript">
@@ -78,15 +76,27 @@
 			default: return 1;
 		}
 	}
-	var num = getRandomNum(1,30);
-    var bg_url = 'https://raw.githubusercontent.com/senola/pictures/master/background/background' + num + '.jpg'
+  var num = getRandomNum(1,30);
+  var img = new Image();
+  var bg_url = '//raw.githubusercontent.com/senola/pictures/master/background/background' + num + '.jpg'
+  img.src = bg_url;
+  img.onload = function() {
     $("body").css({
-   	  'background': 'url(' + bg_url + ')',
-   	  '-webkit-background-size': 'cover',
-	  '-moz-background-size': 'cover',
-	  '-o-background-size': 'cover',
-	  'background-size': 'cover' //若图片偏小 则让图片自动铺满整个屏幕
+      'background': 'url(' + bg_url + ')',
+      'background-size': '150%'
+      //    '-webkit-background-size': 'cover',
+    // '-moz-background-size': 'cover',
+    // '-o-background-size': 'cover',
+    // 'background-size': 'cover' //若图片偏小 则让图片自动铺满整个屏幕
     });
+    // setTimeout(function(){
+    //   $("body").css({
+    //     'background-size': '150%'
+    //   });
+    // },5000);
+  }
+    
+   
   </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
