@@ -7,16 +7,16 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background-size: 110% !important;
   background-repeat: no-repeat;
-  background-position: left;
+  background-size: cover !important;
+  /*background-position: left;*/
   background-color: rgba(0, 0, 0, 0);
-  transform: translate3d(0,0,0); /*启用硬件加速*/
+  /*transform: translate3d(0,0,0); 
   -webkit-animation: bg-postion-slide 60s ease;
      -moz-animation: bg-postion-slide 60s ease;
       -ms-animation: bg-postion-slide 60s ease;
        -o-animation: bg-postion-slide 60s ease;
-          animation: bg-postion-slide 60s ease;
+          animation: bg-postion-slide 60s ease;*/
 }
 /*背景蒙层*/
 body:before {
