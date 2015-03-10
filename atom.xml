@@ -4,7 +4,7 @@
   <title><![CDATA[潭风]]></title>
   <link href="http://senola.github.io/atom.xml" rel="self"/>
   <link href="http://senola.github.io/"/>
-  <updated>2015-03-09T20:45:05+08:00</updated>
+  <updated>2015-03-10T15:21:31+08:00</updated>
   <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
@@ -14,7 +14,330 @@
 
   
   <entry>
-    <title type="html"><![CDATA[那些年，在前端路上踩过的的坑]]></title>
+    <title type="html"><![CDATA[元素居中的那些事儿]]></title>
+    <link href="http://senola.github.io/blog/2015/03/10/the-ways-of-center-element/"/>
+    <updated>2015-03-10T22:12:02+08:00</updated>
+    <id>http://senola.github.io/blog/2015/03/10/the-ways-of-center-element</id>
+    <content type="html"><![CDATA[<p>关于元素居中的问题一直都是css中抱怨的典范。小伙伴们常常抱怨为什么居个中这么难~ 为了能居中，拼了！！！！！</p>
+
+<p>为了更更好的居中，特地总结了一下居中的方法，方便以后使用。</p>
+
+<p>不要左，不要右，我就要居中！！</p>
+
+<!--more-->
+
+
+<h3>一、水平居中（horizontally）</h3>
+
+<h4>（1）inline、inline-*元素（如文本，超链接等）的水平居中</h4>
+
+<p>我们知道，行内元素所占的空间是与元素本身大小相关的。 若要水平居中一个行内元素，只需要用一个块级元素包含它即可：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  .center-child {
+</span><span class='line'>    text-align: center;
+</span><span class='line'>  }</span></code></pre></td></tr></table></div></figure>
+
+
+<p>demo:</p>
+
+<p data-height="295" data-theme-id="12976" data-slug-hash="pvOVyq" data-default-tab="result" data-user="senola" class='codepen'>See the Pen <a href='http://codepen.io/senola/pen/pvOVyq/'>行内元素居中</a> by senola (<a href='http://codepen.io/senola'>@senola</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+
+<p>次方法适用于<code>inline</code>、<code>inline-block</code>、<code>inline-table</code>、<code>inline-fex</code>等行内元素</p>
+
+<h4>（2）块级元素水平的居中</h4>
+
+<p>众所周知，块级元素霸道，它会独占一行。所有我们可以使用<code>margin-left</code>和<code>margin-right</code>的值为<code>auto</code>来居中块级元素（注意，需要给块级元素一个宽度，因为如果不给块级元素一个宽度那么该元素将充满整个屏幕，就不需要居中了）。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> .block-center {
+</span><span class='line'>   margin:0 auto;
+</span><span class='line'> }</span></code></pre></td></tr></table></div></figure>
+
+
+<p>demo：</p>
+
+<p data-height="268" data-theme-id="12976" data-slug-hash="vEzjxZ" data-default-tab="result" data-user="senola" class='codepen'>See the Pen <a href='http://codepen.io/senola/pen/vEzjxZ/'>块级元素居中</a> by senola (<a href='http://codepen.io/senola'>@senola</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+
+<p>此方法适用于任何宽度的块级元素。不要太爽！</p>
+
+<h4>（3）多个块级元素水平居中</h4>
+
+<p>假如需要使一个以上的块级元素水平居中，有两种方法：</p>
+
+<p>方法一： 使用<code>inline-block</code>。方法二： 使用<code>flex-box</code>。 如下：</p>
+
+<p data-height="424" data-theme-id="12976" data-slug-hash="RNYyLL" data-default-tab="result" data-user="senola" class='codepen'>See the Pen <a href='http://codepen.io/senola/pen/RNYyLL/'>RNYyLL</a> by senola (<a href='http://codepen.io/senola'>@senola</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<p>其实，水平居中很简单。留意一下行内元素和块级元素的不同就行~ 接下来整整垂直居中！</p>
+
+<h3>二、垂直居中（Vertical）</h3>
+
+<p>垂直居中需要一些css技巧。</p>
+
+<h4>（1）inline、inline-*元素（如文本，超链接等）的垂直居中</h4>
+
+<h5>1. 单行垂直居中</h5>
+
+<p>有时候<code>inline</code>或<code>text</code>元素会默认垂直居中，这是因为元素的<code>padding-top</code>和<code>padding-bottom</code>值相等。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.link {
+</span><span class='line'>  padding-top: 20px;
+</span><span class='line'>  padding-bottom: 20px;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果再一些情况下，padding不方便使用，那么可以设置<code>text</code>的<code>line-height</code>值为<code>text</code>的高度。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.center-text-trick {
+</span><span class='line'>  height: 100px;
+</span><span class='line'>  line-height: 100px;
+</span><span class='line'>  white-space: nowrap;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p data-height="400" data-theme-id="12976" data-slug-hash="xbaMQj" data-default-tab="result" data-user="senola" class='codepen'>See the Pen <a href='http://codepen.io/senola/pen/xbaMQj/'>行内元素单行垂直居中</a> by senola (<a href='http://codepen.io/senola'>@senola</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+
+<h5>2. 多行行垂直居中</h5>
+
+<p>设置元素的<code>padding-top</code>与<code>padding-bottom</code>相等也可以是多行文本垂直居中。但这不是通用的方法，也许文本元素是在表格的单元格中,又或者是用了css让其行为类似表格。这时候可以使用<code>vertical-align</code>就可以帮助设置元素垂直居中。</p>
+
+<p>下面介绍一种很有意思的方法,该方法被称为<code>ghost element</code>技术，顾名思义，<code>ghost</code>诡异的。该技术中采用了伪元素，来看看吧~ 保证不打死你！！！</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.ghost-center {
+</span><span class='line'>  position: relative;
+</span><span class='line'>}
+</span><span class='line'>.ghost-center::before {
+</span><span class='line'>  content: " ";
+</span><span class='line'>  display: inline-block;
+</span><span class='line'>  height: 100%;
+</span><span class='line'>  width: 1%;
+</span><span class='line'>  vertical-align: middle;
+</span><span class='line'>}
+</span><span class='line'>.ghost-center p {
+</span><span class='line'>  display: inline-block;
+</span><span class='line'>  vertical-align: middle;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<p data-height="400" data-theme-id="12976" data-slug-hash="ogPVXV" data-default-tab="result" data-user="senola" class='codepen'>See the Pen <a href='http://codepen.io/senola/pen/ogPVXV/'>ghost element technique</a> by senola (<a href='http://codepen.io/senola'>@senola</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+
+
+<h4>（2）会计元素的垂直居中</h4>
+
+<h5>1. 知道元素的高度</h5>
+
+<p>如果知道块级元素的高度，你可以这样做：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.parent {
+</span><span class='line'>  position: relative;
+</span><span class='line'>}
+</span><span class='line'>.child {
+</span><span class='line'>  position: absolute;
+</span><span class='line'>  top: 50%;
+</span><span class='line'>  height: 100px;
+</span><span class='line'>  margin-top: -50px; /* account for padding and border if not using box-sizing: border-box; */
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>2. 不知道元素的高度</h5>
+
+<p>如果不知道元素的高度，那么可以采用transform变换。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.parent {
+</span><span class='line'>  position: relative;
+</span><span class='line'>}
+</span><span class='line'>.child {
+</span><span class='line'>  position: absolute;
+</span><span class='line'>  top: 50%;
+</span><span class='line'>  transform: translateY(-50%);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>3. 采用flexbox</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.parent {
+</span><span class='line'>  display: flex;
+</span><span class='line'>  display: -webkit-flex;
+</span><span class='line'>  flex-direction: column;
+</span><span class='line'>  justify-content: center;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>三、水平和垂直居中</h3>
+
+<p>当然你可以结合以上方法来使元素垂直水平居中。对于水平、垂直同时居中的话我们可以分三种情况：</p>
+
+<h5>1. 元素有固定的狂高度</h5>
+
+<p>可以采用元素的宽高值得一半并取负值作为<code>margin</code>的值，同时采用绝对定位。这种方法各浏览器都有良好的支持。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.parent {
+</span><span class='line'>  position: relative;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>.child {
+</span><span class='line'>  width: 300px;
+</span><span class='line'>  height: 100px;
+</span><span class='line'>  padding: 20px;
+</span><span class='line'>
+</span><span class='line'>  position: absolute;
+</span><span class='line'>  top: 50%;
+</span><span class='line'>  left: 50%;
+</span><span class='line'>
+</span><span class='line'>  margin: -70px 0 0 -170px;
+</span><span class='line'>}
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>2. 元素没有固定的狂高度</h5>
+
+<p>如果元素没有固定的宽度和高度，那么我们可以采用<code>transform</code>和<code>绝对定位</code>实现。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.parent {
+</span><span class='line'>  position: relative;
+</span><span class='line'>}
+</span><span class='line'>.child {
+</span><span class='line'>  position: absolute;
+</span><span class='line'>  top: 50%;
+</span><span class='line'>  left: 50%;
+</span><span class='line'>  transform: translate(-50%, -50%);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>也可以设置<code>left</code>、<code>right</code>、<code>top</code>、<code>bottom</code>值为0,再设置<code>margin</code>为 <code>auto</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.parent {
+</span><span class='line'>  position: relative;
+</span><span class='line'>}
+</span><span class='line'>.child {
+</span><span class='line'>  position: absolute;
+</span><span class='line'>  top: 0;
+</span><span class='line'>  left: 0;
+</span><span class='line'>  top: 0;
+</span><span class='line'>  bottom: 0;
+</span><span class='line'>  margin: auto;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h5>3. 使用flexbox</h5>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.parent {
+</span><span class='line'>  display: flex;
+</span><span class='line'>  display: -webkit-flex;
+</span><span class='line'>  justify-content: center;
+</span><span class='line'>  align-items: center;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>四、总结</h3>
+
+<p>通过以上方法，你可以居中任何元素。妈妈再也不用担心我不会居中喽 O(∩_∩)O~</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[那些年，在前端路上踩过的坑]]></title>
     <link href="http://senola.github.io/blog/2015/02/27/the-bug-of-fontend/"/>
     <updated>2015-02-27T21:38:35+08:00</updated>
     <id>http://senola.github.io/blog/2015/02/27/the-bug-of-fontend</id>
@@ -1069,11 +1392,9 @@ W3C的盒模型中元素的宽度是content。这就解释了为什么input输�
 <div class="border-biohazard"></div>
 
 
-<p></p>
+<blockquote><h4><span style="font-style:italic;clear:both;">总结</span></h4>
 
-<h4><span style="font-style:italic;clear:both;">总结</span></h4>
-
-<p>css 是一个很神奇的东西好好努力！！！</p>
+<p>css 是一个很神奇的东西好好努力！！！</p></blockquote>
 ]]></content>
   </entry>
   
