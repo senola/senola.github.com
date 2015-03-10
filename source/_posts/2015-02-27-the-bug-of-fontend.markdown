@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "那些年，在前端路上踩过的的坑"
+title: "那些年，在前端路上踩过的坑"
 date: 2015-02-27 13:38:35
 comments: true
 tags: [css,fontend,移动端,webkit]
