@@ -12,7 +12,7 @@ categories: css
 ### <a name="list">目录</a>
  - <a href="#0001" class="senola-a">一、input框设置width:100%溢出父类容器</a>
  - <a href="#0002" class="senola-a">二、safari下input输入框有内描边及webkit css 整理</a>
- - <a href="#0003" class="senola-a">三、移动端最佳使用单位](#0003)</a>
+ - <a href="#0003" class="senola-a">三、移动端最佳使用单位</a>
  - <a href="#0004" class="senola-a">四、模拟:hover伪类</a>
  - <a href="#0005" class="senola-a">五、input类型为date情况下不支持placeholder</a>
  - <a href="#0006" class="senola-a">六、active的兼容</a>
