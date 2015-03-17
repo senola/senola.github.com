@@ -4,7 +4,7 @@
   <title><![CDATA[Category: css | 潭风]]></title>
   <link href="http://senola.github.io/blog/categories/css/atom.xml" rel="self"/>
   <link href="http://senola.github.io/"/>
-  <updated>2015-03-10T15:21:31+08:00</updated>
+  <updated>2015-03-17T21:03:04+08:00</updated>
   <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
@@ -297,7 +297,7 @@ demo：</p>
 <ul>
 <li><a href="#0001" class="senola-a">一、input框设置width:100%溢出父类容器</a></li>
 <li><a href="#0002" class="senola-a">二、safari下input输入框有内描边及webkit css 整理</a></li>
-<li><a href="#0003" class="senola-a">三、移动端最佳使用单位](#0003)</a></li>
+<li><a href="#0003" class="senola-a">三、移动端最佳使用单位</a></li>
 <li><a href="#0004" class="senola-a">四、模拟:hover伪类</a></li>
 <li><a href="#0005" class="senola-a">五、input类型为date情况下不支持placeholder</a></li>
 <li><a href="#0006" class="senola-a">六、active的兼容</a></li>
