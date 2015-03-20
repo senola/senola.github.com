@@ -30,14 +30,44 @@ function getRandomNum(under, over){
 		default: return 1;
 	}
 }
-var num = getRandomNum(1,30);
-var bg_url = 'https://raw.githubusercontent.com/senola/pictures/master/background/background' + num + '.jpg'
-$("html").css({
-  'background': 'url(' + bg_url + ')',
-  'background-repeat': 'repeat, no-repeat',
-  'background-attachment': 'fixed',
-  '-webkit-background-size': 'cover',
-  '-moz-background-size': 'cover',
-  '-o-background-size': 'cover',
-  'background-size': 'cover' //若图片偏小 则让图片自动铺满整个屏幕
-});
+
+(function() {
+  var url = getBackgroundUrl();
+  $("html").css({
+    'background': 'url(' + url + ')',
+    'background-repeat': 'repeat, no-repeat',
+    'background-attachment': 'fixed',
+    '-webkit-background-size': 'cover',
+    '-moz-background-size': 'cover',
+    '-o-background-size': 'cover',
+    'background-size': 'cover', //若图片偏小 则让图片自动铺满整个屏幕
+  });
+  senola_background_change();
+})();
+
+function senola_background_change() {
+    var bg_url = getBackgroundUrl();
+    var img = new Image();
+    img.src = bg_url;
+    img.onload = function () {
+        $("html").css({
+          'background': 'url(' + bg_url + ')',
+          'background-repeat': 'repeat, no-repeat',
+          'background-attachment': 'fixed',
+          '-webkit-background-size': 'cover',
+          '-moz-background-size': 'cover',
+          '-o-background-size': 'cover',
+          'background-size': 'cover', //若图片偏小 则让图片自动铺满整个屏幕
+          '-webkit-transition': 'all 5s ease-out',
+          'transition': 'all 5s ease-out',
+      });
+      console.log(bg_url);
+      setTimeout(senola_background_change, 20000);
+    }
+};
+
+function getBackgroundUrl() {
+  var num = getRandomNum(1,38);
+  var bg_url = '//raw.githubusercontent.com/senola/pictures/master/background/background' + num + '.jpg'
+  return bg_url;
+}

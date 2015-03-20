@@ -4,7 +4,9 @@
 $border-ep: #E0E0E0;
 html {
      //background: image-url('background.png') repeat-x scroll center top $page-bg;
-     //background: image-url('https://raw.githubusercontent.com/senola/pictures/master/background/background.jpg');
+     // -webkit-background-size: cover;
+     // background-size: cover;
+     // background: url('https://raw.githubusercontent.com/senola/pictures/master/background/background.jpg') repeat fixed, no-repeat;
   }
 body > div > div { //文章内容
         background-image: none;
