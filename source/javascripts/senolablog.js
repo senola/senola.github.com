@@ -68,6 +68,6 @@ function senola_background_change() {
 
 function getBackgroundUrl() {
   var num = getRandomNum(1,38);
-  var bg_url = '//raw.githubusercontent.com/senola/pictures/master/background/background' + num + '.jpg'
+  var bg_url = '//7xi3m0.com1.z0.glb.clouddn.com/images/blog/background/background' + num + '.jpg'
   return bg_url;
 }
