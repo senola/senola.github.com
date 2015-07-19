@@ -172,7 +172,7 @@ jQuery(function($) {
 	setInterval(function(){
 		var i = getRandomNum(1, 11);
 		$("#service_1").css({
-			"background": 'url(img/shebei0'+ i+'.jpg)',
+			"background": 'url(img/shebei0'+ i+'.JPG)',
 			"transition": "all 1s ease-out",
   			"-webkit-transition": "all 1s linear",
 			'-webkit-background-size': 'cover',
