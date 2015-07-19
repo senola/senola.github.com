@@ -169,6 +169,20 @@ jQuery(function($) {
 		$('.modal:visible').each(centerModal);
 	});
 
+	for(var i = 1; i < 11; i++) {
+		var img = new Image();
+		img.src = 'img/shebei0'+ i+'.JPG';
+		img.onload = function() {
+			console.log("load....img/shebei0" + i +".JPG");
+		};
+	}
+	for(var i = 1; i < 8; i++) {
+		var img = new Image();
+		img.src = 'img/yangpin0'+ i+'.png';
+		img.onload = function() {
+			console.log("load....img/yangpin0" + i +".png");
+		};
+	}
 	setInterval(function(){
 		var i = getRandomNum(1, 11);
 		$("#service_1").css({
