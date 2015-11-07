@@ -15,7 +15,7 @@
 
         {% if site.duoshuo_short_name and page.comments != false and post.comments != false and site.duoshuo_comments == true %}
           |&nbsp;<a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#comments" style="text-decoration: none;white-space: normal;">
-                    <span class="ds-thread-count" data-thread-key="{{ root_url }}{{ post.url }}{{page.id}}" style="font-size: 14px;color: darkgray;"></span>
+                    <span class="ds-thread-count" data-thread-key="{{page.id}}{{post.id}}" data-count-type="comments" style="font-size: 14px;color: darkgray;"></span>
                  </a>
          {% endif %}
       </p>
@@ -33,15 +33,3 @@
 {% else %}
 <div class="entry-content">{{ content }}</div>
 {% endif %}
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"{{ site.duoshuo_short_name }}"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
