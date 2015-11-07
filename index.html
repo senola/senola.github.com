@@ -48,8 +48,8 @@
   <div class="con">
     <div class="content">
       <ul class="circle fade">
-        <li><a href="//senola.github.io/blog/index.html">blog</a></li>
-        <li><a href="//senola.github.io/html-demo/index.html">frontend</a></li>
+        <li><a href="/blog/index.html">blog</a></li>
+        <li><a href="/html-demo/index.html">frontend</a></li>
         <li><a href="#">three</a></li>
         <li><a href="#">four</a></li>
         <li><a href="#">five</a></li>
@@ -76,27 +76,57 @@
 			default: return 1;
 		}
 	}
-  var num = getRandomNum(1,30);
-  var img = new Image();
-  var bg_url = '//raw.githubusercontent.com/senola/pictures/master/background/background' + num + '.jpg'
-  img.src = bg_url;
-  img.onload = function() {
-    $("body").css({
-      'background': 'url(' + bg_url + ')',
-      'background-size': 'cover'
-      //    '-webkit-background-size': 'cover',
-    // '-moz-background-size': 'cover',
-    // '-o-background-size': 'cover',
-    // 'background-size': 'cover' //若图片偏小 则让图片自动铺满整个屏幕
+
+  (function() {
+    var url = getBackgroundUrl();
+    $("html").css({
+      'background': 'url(' + url + ')',
+      'background-repeat': 'repeat, no-repeat',
+      'background-attachment': 'fixed',
+      '-webkit-background-size': 'cover',
+      '-moz-background-size': 'cover',
+      '-o-background-size': 'cover',
+      'background-size': 'cover', //若图片偏小 则让图片自动铺满整个屏幕
+      '-webkit-transition': 'all 8s ease-out',
+      'transition': 'all 8s ease-out',
     });
-    // setTimeout(function(){
-    //   $("body").css({
-    //     'background-size': '150%'
-    //   });
-    // },5000);
+    senola_background_change();
+  })();
+
+  function senola_background_change() {
+      var bg_url = getBackgroundUrl();
+      var img = new Image();
+      img.src = bg_url;
+      img.onload = function () {
+          $("html").css({
+            'background': 'url(' + bg_url + ')',
+            'background-repeat': 'repeat, no-repeat',
+            'background-attachment': 'fixed',
+            '-webkit-background-size': 'cover',
+            '-moz-background-size': 'cover',
+            '-o-background-size': 'cover',
+            'background-size': 'cover', //若图片偏小 则让图片自动铺满整个屏幕
+            '-webkit-transition': 'all 8s ease-out',
+            'transition': 'all 8s ease-out',
+          });
+          setTimeout(senola_background_change, 10000);
+      }
+  };
+
+  function getBackgroundUrl() {
+    var num = getRandomNum(1,38);
+    var bg_url = '//7xi3m0.com1.z0.glb.clouddn.com/images/blog/background/background' + num + '.jpg'
+    return bg_url;
   }
-    
-   
+  // var num = getRandomNum(1,30);
+  // var bg_url = '//raw.githubusercontent.com/senola/pictures/master/background/background' + num + '.jpg'
+  // $("body").css({
+  //   'background': 'url(' + bg_url + ')',
+  //   '-webkit-background-size': 'cover',
+  //   '-moz-background-size': 'cover',
+  //   '-o-background-size': 'cover',
+  //   'background-size': 'cover' //若图片偏小 则让图片自动铺满整个屏幕
+  // });
   </script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -109,5 +139,4 @@
 
   </script>
 </body>
-
 </html>
