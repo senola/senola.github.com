@@ -9,7 +9,7 @@
   <meta name="author" content="senola">
 
   
-  <meta name="description" content="用javascript判断各浏览器类型及版本 Jul 17th, 2014 |&nbsp; 今天要在IE下测试大文件上传插件，发现项目组&#8221;前辈&#8221;们写的判断IE浏览器的的代码不管用了。 navigator.userAgent.toLowerCase().indexOf(" &hellip;">
+  <meta name="description" content="今天要在IE下测试大文件上传插件，发现项目组&#8221;前辈&#8221;们写的判断IE浏览器的的代码不管用了。 navigator.userAgent.toLowerCase().indexOf("msie") != -1； &hellip;">
   <meta name="keywords" content="javascript，浏览器,用javascript判断各浏览器类型及版本">
 
   <!-- http://t.co/dKP3o1e -->
@@ -33,16 +33,17 @@
   
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
   <script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0] 
-       || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
+      var duoshuoQuery = {short_name:"senola"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
   <!-- 多说公共JS代码 end -->
   
   <!--google_analytics-->
@@ -125,7 +126,7 @@
 
         
           |&nbsp;<a href="#comments" style="text-decoration: none;white-space: normal;">
-                    <span class="ds-thread-count" data-thread-key="/blog/2014/07/17/get-browser-type" style="font-size: 14px;color: darkgray;"></span>
+                    <span class="ds-thread-count" data-thread-key="/blog/2014/07/17/get-browser-type" data-count-type="comments" style="font-size: 14px;color: darkgray;"></span>
                  </a>
          
       </p>
@@ -241,19 +242,6 @@ Mozilla/5.0 (iPhone; U; CPU like Mac OS X) AppleWebKit/420.1 (KHTML, like Gecko)
 2. IE浏览器使用人居多，有必要知晓其相关特别之处。
 </code></pre>
 </div>
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
 
   <footer>
     <p class="meta">

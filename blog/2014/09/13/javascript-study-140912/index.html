@@ -9,7 +9,7 @@
   <meta name="author" content="senola">
 
   
-  <meta name="description" content="浅谈javascript 中undefined、null 和 NaN，call()和apply()的区别 Sep 13th, 2014 |&nbsp; 一、undefined、null 和 NaN 1.类型区别 javascript中有5中简单的数据类型（也称为基本数据类型），分别是： &hellip;">
+  <meta name="description" content="一、undefined、null 和 NaN 1.类型区别 javascript中有5中简单的数据类型（也称为基本数据类型），分别是：undefined、null、boolean、number和String。另外还有一种复杂数据类型&mdash;&ndash;objecct, &hellip;">
   <meta name="keywords" content="javascript，call，apply">
 
   <!-- http://t.co/dKP3o1e -->
@@ -33,16 +33,17 @@
   
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
   <script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0] 
-       || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
+      var duoshuoQuery = {short_name:"senola"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
   <!-- 多说公共JS代码 end -->
   
   <!--google_analytics-->
@@ -125,7 +126,7 @@
 
         
           |&nbsp;<a href="#comments" style="text-decoration: none;white-space: normal;">
-                    <span class="ds-thread-count" data-thread-key="/blog/2014/09/13/javascript-study-140912" style="font-size: 14px;color: darkgray;"></span>
+                    <span class="ds-thread-count" data-thread-key="/blog/2014/09/13/javascript-study-140912" data-count-type="comments" style="font-size: 14px;color: darkgray;"></span>
                  </a>
          
       </p>
@@ -279,19 +280,6 @@ if(typeof(test) == "undefined") {
     //这个时候myFun方法里面的this指向的是new Person('zhangsan',23)对象，二不是myFun类(函数)，故弹出500  
 </code></pre>
 </div>
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
 
   <footer>
     <p class="meta">

@@ -9,7 +9,7 @@
   <meta name="author" content="senola">
 
   
-  <meta name="description" content="上传插件之----Web Uploader Apr 28th, 2014 |&nbsp; 最近云盘要大改版，前端采用了谷歌的AngularJS框架。大改嘛，之前云盘用插件要换的也都要换。飞哥说插件可以用但是却不能乱用，尤其是将其用于商业领域的，必须慎重加慎重，首先选选择的插件得符合相关的开原协议 &hellip;">
+  <meta name="description" content="最近云盘要大改版，前端采用了谷歌的AngularJS框架。大改嘛，之前云盘用插件要换的也都要换。飞哥说插件可以用但是却不能乱用，尤其是将其用于商业领域的，必须慎重加慎重，首先选选择的插件得符合相关的开原协议（如上篇），因滥用别的插件而上法庭的例子举不胜数。作为小菜的我一直都以够用，管用， &hellip;">
   <meta name="keywords" content="Web Uploader,开源,插件">
 
   <!-- http://t.co/dKP3o1e -->
@@ -33,16 +33,17 @@
   
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
   <script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0] 
-       || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
+      var duoshuoQuery = {short_name:"senola"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
   <!-- 多说公共JS代码 end -->
   
   <!--google_analytics-->
@@ -125,7 +126,7 @@
 
         
           |&nbsp;<a href="#comments" style="text-decoration: none;white-space: normal;">
-                    <span class="ds-thread-count" data-thread-key="/blog/2014/04/28/webupload" style="font-size: 14px;color: darkgray;"></span>
+                    <span class="ds-thread-count" data-thread-key="/blog/2014/04/28/webupload" data-count-type="comments" style="font-size: 14px;color: darkgray;"></span>
                  </a>
          
       </p>
@@ -481,19 +482,6 @@
 
 <p>到这里就基本OK了，看起来简单，可当初找起来真费事儿，头疼~~~，之后文件上传还遇到跨域问题，因为文件上传的服务器与服务端不是同一域名下，所以会出现跨域问题。经<code>ngnix</code>修改相关配置后将问题解觉&hellip;</p>
 </div>
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
 
   <footer>
     <p class="meta">

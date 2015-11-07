@@ -9,7 +9,7 @@
   <meta name="author" content="senola">
 
   
-  <meta name="description" content="浏览器到底是咋工作的？ Oct 27th, 2014 |&nbsp; 一、前言 最近工作找的很是捉急，各种碰壁Zz~(～ o ～)~zZ。哎，说到头还是自己知识储备少，不深入。去一家公司面试前端，被问得是哑口无言，“说说浏览器是怎么渲染的？”、“如果要你用原生JS去解析JSON你会怎么做？”、“ &hellip;">
+  <meta name="description" content="一、前言 最近工作找的很是捉急，各种碰壁Zz~(～ o ～)~zZ。哎，说到头还是自己知识储备少，不深入。去一家公司面试前端，被问得是哑口无言，“说说浏览器是怎么渲染的？”、“如果要你用原生JS去解析JSON你会怎么做？”、“有自己的JS库吗？”。。。我TM怎么知道浏览器是如何渲染的， &hellip;">
   <meta name="keywords" content="brower，浏览器，原理">
 
   <!-- http://t.co/dKP3o1e -->
@@ -33,16 +33,17 @@
   
   <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
   <script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0] 
-       || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
+      var duoshuoQuery = {short_name:"senola"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+  </script>
   <!-- 多说公共JS代码 end -->
   
   <!--google_analytics-->
@@ -125,7 +126,7 @@
 
         
           |&nbsp;<a href="#comments" style="text-decoration: none;white-space: normal;">
-                    <span class="ds-thread-count" data-thread-key="/blog/2014/10/27/how-browsers-work" style="font-size: 14px;color: darkgray;"></span>
+                    <span class="ds-thread-count" data-thread-key="/blog/2014/10/27/how-browsers-work" data-count-type="comments" style="font-size: 14px;color: darkgray;"></span>
                  </a>
          
       </p>
@@ -277,19 +278,6 @@
 </ul>
 
 </div>
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"senola"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = 'http://static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
-</script>
 
   <footer>
     <p class="meta">
