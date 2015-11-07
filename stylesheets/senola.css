@@ -15,26 +15,6 @@
  h1, h2, h3, h4, h5, h6 {
 	margin-top: 1em;
 }
-/* totop*/
-.senola-top-full {
-  width: 0; 
-  height: 0; 
-  position: fixed; 
-  right: 180px;
-  opacity: 0.1;
-  bottom: 150px; 
-  z-index: 100; 
-  text-align: center; 
-  background-color: transparent; 
-  cursor: pointer;"
-}
-@media screen and (max-width: 400px) { 
-  .senola-top-full {
-      right: 60px !important;
-      bottom: 120px !important; 
-  }
-}
-
 /*
  *  css之border拓展样式
  */

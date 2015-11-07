@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | 潭风]]></title>
   <link href="http://senola.github.io/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://senola.github.io/"/>
-  <updated>2015-04-09T11:25:50+08:00</updated>
+  <updated>2015-11-07T14:05:51+08:00</updated>
   <id>http://senola.github.io/</id>
   <author>
     <name><![CDATA[senola]]></name>
@@ -58,7 +58,7 @@ ruby dk.rb install
   bundle install
 </code></p>
 
-<p>但是，在天朝这个国度，这个是行不通的。没办法，得改变一个软件更细源，邮件&mdash;>git bash,输入：</p>
+<p>但是，在天朝这个国度，这个是行不通的。没办法，得改变一个软件更细源，右键&mdash;>git bash,输入：</p>
 
 <p>```</p>
 
@@ -79,8 +79,44 @@ gem sources -l
 
 <h3>三、git 和 github 配置</h3>
 
-<p>1.先注册一个github账号,创建github pages创建一个新的<code>Repository</code>。这里须要重视的是，若是想要博客的首页是<code>http://yourname.github.com</code>则Repository的<code>project name</code>就必须是<code>yourname.github.com</code>。
-未完待续&hellip;</p>
+<p>1.先注册一个github账号,创建github pages创建一个新的<code>Repository</code>。这里须要重视的是，若是想要博客的首页是<code>http://yourname.github.com</code>则Repository的<code>project name</code>就必须是<code>yourname.github.com</code>。</p>
+
+<h3>四、代码部署与调试</h3>
+
+<p>生成静态代码命令：</p>
+
+<p>```</p>
+
+<pre><code> rake generate 
+</code></pre>
+
+<p>```</p>
+
+<p>该命令会在<code>public</code>目录下生成博客的静态文件。接着运行如下命令会在本地启动一个服务，可通过浏览器访问<code>http://localhost:5050</code>进行查看</p>
+
+<p>```</p>
+
+<pre><code>  rake preview
+</code></pre>
+
+<p><code>``
+访问端口可以在</code>octopress<code>博客代码根目录下（</code>source<code>分支）的</code>rakefile`文件中修改。</p>
+
+<p>```</p>
+
+<pre><code>public_dir      = "public"    # compiled site directory   
+source_dir      = "source"    # source file directory    
+blog_index_dir  = 'source'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')    
+deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)   
+stash_dir       = "_stash"    # directory to stash posts for speedy generation   
+posts_dir       = "_posts"    # directory for blog files   
+themes_dir      = ".themes"   # directory for blog files   
+new_post_ext    = "markdown"  # default new post file extension when using the new_post task   
+new_page_ext    = "markdown"  # default new page file extension when using the new_page task   
+server_port     = "5050"      #修改本地启动访问端口为5050
+</code></pre>
+
+<p>```</p>
 ]]></content>
   </entry>
   

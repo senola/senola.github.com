@@ -27,11 +27,11 @@ body:before {
   height: 100%;
   background: rgba(76,56,75,0.6);
   transform: translate3d(0,0,0); /*启用硬件加速*/
-   -webkit-animation: cover-opacity 10s ease infinite;
-     -moz-animation:  cover-opacity 10s ease infinite;
-       -ms-animation: cover-opacity 10s ease infinite;
-        -o-animation: cover-opacity 10s ease infinite;
-           animation: cover-opacity 10s ease infinite;
+   -webkit-animation: cover-opacity 10s ease;
+     -moz-animation:  cover-opacity 10s ease;
+       -ms-animation: cover-opacity 10s ease;
+        -o-animation: cover-opacity 10s ease;
+           animation: cover-opacity 10s ease;
 }
 ul,
 li {
