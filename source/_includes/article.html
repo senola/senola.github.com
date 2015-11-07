@@ -14,7 +14,7 @@
         {% endif %}
 
         {% if site.duoshuo_short_name and page.comments != false and post.comments != false and site.duoshuo_comments == true %}
-          |&nbsp;<a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="{{post.id}}{{page.id}}" style="font-size: 14px;color: darkgray;"></span></a>
+          |&nbsp;<a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#comments"style="text-decoration: none;"><span class="ds-thread-count" data-thread-key="{{page.id}}" style="font-size: 14px;color: darkgray;"></span></a>
          {% endif %}
       </p>
     {% endunless %}
